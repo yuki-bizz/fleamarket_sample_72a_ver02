@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
-lock 'capistrano (3.1)'
+lock 'capistrano (3.14.0)'
 
 # Capistranoのログの表示に利用する
 set :application, 'fleamarket_sample_72a_ver02'
