@@ -1,2 +1,174 @@
-%h1 Displays#index
-%p Find me in app/views/displays/index.html.haml
+.header
+  = render partial: 'header'
+
+.main
+  .main__visual
+    .main__visual__content
+      .main__visual__content__title
+        人生を変えるフリマアプリ
+      .main__visual__content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br フリマアプリです
+      .main__visual__content__btn
+        .main__visual__content__btn-app
+          %a{href: '#'}
+            =image_tag 'btn-app.png', class: 'btn-app', size: '180x53'
+        .main__visual__content__btn-google
+          %a{href: '#'}
+            =image_tag 'btn-google.png', class: 'btn-google', size: '180x53'
+  .main__introduction
+    .main__introduction__titles
+      FURIMAが選ばれる3つの理由
+    .main__introduction__lists
+      %li.list
+        .list-pict
+          %span.number 1
+          =image_tag 'pict-reason-01.jpg', size: '300x300'
+        %h3.list-text
+          %span ３分
+          ですぐに出品
+        %p.list-explanation
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list-pict
+          %span.number 2
+          =image_tag 'pict-reason-02.jpg', size: '300x300'
+        %h3.list-text
+          %span シンプル
+          で使いやすい
+        %p.list-explanation
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list
+        .list-pict
+          %span.number 3
+          =image_tag 'pict-reason-03.jpg', size: '300x300'
+        %h3.list-text
+          手数料
+          %span 業界最安
+        %p.list-explanation
+          最大3%でお得に出品&購入！
+
+  .main__middle
+    .main__middle__contents
+      %h2.title 会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気。
+        %br 出品・購入回数も業界最多です！
+        %br ほしかったあの商品に出会えるかもしれません。
+      .btn
+        %a{href: '#'}
+          =image_tag 'btn-app.png', class: 'btn-app', size: '180x53'
+        %a{href: '#'}
+          =image_tag 'btn-google.png', class: 'btn-google', size: '180x53'
+  .main__features
+    %h2.title FURIMAの特徴
+    .items
+      .item
+        .item-image
+          =image_tag 'icon-01.png', class: 'btn-man', size: '220x340'
+        %h3.item-title 簡単に売り買いできる
+        %p.item-explanation スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .item
+        .item-image
+          =image_tag 'icon-03.png', class: 'btn-woman', size: '220x340'
+        %h3.item-title 売上金は即日振込みに対応
+        %p.item-explanation 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .item
+        .item-image
+          =image_tag 'icon-04.png', class: 'btn-point', size: '220x340'
+        %h3.item-title 様々な支払いに対応
+        %p.item-explanation お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  .main__pickup
+    .title ピックアップカテゴリー
+    .display-box
+      .displayHead 新規投稿商品
+      .displayLists
+        .displayList
+          %a{href: '#'}
+            .displayList--image
+              =image_tag 'nuigurumi_bear.png', size: '160x150'
+            .displayList--body
+              %h3.name display1
+              .explanation
+                %ul
+                  %li 3000円
+                  %li.likeIcon
+                    = icon('fas', 'star')
+                    0
+                %p （税込）
+        .displayList
+          %a{href: '#'}
+            .displayList--image
+              =image_tag 'bicycle.png', size: '190x180'
+            .displayList--body
+              %h3.name display2
+              .explanation
+                %ul
+                  %li 12000円
+                  %li.likeIcon
+                    = icon('fas', 'star')
+                    0
+                %p （税込）
+        .displayList
+          %a{href: '#'}
+            .displayList--image
+              =image_tag 'smartphone.png', size: '160x160'
+            .displayList--body
+              %h3.name display3
+              .explanation
+                %ul
+                  %li 10000円
+                  %li.likeIcon
+                    = icon('fas', 'star')
+                    0
+                %p （税込）
+  .main__pickup
+    .title ピックアップブランド
+    .display-box
+      .displayHead アーカイバ
+      .displayLists
+        .displayList
+          %a{href: '#'}
+            .displayList--image
+              =image_tag 'nuigurumi_bear.png', size: '160x150'
+            .displayList--body
+              %h3.name display1
+              .explanation
+                %ul
+                  %li 3000円
+                  %li.likeIcon
+                    = icon('fas', 'star')
+                    0
+                %p （税込）
+        .displayList
+          %a{href: '#'}
+            .displayList--image
+              =image_tag 'bicycle.png', size: '190x180'
+            .displayList--body
+              %h3.name display2
+              .explanation
+                %ul
+                  %li 12000円
+                  %li.likeIcon
+                    = icon('fas', 'star')
+                    0
+                %p （税込）
+        .displayList
+          %a{href: '#'}
+            .displayList--image
+              =image_tag 'smartphone.png', size: '160x160'
+            .displayList--body
+              %h3.name display3
+              .explanation
+                %ul
+                  %li 10000円
+                  %li.likeIcon
+                    = icon('fas', 'star')
+                    0
+                %p （税込）
+
+.banner
+  = render partial: 'banner'
+
+.footer
+  =render partial: 'footer'
