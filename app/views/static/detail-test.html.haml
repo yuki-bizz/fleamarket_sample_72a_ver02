@@ -1,0 +1,132 @@
+.header
+  .header__inner
+    .header__inner__main
+      .header__inner__main__icon
+        =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
+      .header__inner__main__search-box
+        .header__inner__main__search-box__input
+          キーワードから探す
+        .header__inner__main__search-box__search
+          =image_tag 'icon-search 1.png', class: 'search-icon', size: '19x19'
+    .header__inner__navi
+      .header__inner__navi__left
+        .header__inner__navi__left__category
+          カテゴリー
+        .header__inner__navi__left__bland
+          ブランド
+      .header__inner__navi__right
+        .header__inner__navi__right__login
+          ログイン
+        .header__inner__navi__right__new
+          新規会員登録
+
+.bread-crumbs
+  .ul
+    .li
+      FRIMA
+    .li
+      =icon('fas', 'fa-angle-right')
+    .li
+      メンズ
+    .li
+      =icon('fas', 'fa-angle-right')
+    .li
+      ジャケット/アウター
+    .li
+      =icon('fas', 'fa-angle-right')
+    .li
+      Goods
+    
+.main
+  .main__box
+    .goods-box
+      .goods-box__name
+        Goods
+      .goods-box__photo
+        .goods-box__photo__main
+          =image_tag '801065.png', size:"560x346"
+        .goods-box__photo__sub
+          =image_tag '801065.png', size:"140x87"
+          =image_tag '801065.png', size:"140x87"
+          =image_tag '801065.png', size:"140x87"
+      .goods-box__price
+        .goods-box__price__price
+          ¥20,000
+        .goods-box__price__tax
+          (税込み)送料込み
+      .goods-box__comment
+        親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      .goods-box__table
+        %table 
+          %tr
+            %th 出品者
+            %td hoge
+          %tr
+            %th カテゴリー
+            %td メンズ
+            %td ジャケット/アウター
+            %td ノーカラージャケット
+          %tr
+            %th ブランド
+            %td
+          %tr
+            %th 商品のサイズ
+            %td 
+          %tr
+            %th 商品の状態
+            %td 新品/未使用
+          %tr
+            %th 配送料の負担
+            %td 着払い（購入者負担）
+          %tr
+            %th 発送元の地域
+            %td 青森県
+          %tr
+            %th 発送日の目安
+            %td 1-2日で発送
+
+      .goods-box__another-area
+        %ul
+          %li
+            = link_to "#", class: 'goods-box__another-area goods-box__another-area--like-btn' do
+              = icon('fas', 'fa-star', class: "goods-box__another-area__btn--icon")
+              %span
+                お気に入り 0
+          %li
+            = link_to "#", class: 'goods-box__another-area goods-box__another-area--report-btn' do
+              = icon('fa', 'fa-flag', class: "goods-box__another-area__btn--icon")
+              %span
+                不適切な商品の通報
+
+    .comment-box
+      .comment-area
+      .comment-area__text
+        相手のことを考え丁寧なコメントを心がけましょう。
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .send-btn
+        
+
+
+.content
+
+
+-# .banner
+-#   .banner__text__area
+-#     .banner__text__title
+-#       だれでもかんたん、人生を変えるフリマアプリ
+-#     .banner__text__text
+-#       今すぐ無料ダウンロード
+-#   .banner__icon
+-#     = link_to "#", class: "banner__icon banner__icon--appstore" do
+-#       = image_tag 'btn-app.png', class: "link-icon", size: '180x55'
+-#     = link_to "£", class: "banner__icon banner__icon--googleplay" do
+-#       = image_tag 'btn-google.png', class: "link-icon", size: '180x55'
+
+-# .footer
+-#   .footer__contents
+-#     .footer__contents__left
+-#     .footer__contents__center
+-#     .footer__contents__right
+-#   .footer__logo
+-#     =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
+-#     ©︎ FURIMA
