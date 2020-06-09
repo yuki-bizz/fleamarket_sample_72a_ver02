@@ -56,6 +56,11 @@
         }
       }
     }
+    &__picture {
+      position: absolute;
+      top: 0;
+      right: 210px;
+    }
   }
   &__introduction {
     width: 100%;

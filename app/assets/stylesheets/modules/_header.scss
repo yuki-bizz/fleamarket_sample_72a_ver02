@@ -64,30 +64,67 @@
           a {
             color: var(--main-color);
             text-decoration: none;
-            .tree {
-              z-index: 2;
-              position: absolute;
+          }
+          .tree {
+            z-index: 2;
+            position: absolute;
+            background-color: var(--main-bg-color);
+            width: 240px;
+            top: 40px;
+            .categoryTree {
               background-color: var(--main-bg-color);
-              width: 240px;
-              top: 40px;
-              .categoryTree {
-                background-color: var(--main-bg-color);
-                display: flex;
-                flex-direction: column;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              list-style: none;
+              :hover {
+                color:  #ffb340;
+              }
+              .categoryTree--item {
+                height: 40px;
                 position: relative;
-                .categoryTree--item {
-                  position: relative;
-                  a {
-                    color: var(--main-color);
-                    text-decoration: none;
-                    line-height: 32px;
-                    background-position: center right;
-                    background-repeat: no-repeat;
-                    background-size: 18px;
-                    padding-right: 30px;
-                  }
+                overflow: visible;
+                a {
+                  color: var(--main-color);
+                  text-decoration: none;
+                  line-height: 32px;
+                  background-position: center right;
+                  background-repeat: no-repeat;
+                  background-size: 18px;
+                  padding-right: 30px;
+                }
+                :hover {
+                  color:  #ffb340;
                 }
               }
+            }
+            .subcatTree {
+              min-height: 480px;
+              background-color: var(--main-bg-color);
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 240px;
+              .subcatTree--item {
+                width: 250px;
+                height: 35px;
+                a {
+                  text-decoration: none;
+                  color: #333;
+                  line-height: 32px;
+                  background-position: center right;
+                  background-repeat: no-repeat;
+                  background-size: 18px;
+                  padding-right: 30px;
+                }
+                :hover {
+                  color:  #ffb340;
+                }
+              }
+            }
+            .itemTree {
+
             }
           }
           :hover {
