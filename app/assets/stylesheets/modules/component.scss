@@ -436,27 +436,30 @@
       padding: 0 16px;
       background: #fafafa;
     }
+    .tabs_wrap {
+      margin-bottom: 40px;
 
-    .tabs {
-      li{
-        float: left;
-        border-top: 2px solid $c_green;
-        width: 50%;
-        text-align: center;
-        font-weight: bold;
-        line-height: 72px;
-        background: $c_white;
-         a {
-           color: $c_black;
-           display: block;
-         }
+      .tabs {
+        li{
+          float: left;
+          width: 50%;
+          text-align: center;
+          font-weight: bold;
+          line-height: 72px;
+          background: #eee;
+          cursor: pointer;
+        }
+        li.on{
+          border-top: 2px solid $c_green;
+          background: $c_white;
+        }
       }
     }
     .tabs_box {
-      margin-bottom: 40px;
       background: $c_white;
 
       &_inner {
+        display: none;
         .info {
           
           &_list{
@@ -514,8 +517,10 @@
             border-top: 1px solid #eee;
           }
         }
-      }
-    
+       }
+    }
+    .tabs_box_inner.contents_on {
+      display: block;
     }
   }
 }
