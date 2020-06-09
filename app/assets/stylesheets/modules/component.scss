@@ -659,20 +659,116 @@
  /* ------------------------------ >>
   page_goods_confirm add_tutumi
  <<------------------------------ */
-.page_goods_confirm{
-  .main {
-    background-color: white;
-    text-align: center;
-    width: 700px;
-    margin: 0 auto;
-    &__title {
-      font-size: 18px;
-      color: #333333;
-      padding: 32px;
-      font-weight: bold;
+ html {
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  height: 128px;
+}
+
+.main {
+  background-color: white;
+  text-align: center;
+  width: 700px;
+  margin: 0 auto;
+  &__title {
+    font-size: 22px;
+    color: #333333;
+    padding: 32px;
+    font-weight: bold;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  &__item {
+    border-bottom: 1px solid #f5f5f5;
+    &__box {
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      &__image {
+        margin-left: 160px;
+      }
+      &__detail {
+      
+        &__name {
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          font-size: 14px;
+          color: #333;
+          position: absolute;
+          top: 20px;
+          left: 283px;
+          width: 250px;
+          text-align: left;
+        }
+        &__price {
+          margin-top: 8px;
+          display: flex;
+          font-weight: 600;
+          &__main {
+            font-size: 15px;
+            line-height: 1;
+          }
+          &__sub {
+            font-size: 12px;
+            line-height: 1;
+            margin-left: 8px;
+            margin-top: 2px;
+          }
+        }
+      }
     }
   }
+  &__purchase-box {
+    &__inner {
+      max-width: 343px;
+      margin: 0 auto;
+      &__price {
+        display: flex;
+        height: 108px;
+        position: relative;
+        margin-top: 24px;
+        &__title {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          font-size: 18px;
+          color: #333;
+          line-height: 1;
+          font-weight: 600;
+          margin-top: 4px;
+        }
+        &__amount {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          font-size: 24px;
+          color: #333;
+          line-height: 1;
+          font-weight: 600;
+        }
+      }
+      &__payment {
+        height: 108px;
+        border-top: 1px solid #f5f5f5;
+      }
+      &__delivery {
+        height: 108px;
+        border-top: 1px solid #f5f5f5;
+      }
+      &__form {
+        height: 108px;
+        border-top: 1px solid #f5f5f5;
+      }
+    }
+
+  }
 }
+ 
 
 
 
