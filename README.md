@@ -38,7 +38,6 @@ Things you may want to cover:
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|self_image|integer||
 
 ### Association
 - has_many :goods
