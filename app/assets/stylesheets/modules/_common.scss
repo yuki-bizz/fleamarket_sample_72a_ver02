@@ -67,9 +67,6 @@ input[type="button"]{
     }
   }
 }
-.btn_style a,
-.btn_style input {
-}
 /*----------/ btn -----------*/
 
 /*-------- contents ---------*/
@@ -180,85 +177,89 @@ input[type="button"]{
   
     .form_inner{
       padding: 24px 0 0 0;
+    }
+    .field_box {
+      .field_list{
+        display: block;
 
-      .field_box {
-        .field_list{
+        input,
+        select{
+          width: 100%;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          padding: 10px 16px 8px;
+        }
+        select {
+          cursor: pointer;
+        }
+        & + .field_list {
+          margin-top: 24px;
+        }
+
+      
+        label {
+          font-weight: bold;
           display: block;
+          margin-bottom: 10px;
+        }
 
-          input,
-          select{
-            width: 100%;
-            height: 48px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-          }
-          select {
-            cursor: pointer;
-          }
-          & + .field_list {
-            margin-top: 24px;
-          }
-
-        
-          label {
+        .attention {
+          margin: 15px 0;
+          font-size: 1.3rem;
+          span {
             font-weight: bold;
-            display: block;
             margin-bottom: 10px;
+            display: block;
+            font-size: 1.6rem;
           }
+        }
+        & + .field_list {
+          margin-top: 32px;
+        }
 
-          .attention {
-            margin: 15px 0;
-            font-size: 1.3rem;
-            span {
-              font-weight: bold;
-              margin-bottom: 10px;
-              display: block;
-              font-size: 1.6rem;
-            }
-          }
-          & + .field_list {
-            margin-top: 32px;
-          }
+        #set_2coluum{
+          display: table;
+          width: 100%;
 
-          #set_2coluum{
-            display: table;
-            width: 100%;
-
-            .f_half {
-              display: table-cell;
-              vertical-align: middle;
-              & + .f_half {
-                padding-left: 10px;
-              }
-            }
-          }
-          #set_3coluum{
-            .f_trisection {
-              display: inline-block;
-              vertical-align: middle;
+          .f_half {
+            display: table-cell;
+            vertical-align: middle;
+            & + .f_half {
+              padding-left: 10px;
             }
           }
         }
-      }
-      .btn_wrap{
-        .btn_style {
-          width: 100%;
-          a {
-            width: 100%;
-            height: 48px;
-            background: $c_green;
-            color: $c_white;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            line-height: 1.5;
-            display: block;
-            text-align: center;
+        #set_3coluum{
+          .f_trisection {
+            display: inline-block;
+            vertical-align: middle;
           }
+        }
+      }
+    }
+    .btn_wrap{
+      .btn_style {
+        width: 100%;
+        a,
+        input {
+          width: 100%;
+          height: 48px;
+          background: $c_green;
+          color: $c_white;
+          font-size: 16px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          line-height: 1.5;
+          display: block;
+          text-align: center;
+        }
+        input {
+          border: none;
+          cursor: pointer;
         }
       }
     }
