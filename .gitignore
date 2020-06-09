@@ -21,3 +21,5 @@ public/uploads/*
 
 # hostry_fileがgithubにコミットされないようにする
 .history
+
+config/secrets.yml

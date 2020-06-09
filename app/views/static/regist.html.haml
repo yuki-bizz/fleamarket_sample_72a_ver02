@@ -1,7 +1,7 @@
-.wrap.page_regist.one_column
+.wrap.page_regist.one_column.page_form
   .logo_wrap
     .logo
-      = image_tag("logo.svg", alt: "ロゴ")
+      = image_tag("logo.png", alt: "ロゴ")
   .form_wrap
     %form.form_inner
       .field_box
@@ -25,28 +25,28 @@
               本人確認
             %p
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-        .field_list#name
+        .field_list
           %label.name.required
             お名前(全角)
-          %ul
+          %ul#set_2coluum
             %li.f_half
               %input{type:'text', clsss:'', id:'',name:'name_01',placeholder:"例）山田" ,required:'required'}
             %li.f_half
               %input{type:'text', clsss:'', id:'',name:'name_02',placeholder:"例）彩" ,required:'required'}
-        .field_list#name
+        .field_list
           %label.kana.required
             お名前カナ(全角)
-          %ul
+          %ul#set_2coluum
             %li.f_half
               %input{type:'text', clsss:'', id:'',name:'kana_01',placeholder:"例）ヤマダ" ,required:'required'}
             %li.f_half
               %input{type:'text', clsss:'f_half', id:'',name:'kana_02',placeholder:"例）アヤ" ,required:'required'}
 
-        .field_list#birthday
+        .field_list
           %label.birthday.required
             生年月日
             /selectboxはのちほどrubyでの処理だと思うのでいまはやや割愛気味/
-          %ul
+          %ul#set_3coluum
             %li.f_trisection.year
               %select{:name => "year"}
                 %option{:value => "0"} --
@@ -170,11 +170,11 @@
             番地
           %input{type:'text', clsss:'', id:'',name:'address_detail',placeholder:"例）青山1-1-1" ,required:'required'}
         .field_list
-          %label.building
+          %label.building.option
             建物名
           %input{type:'text', clsss:'', id:'',name:'building',placeholder:"例）柳ビル103"}
         .field_list
-          %label.tel
+          %label.tel.option
             電話
           %input{type:'text', clsss:'', id:'',name:'tel',placeholder:"例）090123456878"}
 

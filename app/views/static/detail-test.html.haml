@@ -25,15 +25,15 @@
     .li
       FRIMA
     .li
-      =icon('fas', 'fa-angle-right')
+      =icon('fas', 'angle-right')
     .li
       メンズ
     .li
-      =icon('fas', 'fa-angle-right')
+      =icon('fas', 'angle-right')
     .li
       ジャケット/アウター
     .li
-      =icon('fas', 'fa-angle-right')
+      =icon('fas', 'angle-right')
     .li
       Goods
     
@@ -89,12 +89,13 @@
         %ul
           %li
             = link_to "#", class: 'goods-box__another-area goods-box__another-area--like-btn' do
-              = icon('fas', 'fa-star', class: "goods-box__another-area__btn--icon")
+              = icon('fas', 'star', class: "goods-box__another-area__btn--icon")
               %span
                 お気に入り 0
+        %ul
           %li
             = link_to "#", class: 'goods-box__another-area goods-box__another-area--report-btn' do
-              = icon('fa', 'fa-flag', class: "goods-box__another-area__btn--icon")
+              = icon('fas', 'flag', class: "goods-box__another-area__btn--icon")
               %span
                 不適切な商品の通報
 
@@ -102,31 +103,10 @@
       .comment-area
       .comment-area__text
         相手のことを考え丁寧なコメントを心がけましょう。
+        %br
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       .send-btn
-        
-
-
-.content
-
-
--# .banner
--#   .banner__text__area
--#     .banner__text__title
--#       だれでもかんたん、人生を変えるフリマアプリ
--#     .banner__text__text
--#       今すぐ無料ダウンロード
--#   .banner__icon
--#     = link_to "#", class: "banner__icon banner__icon--appstore" do
--#       = image_tag 'btn-app.png', class: "link-icon", size: '180x55'
--#     = link_to "£", class: "banner__icon banner__icon--googleplay" do
--#       = image_tag 'btn-google.png', class: "link-icon", size: '180x55'
-
--# .footer
--#   .footer__contents
--#     .footer__contents__left
--#     .footer__contents__center
--#     .footer__contents__right
--#   .footer__logo
--#     =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
--#     ©︎ FURIMA
+        %li
+        = icon('fas', 'comment')
+        %span
+          コメントする
