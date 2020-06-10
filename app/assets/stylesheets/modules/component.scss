@@ -305,6 +305,20 @@
 }
 
 /* ------------------------------ >>
+  page_login add_kazoe
+ <<------------------------------ */
+.page_login {
+  .info_top {
+    p {
+      text-align: center;
+    }
+    .btn_wrap .btn_style a {
+      background:$c_light_blue;
+    }
+  }
+}
+
+/* ------------------------------ >>
   page_regist add_kazoe
  <<------------------------------ */
 .page_regist {
@@ -351,35 +365,46 @@
 /* ------------------------------ >>
   page_credit_card add_kazoe
  <<------------------------------ */
- .page_credit_card {
-   .card_wrap{
-     display: flex;
-     padding: 7px 0 0 0;
-   
-     li {
-       width: 100%;
-       img{
-        display: block;
-        height: 32px;
-       }
-       + li {
-         margin-left: 8px;
-       }
-     }
-   }
-   .birthday_select{
-     li {
-       position: relative;
-     }
-    .manth:after{
-      content:"月";
+
+.page_credit_card {
+  .card_wrap{
+    display: flex;
+    padding: 7px 0 0 0;
+  
+    li {
+      width: 100%;
+      img{
+      display: block;
+      height: 32px;
+      }
+      + li {
+        margin-left: 10px;
+      }
     }
-    .year:after{
-      content:"年";
+  }
+#set_2coluum.birthday_select{
+  li {
+    position: relative;
+    select {
+      width: 170px;
     }
-    
-   }
- }
+  }
+  li + li {
+    padding-left: 10px;
+  }
+  li::after{
+    position: absolute;
+    bottom: 5px;
+  }
+  .manth:after{
+    content:"月";
+  }
+  .year:after{
+    content:"年";
+  }
+}
+}
+
 
 /* ------------------------------ >>
   page_my_page add_kazoe

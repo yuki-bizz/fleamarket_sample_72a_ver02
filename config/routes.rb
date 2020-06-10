@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'}
 
+    
   resources :displays
 
   # ペタうち確認用
