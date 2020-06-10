@@ -303,6 +303,20 @@
 }
 
 /* ------------------------------ >>
+  page_login add_kazoe
+ <<------------------------------ */
+.page_login {
+  .info_top {
+    p {
+      text-align: center;
+    }
+    .btn_wrap .btn_style a {
+      background:$c_light_blue;
+    }
+  }
+}
+
+/* ------------------------------ >>
   page_regist add_kazoe
  <<------------------------------ */
 .page_regist {

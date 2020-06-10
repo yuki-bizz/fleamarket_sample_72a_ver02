@@ -7,7 +7,7 @@ $c_black:#333; /* fix mercari */
 $c_red:#EA352D; /* fix mercari */
 $c_orange:#f1880d;
 $c_light_gray:#F5F5F5;/* fix mercari */
-$c_light_blue:#b3e9ee;
+$c_light_blue:#0099e8;/* fix mercari */
 
 $alert_orange: #F35500;
 
@@ -34,6 +34,7 @@ body {
 }
 a {
   text-decoration: none; /* リンクボタンのアンダーラインは基本消しておく設定 */
+  color:$c_light_blue;/*基本テキストリンク色*/
 }
 li {
   list-style: none;
