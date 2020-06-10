@@ -229,9 +229,11 @@ input[type="button"]{
           .f_half {
             display: table-cell;
             vertical-align: middle;
+            /*
             & + .f_half {
               padding-left: 10px;
-            }
+            
+            }*/
           }
         }
         #set_3coluum{
@@ -639,7 +641,7 @@ input[type="button"]{
 /*---------/ footer ---------*/
 
 
-/*----*----- banner ---------*/
+/*--------- banner ---------*/
 .banner {
   width: 100%;
   height: 360px;
