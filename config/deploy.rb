@@ -2,6 +2,14 @@
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
 lock '3.14.0'
 
+# 環境変数を明示
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  username: ENV["BASIC_AUTH_USER"],
+  password: ENV["BASIC_AUTH_PASSWORD"]
+}
+
 # Capistranoのログの表示に利用する
 set :application, 'fleamarket_sample_72a_ver02'
 
