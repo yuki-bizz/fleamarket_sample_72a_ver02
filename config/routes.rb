@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'}
+
     
   resources :displays
 
   # my_pageサイドメニューから確認用 add kazoe
+
   get 'static/regist'
   get 'static/card'
 
