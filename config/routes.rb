@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'}
 
+    
   resources :displays
 
   # my_pageサイドメニューから確認用 add kazoe
-  get 'static/my_page'
+
   get 'static/regist'
   get 'static/card'
 

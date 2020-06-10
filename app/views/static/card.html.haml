@@ -1,7 +1,7 @@
-.wrap.page_credit_card.one_column
+.wrap.page_credit_card.one_column.form_wrap
   .logo_wrap
     .logo
-      = image_tag("logo.svg", alt: "ロゴ")
+      = image_tag("logo.png", alt: "ロゴ")
   .form_wrap
     %h2.form_ttl
       お支払い方法
@@ -27,7 +27,7 @@
         .field_list
           %label.birthday.required
             有効期限
-          %ul#set_2coluum
+          %ul#set_2coluum.birthday_select
             %li.f_half.manth
               %select{:name => "manth"}
                 %option{:value => "1"} 1
@@ -42,6 +42,7 @@
                 %option{:value => "10"} 10
                 %option{:value => "11"} 11
                 %option{:value => "12"} 12
+
             %li.f_half.year
               %select{:name => "year"}
                 %option{:value => "20"} 20
@@ -55,6 +56,7 @@
                 %option{:value => "28"} 28
                 %option{:value => "29"} 29
                 %option{:value => "30"} 30
+
         .field_list
           %label.security_cord.required
             セキュリティコード
