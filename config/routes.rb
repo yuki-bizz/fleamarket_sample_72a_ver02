@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   resources :displays
 
-  # my_pageサイドメニューから確認用 add kazoe
+  # ペタうち確認用
   get 'static/my_page'
+
+  # my_pageサイドメニューから確認用 add kazoe
   get 'static/regist'
   get 'static/card'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "static#my_page"
+  root "displays#index"
 end
