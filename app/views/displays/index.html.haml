@@ -1,25 +1,25 @@
 .header
   = render partial: 'header'
 .wrap.page_top
-  .main
-    .main__visual
-      .main__visual__content
-        .main__visual__content__title
+  .main__page
+    .main__page__visual
+      .main__page__visual__content
+        .main__page__visual__content__title
           人生を変えるフリマアプリ
-        .main__visual__content__text
+        .main__page__visual__content__text
           FURIMAはだれでもかんたんに出品・購入できる
           %br フリマアプリです
-        .main__visual__content__btn
-          .main__visual__content__btn-app
+        .main__page__visual__content__btn
+          .main__page__visual__content__btn-app
             %a{href: '#'}
               =image_tag 'btn-app.png', class: 'btn-app', size: '180x53'
-          .main__visual__content__btn-google
+          .main__page__visual__content__btn-google
             %a{href: '#'}
               =image_tag 'btn-google.png', class: 'btn-google', size: '180x53'
-    .main__introduction
-      .main__introduction__titles
+    .main__page__introduction
+      .main__page__introduction__titles
         FURIMAが選ばれる3つの理由
-      .main__introduction__lists
+      .main__page__introduction__lists
         %li.list
           .list-pict
             %span.number 1
@@ -48,8 +48,8 @@
           %p.list-explanation
             最大3%でお得に出品&購入！
 
-    .main__middle
-      .main__middle__contents
+    .main__page__middle
+      .main__page__middle__contents
         %h2.title 会員数日本一位
         %p.text
           FURIMAは、フリマアプリで最も人気。
@@ -60,7 +60,7 @@
             =image_tag 'btn-app.png', class: 'btn-app', size: '180x53'
           %a{href: '#'}
             =image_tag 'btn-google.png', class: 'btn-google', size: '180x53'
-    .main__features
+    .main__page__features
       %h2.title FURIMAの特徴
       .items
         .item
@@ -78,7 +78,7 @@
             =image_tag 'icon-04.png', class: 'btn-point', size: '220x340'
           %h3.item-title 様々な支払いに対応
           %p.item-explanation お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-    .main__pickup
+    .main__page__pickup
       .title ピックアップカテゴリー
       .display-box
         .displayHead 新規投稿商品
@@ -122,7 +122,7 @@
                       = icon('fas', 'star')
                       0
                   %p （税込）
-    .main__pickup
+    .main__page__pickup
       .title ピックアップブランド
       .display-box
         .displayHead アーカイバ
@@ -172,3 +172,7 @@
 
 .footer
   =render partial: 'footer'
+
+%a{href: '#', class:'exhibitionBtn'}
+  .exhibitionBtn__text 出品する
+  =image_tag 'icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'
