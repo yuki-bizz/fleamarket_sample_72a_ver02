@@ -470,7 +470,7 @@ input[type="button"]{
   width: 100%;
   height: 110px;
   padding: 0 60px;
-  background-color: var(--main-bg-color);
+  background-color: #fff;
   font-family: Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   &__inner {
     max-width: 1040px;
@@ -478,7 +478,7 @@ input[type="button"]{
     min-height: 82px;
     margin: 0 auto;
     padding: 15px 0 0;
-    background-color: var(--main-bg-color);
+    background-color: #fff;
     &__main {
       position: relative;
       display: flex;
@@ -519,44 +519,99 @@ input[type="button"]{
         display: flex;
         list-style: none;
         &__category {
+          text-decoration: none;
           padding: 0 30px 0 0;
-          a {
-            color: var(--main-color);
+          a{
+            color: #333;
             text-decoration: none;
-            .tree {
-              z-index: 2;
-              position: absolute;
-              background-color: var(--main-bg-color);
-              width: 240px;
-              top: 40px;
-              .categoryTree {
-                background-color: var(--main-bg-color);
-                display: flex;
-                flex-direction: column;
-                position: relative;
-                .categoryTree--item {
-                  position: relative;
-                  a {
-                    color: var(--main-color);
-                    text-decoration: none;
-                    line-height: 32px;
-                    background-position: center right;
-                    background-repeat: no-repeat;
-                    background-size: 18px;
-                    padding-right: 30px;
-                  }
-                }
-              }
-            }
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 30px;
           }
           :hover {
             color:  #ffb340;
+          }
+          .tree {
+            //display: none;
+            z-index: 2;
+            position: absolute;
+            background-color: #fff;
+            width: 240px;
+            top: 40px;
+            .categoryTree {
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              list-style: none;
+              // z-index: 10000;
+              &--item {
+                position: relative;
+                a {
+                  color: #333;
+                  text-decoration: none;
+                  line-height: 32px;
+                  background-position: center right;
+                  background-repeat: no-repeat;
+                  background-size: 18px;
+                  padding-right: 30px;
+                }
+                :hover {
+                  color:  #ffb340;
+                }
+              }
+            }
+            .subcatTree {
+              min-height: 480px;
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              left: 240px;
+              &--item {
+                width: 250px;
+                height: 35px;
+                a {
+                  text-decoration: none;
+                  color: #333;
+                  line-height: 32px;
+                  background-position: center right;
+                  background-repeat: no-repeat;
+                  background-size: 18px;
+                  padding-right: 30px;
+                }
+                :hover {
+                  color:  #ffb340;
+                }
+              }
+            }
+            .itemTree {
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              &--item {
+                a {
+                  text-decoration: none;
+                  color: #333;
+                  line-height: 32px;
+                  background-position: center right;
+                  background-repeat: no-repeat;
+                  background-size: 18px;
+                  padding-right: 30px;
+                }
+                :hover {
+                  color:  #ffb340;
+                }
+              }
+            }
           }
         }
         &__bland {
           padding: 0 0 0 16px;
           a {
-            color: var(--main-color);
+            color: #333;
             text-decoration: none;
           }
           :hover {
@@ -571,14 +626,14 @@ input[type="button"]{
         &__login {
           padding: 0 0 0 16px;
           a {
-            color: var(--main-color);
+            color: #333;
             text-decoration: none;
           }
         }
         &__new {
           padding: 0 0 0 16px;
           a {
-            color: var(--main-color);
+            color: #333;
             text-decoration: none;
           }
         }
@@ -595,7 +650,7 @@ input[type="button"]{
   height: 355px;
   background-color: #272727;
   padding: 60px 0;
-  color: var(--main-bg-color);
+  color: #fff;
   text-align: center;
   .contents {
     max-width: 840px;
@@ -651,7 +706,7 @@ input[type="button"]{
   background-size: cover;
   background-position: center;
   &__inner {
-    color: var(--main-bg-color);
+    color: #fff;
     text-align: center;
     &--title {
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -682,3 +737,28 @@ input[type="button"]{
 }
 /*---------/ banner ---------*/
 
+/*---------/ exhibitionBtn ---------*/
+.exhibitionBtn {
+  color: #ffffff;
+  width: 120px;
+  height: 116px;
+  text-align: center;
+  background-color: #3CCACE;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  font-size: 18px;
+  &__text {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
+  &__icon {
+    width: 60%;
+  }
+}
+/*---------/ exhibitionBtn ---------*/
