@@ -957,8 +957,7 @@
         color: #888888;
         font-weight: 600;
       }
-        
-        
+         
       span{
         background-color: #ff0211;
         color: var(--main-color);
@@ -1024,16 +1023,49 @@
       height: 444px;
       padding: 40px;
       background-color:#FFFFFF;
-      &__tilte{
-        
+      margin-bottom: 2px;
+      &__title{
+        font-size: 14px;
+        color: #888888;
+        font-weight: 600;
       }
       &__burden{
-
+        font-size: 14px;
+        color: #333333;
+        font-weight: 600;
+        margin: 16px 0 0;
+      }
+      span{
+        background-color: #ff0211;
+        color: #fff;
+        font-size: 12px;
+        margin-left: 8px;
+        padding: 0 4px;
+        border-radius: 2px;
+        line-height: 1.4em;
+        font-weight: 600;
+        display: inline-block;
+        height: 16px;
+      }
+      .shipping_select{
+        width: 620px;
+        height: 48px;
+        padding: 0 56px 0 16px;
+        font-size: 16px;
+        margin-top: 16px;
       }
       &__area{
+        font-size: 14px;
+        color: #333333;
+        font-weight: 600;
+        margin: 16px 0 0;
 
       }
       &__days{
+        font-size: 14px;
+        color: #333333;
+        font-weight: 600;
+        margin: 16px 0 0;
 
       }
     }
@@ -1042,7 +1074,7 @@
       height: 270px;
       padding: 40px 40px 0;
       background-color: #FFFFFF;
-      &__selling-price
+      &__selling-price{
         p{
           width: 620px;
           height: 19px;
@@ -1054,12 +1086,11 @@
           font-size: 14px;
           color: #333333;
           font-weight: 600;
-          margin: 16px 0 0;
-
-        }
+          margin: 16px 0 0;       
+      
         span.required{
           background-color: #ff0211;
-          color: var(--main-color);
+          color: #fff;
           font-size: 12px;
           margin-left: 8px;
           padding: 0 4px;
@@ -1069,18 +1100,19 @@
           display: inline-block;
           height: 16px;
         }
-      .mark{
-        color: #333333;
-      }
+        .mark{
+          color: #333333;
+        }
 
-      .input_price{
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 285px;
-        height: 48px;
-        font-size: 18px;
+        .input_price{
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          width: 285px;
+          height: 48px;
+          font-size: 18px;
+        }
       }
-        
+    }
       
       &__fee{
         width: 620px;
@@ -1090,19 +1122,26 @@
         justify-content: space-between;
         font-size: 14px;
         color: #333;
+        &_title{
+
+        }
 
       }
-      &__profit{
+      .contents_box__price__profit{
         width: 620px;
-        height: 70px;
-        padding: 12px 0;
+        height: 58px;
+        padding: 12px 0 0;
         display: flex;
         justify-content: space-between;
         font-size: 14px;
         color: #333;
+        &__title{
+          
+        }
 
       }
     }
+    
     &__btn_wrap{
       width: 700px;
       // height: 164px;
@@ -1132,10 +1171,14 @@
         padding: 0 24px;
         border: 1px solid transparent;
         margin: 24px 0 0;
-        border-radius:4px
+        border-radius:4px  
         
-        
-        
+      }
+
+      p{
+        width: 360px;
+        height: 20px;
+        margin: 24px 0 0;
       }
 
     }
@@ -1146,16 +1189,45 @@
       background-color: #FFFFFF;
       font-size: 12px;
       text-align: center;
-      p{
-        color: #333333;
-      }
+        p{
+          color: #333333;
+        }
+    }
+    
   }
 }
-  input{
+
+.footer {
+  width: 100%;
+  height: 220px;
+  padding: 40px 0 41px;
+  background-color: #f5f5f5;
+  // text-align: center;
+  // line-height: 220px;
+
+  ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    
+    
+    li{
+      font-size: 12px;
+      margin: 16px 0 40px 16px;  
+    }
+  }
+  p{
+    
+    margin: 0 auto;
+  }
+}
+
+
+
+input{
   width: 620px;
   height: 48px;
   padding: 0 18px;
   margin: 20px 0 50px;
-  }
 }
 
