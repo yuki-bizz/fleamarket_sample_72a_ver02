@@ -303,18 +303,35 @@
     }
   }
 }
-
 /* ------------------------------ >>
   page_login add_kazoe
  <<------------------------------ */
+.page_login.wrap {
+  padding-bottom: 40px;
+}
 .page_login {
-  .info_top {
-    p {
-      text-align: center;
+  .form_wrap{
+    padding: 0;
+    .form_inner {
+      padding: 20px 40px;
     }
-    .btn_wrap .btn_style a {
-      background:$c_light_blue;
+    .info_top {
+      margin-bottom: 0px;
+      p {
+        text-align: center;
+      }
+      .btn_wrap {
+        padding: 15px 0 0 0;
+
+        .btn_style a {
+        background:$c_light_blue;
+      }
+      }
+
     }
+  }
+  .form_wrap > .form_inner{
+    border-bottom:1px solid #eee;
   }
 }
 

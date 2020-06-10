@@ -3,29 +3,30 @@
     %h1.logo
       = image_tag("logo.png", alt: "ロゴ")
   .form_wrap
-    .info_top
-      %p
-        アカウントをお持ちでない方はこちら
-      %ul.btn_wrap
-        %li.btn_style
-          = link_to "新規会員登録", new_registration_path(resource_name)
-    %h2.form_ttl
-      メールアドレスでログイン
-    = form_for(resource, class:'', as: resource_name, url: session_path(resource_name)) do |f|
-      %ul.field_box
-        %li.field_list
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
-        %li.field_list
-          = f.password_field :password, placeholder: "パスワード", autocomplete: "current-password"
-        /- if devise_mapping.rememberable?
-        / .field
-        /    = f.check_box :remember_me
-        /    = f.label :remember_me
+    .form_inner
+      .info_top
+        %p
+          アカウントをお持ちでない方はこちら
         %ul.btn_wrap
           %li.btn_style
-            = f.submit "ログイン"
-        
-    .info_bottom
-      %ul
-        %li
-          = link_to "パスワードをお忘れの方", new_password_path(resource_name)
+            = link_to "新規会員登録", new_registration_path(resource_name)
+
+    .form_inner
+      = form_for(resource, class:'', as: resource_name, url: session_path(resource_name)) do |f|
+        %ul.field_box
+          %li.field_list
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+          %li.field_list
+            = f.password_field :password, placeholder: "パスワード", autocomplete: "current-password"
+          /- if devise_mapping.rememberable?
+          / .field
+          /    = f.check_box :remember_me
+          /    = f.label :remember_me
+          %ul.btn_wrap
+            %li.btn_style
+              = f.submit "ログイン"
+          
+      .info_bottom
+        %ul
+          %li
+            = link_to "パスワードをお忘れの方", new_password_path(resource_name)
