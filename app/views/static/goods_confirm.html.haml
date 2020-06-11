@@ -24,15 +24,23 @@
         .main__purchase-box__inner__price__amount
           ¥2,800
       .main__purchase-box__inner__point
-        =check_box_tag :check1
-        =label_tag :check1, "ポイントを使用 (所持ポイント: P0)"
+        .main__purchase-box__inner__point__tag
+        .main__purchase-box__inner__point__label
+          ポイントを使用 (所持ポイント: P0)
       .main__purchase-box__inner__payment
-        支払い方法
+        .main__purchase-box__inner__payment__title
+          支払い方法
+        .main__purchase-box__inner__payment__icon
+          %i.fas.fa-plus-circle
+          = icon('fas','fa-plus-circle',class: 'icon')
+          登録してください
       .main__purchase-box__inner__delivery
-        配送先
+        .main__purchase-box__inner__delivery__title
+          配送先
+        .main__purchase-box__inner__delivery__icon
+          %i.fas.fa-plus-circle
+          登録してください
       .main__purchase-box__inner__form
-        購入する
+        .main__purchase-box__inner__form__btn
+          購入する
 .footer
-  メルカリ利用規約
-
-
