@@ -410,7 +410,7 @@
 .page_credit_card {
   .card_wrap{
     display: flex;
-    padding: 7px 0 0 0;
+    padding: 10px 0 0 0;
   
     li {
       width: 100%;
@@ -426,16 +426,19 @@
   #set_2coluum.birthday_select{
     li {
       position: relative;
+      width: 132px;
+
       select {
-        width: 170px;
+        width: 100%;
       }
     }
     li + li {
-      padding-left: 10px;
+      margin-left: 20px;
     }
     li::after{
       position: absolute;
       bottom: 5px;
+      right: -20px;
     }
     .manth:after{
       content:"月";
@@ -445,6 +448,7 @@
     }
   }
 }
+
 
 
 /* ------------------------------ >>
