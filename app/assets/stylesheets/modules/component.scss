@@ -325,9 +325,8 @@
 
         .btn_style a {
         background:$c_light_blue;
+        }
       }
-      }
-
     }
   }
   .form_wrap > .form_inner{
@@ -360,25 +359,51 @@
     & + .field_list {
       margin-top: 32px;
     }
+
+    #set_3coluum.birthday_select{
+      li{
+        display: inline-block;
+        position: relative;
+        select {
+          width: 76px;
+          margin-left: 10px;
+        }
+      }   
+      li:after {
+        position: absolute;
+        bottom: 5px;
+        margin-left: 5px;
+      }
+      li + li {
+        padding-left: 10px;
+      }
+      .year:after{
+        content:"年";
+      }
+      .manth:after{
+        content:"月";
+      }
+      .day:after{
+        content:"日";
+      }
+    }
+  
+    .required:after,
+    .option:after{
+      padding: 5px;
+      font-size: 1.3rem;
+      color: $c_white;
+    }
+    .required:after {
+      content:"必須";
+      background: $c_red;
+    }
+    .option:after{
+      content:"任意";
+      background: #ccc;
+    }
   }
 }
-.required:after,
-.option:after{
-  padding: 5px;
-  font-size: 1.3rem;
-  color: $c_white;
-}
-
-.required:after {
-  content:"必須";
-  background: $c_red;
-
-}
-.option:after{
-  content:"任意";
-  background: #ccc;
-}
-
 /* ------------------------------ >>
   page_credit_card add_kazoe
  <<------------------------------ */
@@ -399,27 +424,27 @@
       }
     }
   }
-#set_2coluum.birthday_select{
-  li {
-    position: relative;
-    select {
-      width: 170px;
+  #set_2coluum.birthday_select{
+    li {
+      position: relative;
+      select {
+        width: 170px;
+      }
+    }
+    li + li {
+      padding-left: 10px;
+    }
+    li::after{
+      position: absolute;
+      bottom: 5px;
+    }
+    .manth:after{
+      content:"月";
+    }
+    .year:after{
+      content:"年";
     }
   }
-  li + li {
-    padding-left: 10px;
-  }
-  li::after{
-    position: absolute;
-    bottom: 5px;
-  }
-  .manth:after{
-    content:"月";
-  }
-  .year:after{
-    content:"年";
-  }
-}
 }
 
 
@@ -1223,11 +1248,13 @@
 }
 
 
-
+/* こちらどなたかわかりませんが全体に反映されてしまうのでコメントアウトします＞＜ kazoeより */
+/*
 input{
   width: 620px;
   height: 48px;
   padding: 0 18px;
   margin: 20px 0 50px;
 }
+*/
 
