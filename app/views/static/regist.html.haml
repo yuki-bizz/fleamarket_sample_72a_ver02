@@ -11,15 +11,15 @@
           .field_list
             %label.nickname.required
               ニックネーム
-            %input{type:'text', clsss:'', id:'',nickname:'',placeholder:"ニックネーム" ,required:'required'}
+            %input{type:'text', clsss:'req', id:'Nickname',nickname:'',placeholder:"ニックネーム" ,required:'required'}
           .field_list
             %label.email.required
               メールアドレス
-            %input{type:'email', clsss:'', id:'',name:'email',placeholder:"PC・携帯どちらでも可" ,required:'required'}
+            %input{type:'email', clsss:'req', id:'Email',name:'email',placeholder:"PC・携帯どちらでも可" ,required:'required'}
           .field_list
             %label.password.required
               パスワード
-            %input{type:'password', clsss:'', id:'',name:'password',placeholder:"7文字以上の半角英数字" ,required:'required'}
+            %input{type:'password', clsss:'req', id:'Password',name:'password',placeholder:"7文字以上の半角英数字" ,required:'required'}
             .attention
               %p
                 ※ 英字と数字の両方を含めて設定してください
@@ -33,17 +33,17 @@
               お名前(全角)
             %ul#set_2coluum
               %li.f_half
-                %input{type:'text', clsss:'', id:'',name:'name_01',placeholder:"例）山田" ,required:'required'}
+                %input{type:'text', clsss:'req', id:'name_01',name:'name_01',placeholder:"例）山田" ,required:'required'}
               %li.f_half
-                %input{type:'text', clsss:'', id:'',name:'name_02',placeholder:"例）彩" ,required:'required'}
+                %input{type:'text', clsss:'req', id:'name_02',name:'name_02',placeholder:"例）彩" ,required:'required'}
           .field_list
             %label.kana.required
               お名前カナ(全角)
             %ul#set_2coluum
               %li.f_half
-                %input{type:'text', clsss:'', id:'',name:'kana_01',placeholder:"例）ヤマダ" ,required:'required'}
+                %input{type:'text', clsss:'req', id:'kana_01',name:'kana_01',placeholder:"例）ヤマダ" ,required:'required'}
               %li.f_half
-                %input{type:'text', clsss:'f_half', id:'',name:'kana_02',placeholder:"例）アヤ" ,required:'required'}
+                %input{type:'text', clsss:'req', id:'kana_02',name:'kana_02',placeholder:"例）アヤ" ,required:'required'}
 
           .field_list
             %label.birthday.required
@@ -115,7 +115,7 @@
           .field_list#address
             %label.postal_code.required
               郵便番号
-            %input{type:'text', clsss:'', id:'',name:'postal_code',placeholder:"例）000-0000" ,required:'required'}
+            %input{type:'text', clsss:'req', id:'Post_Code',name:'postal_code',placeholder:"例）000-0000" ,required:'required'}
           .field_list
             %label.prefectures.required
               都道府県
@@ -173,18 +173,18 @@
           .field_list
             %label.address_detail.required
               番地
-            %input{type:'text', clsss:'', id:'',name:'address_detail',placeholder:"例）青山1-1-1" ,required:'required'}
+            %input{type:'text', clsss:'req', id:'AddressDetail',name:'address_detail',placeholder:"例）青山1-1-1" ,required:'required'}
           .field_list
             %label.building.option
               建物名
-            %input{type:'text', clsss:'', id:'',name:'building',placeholder:"例）柳ビル103"}
+            %input{type:'text', clsss:'', id:'Building',name:'building',placeholder:"例）柳ビル103"}
           .field_list
             %label.tel.option
               電話
-            %input{type:'text', clsss:'', id:'',name:'tel',placeholder:"例）090123456878"}
+            %input{type:'text', clsss:'', id:'Tel',name:'tel',placeholder:"例）090123456878"}
 
             %ul.btn_wrap
               %li.btn_style
                 = link_to "#", class: '' do
                   登録
-                  
+
