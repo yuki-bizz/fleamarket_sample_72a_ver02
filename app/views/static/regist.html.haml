@@ -2,7 +2,9 @@
   .logo_wrap
     .logo
       = image_tag("logo.png", alt: "ロゴ")
-  .contents_bpx
+  .contents_box
+    %h2.content_ttl
+      会員情報入力
     .form_wrap
       %form.form_inner
         .field_box
@@ -25,7 +27,7 @@
               %span
                 本人確認
               %p
-              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
           .field_list
             %label.name.required
               お名前(全角)
@@ -106,7 +108,9 @@
                   %option{:value => "29"} 29
                   %option{:value => "30"} 30
                   %option{:value => "30"} 31
-
+            .attention
+              %p.c_gray
+                ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
           .field_list#address
             %label.postal_code.required
