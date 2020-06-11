@@ -2,66 +2,67 @@
   .logo_wrap
     .logo
       = image_tag("logo.png", alt: "ロゴ")
-  .form_wrap
-    %h2.form_ttl
+  .contents_box
+    %h2.content_ttl
       お支払い方法
-    %form.form_inner
-      .field_box
-        .field_list
-          %label.card_number.required
-            カード番号
-          %input{type:'number', clsss:'', id:'',card_number:'',placeholder:"半角数字のみ" ,required:'required'}
-          %ul.card_wrap
-            %li
-              = image_tag("card/visa.svg", alt: "visa")
-            %li
-              = image_tag("card/master.svg", alt: "master")
-            %li
-              = image_tag("card/saison.svg", alt: "saison")
-            %li
-              = image_tag("card/amex.svg", alt: "amex")
-            %li
-              = image_tag("card/diners.svg", alt: "diners")
-            %li
-              = image_tag("card/discover.svg", alt: "discover")
-        .field_list
-          %label.birthday.required
-            有効期限
-          %ul#set_2coluum.birthday_select
-            %li.f_half.manth
-              %select{:name => "manth"}
-                %option{:value => "1"} 1
-                %option{:value => "2"} 2
-                %option{:value => "3"} 3
-                %option{:value => "4"} 4
-                %option{:value => "5"} 5
-                %option{:value => "6"} 6
-                %option{:value => "7"} 7
-                %option{:value => "8"} 8
-                %option{:value => "9"} 9
-                %option{:value => "10"} 10
-                %option{:value => "11"} 11
-                %option{:value => "12"} 12
+    .form_wrap
+      %form.form_inner
+        .field_box
+          .field_list
+            %label.card_number.required
+              カード番号
+            %input{type:'number', clsss:'', id:'',card_number:'',placeholder:"半角数字のみ" ,required:'required'}
+            %ul.card_wrap
+              %li
+                = image_tag("card/visa.svg", alt: "visa")
+              %li
+                = image_tag("card/master.svg", alt: "master")
+              %li
+                = image_tag("card/saison.svg", alt: "saison")
+              %li
+                = image_tag("card/amex.svg", alt: "amex")
+              %li
+                = image_tag("card/diners.svg", alt: "diners")
+              %li
+                = image_tag("card/discover.svg", alt: "discover")
+          .field_list
+            %label.birthday.required
+              有効期限
+            %ul#set_2coluum.birthday_select
+              %li.f_half.manth
+                %select{:name => "manth"}
+                  %option{:value => "1"} 1
+                  %option{:value => "2"} 2
+                  %option{:value => "3"} 3
+                  %option{:value => "4"} 4
+                  %option{:value => "5"} 5
+                  %option{:value => "6"} 6
+                  %option{:value => "7"} 7
+                  %option{:value => "8"} 8
+                  %option{:value => "9"} 9
+                  %option{:value => "10"} 10
+                  %option{:value => "11"} 11
+                  %option{:value => "12"} 12
 
-            %li.f_half.year
-              %select{:name => "year"}
-                %option{:value => "20"} 20
-                %option{:value => "21"} 21
-                %option{:value => "22"} 22
-                %option{:value => "23"} 23
-                %option{:value => "24"} 24
-                %option{:value => "25"} 25
-                %option{:value => "26"} 26
-                %option{:value => "27"} 27
-                %option{:value => "28"} 28
-                %option{:value => "29"} 29
-                %option{:value => "30"} 30
+              %li.f_half.year
+                %select{:name => "year"}
+                  %option{:value => "20"} 20
+                  %option{:value => "21"} 21
+                  %option{:value => "22"} 22
+                  %option{:value => "23"} 23
+                  %option{:value => "24"} 24
+                  %option{:value => "25"} 25
+                  %option{:value => "26"} 26
+                  %option{:value => "27"} 27
+                  %option{:value => "28"} 28
+                  %option{:value => "29"} 29
+                  %option{:value => "30"} 30
 
-        .field_list
-          %label.security_cord.required
-            セキュリティコード
-          %input{type:'number', clsss:'', id:'',nickname:'',placeholder:"カード背面4桁もしくは3桁の番号" ,required:'required'}
-          %ul.btn_wrap
-            %li.btn_style
-              = link_to "#", class: '' do
-                登録する
+          .field_list
+            %label.security_cord.required
+              セキュリティコード
+            %input{type:'number', clsss:'', id:'',nickname:'',placeholder:"カード背面4桁もしくは3桁の番号" ,required:'required'}
+            %ul.btn_wrap
+              %li.btn_style
+                = link_to "#", class: '' do
+                  登録する
