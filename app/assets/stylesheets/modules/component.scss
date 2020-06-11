@@ -334,6 +334,7 @@
   page_regist add_kazoe
  <<------------------------------ */
 .page_regist {
+  padding-bottom: 40px;
 
   .field_list {
     label {
@@ -453,7 +454,7 @@
 .page_my_page{
   .main_box {
     float: right;
-    width: 700px;
+    width: $contents_box;
 
     .profile{
       
