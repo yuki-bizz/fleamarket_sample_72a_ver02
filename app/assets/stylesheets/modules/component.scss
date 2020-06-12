@@ -308,12 +308,12 @@
  <<------------------------------ */
 .page_login {
 
-  .form_wrap{
+  .form{
     padding: 0;
     .form_inner {
       padding: 40px;
     }
-    .info_top {
+    .form_info_top {
       border-bottom:1px solid #eee;
       p {
         text-align: center;
@@ -478,7 +478,7 @@
           -ms-transform: translate(-50%, -50%);
           color: $c_black;
 
-          .profile_photo{
+          &_inner{
 
             .photo{
               width: 60px;

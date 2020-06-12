@@ -158,7 +158,7 @@ input[type="number"] {
 /*-------/ side_var ---------*/
 
 
-/*-------- form_common --------*/
+/*-------- page_form --------*/
 
 .content_ttl{
     border-bottom: 1px solid #f5f5f5;
@@ -168,17 +168,17 @@ input[type="number"] {
     background: $c_white;
 }
 
-.form_wrap {
+.form {
   background: $c_white;
   padding: 40px;
 
 
-  .form_inner{
+  &_inner{
     width: 456px;
     margin: 0 auto;
     padding: 24px 0 0 0;
 
-    .field_box {
+    .field {
 
       #set_2coluum{
         width: 100%;
@@ -202,7 +202,7 @@ input[type="number"] {
         }
       }
 
-      .field_list{
+      &_list{
         display: block;
 
         input,
@@ -263,7 +263,7 @@ input[type="number"] {
 }
 
 
-/*-------/ form_common --------*/
+/*-------/ page_form --------*/
 
 
 
