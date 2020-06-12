@@ -5,11 +5,11 @@
   .contents_box
     %h2.content_ttl
       お支払い方法
-    .form_wrap
-      %form.form_inner
-        .field_box
-          .field_list
-            %label.card_number.required
+    .form
+      %form.form__inner
+        .field
+          .field-list
+            %label.card-number.required
               カード番号
             %input{type:'number', clsss:'', id:'',card_number:'',placeholder:"半角数字のみ" ,required:'required'}
             %ul.card_wrap
@@ -25,7 +25,7 @@
                 = image_tag("card/diners.svg", alt: "diners")
               %li
                 = image_tag("card/discover.svg", alt: "discover")
-          .field_list
+          .field-list
             %label.birthday.required
               有効期限
             %ul#set_2coluum.birthday_select
@@ -58,7 +58,7 @@
                   %option{:value => "29"} 29
                   %option{:value => "30"} 30
 
-          .field_list
+          .field-list
             %label.security_cord.required
               セキュリティコード
             %input{type:'number', clsss:'', id:'',nickname:'',placeholder:"カード背面4桁もしくは3桁の番号" ,required:'required'}

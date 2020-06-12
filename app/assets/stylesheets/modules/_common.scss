@@ -118,7 +118,7 @@ input[type="number"] {
       background: $c_white;
       position: relative;
     
-      &_list{
+      &-list{
         position: relative;
         display: block;
         a {
@@ -129,7 +129,7 @@ input[type="number"] {
         }
       }
       
-      &_list::after{
+      &-list::after{
         content: "\f054";
         width: 14px;
         height: 14px;
@@ -140,14 +140,14 @@ input[type="number"] {
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
       }
-      &_list.on {
+      &-list.on {
         background: #eee;
         font-weight: bold;
         &.on::after{
           color: #ccc;
         }
       }
-      &_list + .menu_list {
+      &-list + .menu_list {
         border-top: 1px solid #eee;
       }
 
@@ -173,7 +173,7 @@ input[type="number"] {
   padding: 40px;
 
 
-  &_inner{
+  &__inner{
     width: 456px;
     margin: 0 auto;
     padding: 24px 0 0 0;
@@ -202,7 +202,7 @@ input[type="number"] {
         }
       }
 
-      &_list{
+      &-list{
         display: block;
 
         input,
@@ -219,7 +219,7 @@ input[type="number"] {
         select {
           cursor: pointer;
         }
-        & + .field_list {
+        & + .field-list {
           margin-top: 24px;
         }
         label {
