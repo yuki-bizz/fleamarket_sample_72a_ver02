@@ -21,27 +21,27 @@
           新規会員登録
 
 .bread-crumbs
-  .ul
-    .li
+  %ul
+    %li
       FRIMA
-    .li
+    %li
       =icon('fas', 'angle-right')
-    .li
+    %li
       メンズ
-    .li
+    %li
       =icon('fas', 'angle-right')
-    .li
+    %li
       ジャケット/アウター
-    .li
+    %li
       =icon('fas', 'angle-right')
-    .li
+    %li
       Goods
     
 .wrap.page_goods_detail
   .show
     .show-main
       -# .content-left
-      .main-content
+      .contents_box
         .top-content
           .goods-box
             .goods-box__name
@@ -72,10 +72,14 @@
                 %tr
                   %th カテゴリー
                   %td
-                    %a{href: '#'}
-                      %li メンズ
-                      %li ジャケット/アウター
-                      %li ノーカラージャケット
+                    %ul
+                      =link_to "#", class: '' do
+                        %li メンズ
+                      =link_to "#", class: '' do
+                        %li ジャケット/アウター
+                      =link_to "#", class: '' do
+                        %li ノーカラージャケット
+                        
                 %tr
                   %th ブランド
                   %td
@@ -91,8 +95,9 @@
                 %tr
                   %th 発送元の地域
                   %td
-                    %a{href: '#'}
-                      %li 青森県
+                    %ul
+                      =link_to "#", class: '' do
+                        %li 青森県
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
@@ -113,6 +118,7 @@
           .comment-box
             .comment-area
               .new-comment
+                %form{type:'text', class:''}
               .notes-memo
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br
@@ -124,16 +130,16 @@
                   コメントする
         .links
           .previous-page
-            .a{href: '#'}
+            =link_to "#", class: 'links' do
               = icon('fas', 'angle-left', class: "links__backpage-btn")
               %span
                 前ページ
           .next-page
-            .a{href: '#'}
+            =link_to "#", class: 'links' do
               %span
                 次ページ
                 = icon('fas', 'angle-right', class: "links__nextpage-btn")
         .same-category
-          %a{href: '#'}
+          =link_to "#", class: '' do
             メンズをもっとみる
 
