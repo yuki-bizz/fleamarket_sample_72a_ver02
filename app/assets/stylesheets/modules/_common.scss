@@ -375,80 +375,6 @@ input[type="number"] {
           :hover {
             color:  #ffb340;
           }
-          .tree {
-            z-index: 2;
-            position: absolute;
-            background-color: #fff;
-            width: 240px;
-            top: 40px;
-            .categoryTree {
-              background-color: #fff;
-              display: flex;
-              flex-direction: column;
-              position: relative;
-              list-style: none;
-              display: none;
-              &--item {
-                position: relative;
-                a {
-                  color: #333;
-                  text-decoration: none;
-                  line-height: 32px;
-                  background-position: center right;
-                  background-repeat: no-repeat;
-                  background-size: 18px;
-                  padding-right: 30px;
-                }
-                :hover {
-                  color:  #ffb340;
-                }
-              }
-            }
-            .subcatTree {
-              min-height: 480px;
-              background-color: #fff;
-              display: flex;
-              flex-direction: column;
-              position: absolute;
-              top: 0;
-              left: 240px;
-              &--item {
-                width: 250px;
-                height: 35px;
-                a {
-                  text-decoration: none;
-                  color: #333;
-                  line-height: 32px;
-                  background-position: center right;
-                  background-repeat: no-repeat;
-                  background-size: 18px;
-                  padding-right: 30px;
-                }
-                :hover {
-                  color:  #ffb340;
-                }
-              }
-            }
-            .itemTree {
-              background-color: #fff;
-              display: flex;
-              flex-direction: column;
-              &--item {
-                a {
-                  text-decoration: none;
-                  color: #333;
-                  line-height: 32px;
-                  background-position: center right;
-                  background-repeat: no-repeat;
-                  background-size: 18px;
-                  padding-right: 30px;
-                }
-                :hover {
-                  color:  #ffb340;
-                }
-              }
-            }
-          }
         }
         &__bland {
           padding: 0 0 0 16px;
@@ -487,23 +413,23 @@ input[type="number"] {
 
 
 /*---------- footer ---------*/
-.footer {
+.footer__menue {
   width: 100%;
   height: 355px;
   background-color: #272727;
   padding: 60px 0;
   color: #fff;
   text-align: center;
-  .contents {
+  &__contents {
     max-width: 840px;
     margin: 0 auto;
     display: flex;
-    .content {
+    &__content {
       display: flex;
       flex-direction: column;
       width: calc(1/3 * 100%);
       margin: 0 2% 0 0;
-      &__head {
+      &--head {
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;
@@ -512,7 +438,7 @@ input[type="number"] {
         list-style: none;
         li {
           a {
-            color: var(--main-bg-color);
+            color: #fff;
             text-decoration: none;
             font-size: 12px;
             line-height: 32px;
@@ -526,7 +452,7 @@ input[type="number"] {
       }
     }
   }
-  .footer__logo {
+  &__logo {
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
