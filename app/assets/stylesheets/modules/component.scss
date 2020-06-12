@@ -25,12 +25,12 @@
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           font-size: 60px;
           line-height: 1.2;
-          color: #fff;
+          color: $c_white;
         }
         &__text {
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           font-size: 18px;
-          color: #fff;
+          color: $c_white;
           line-height: 1.77778;
           margin: 16px 0 0 0;
         }
@@ -56,7 +56,7 @@
       width: 100%;
       height: 660px;
       padding: 60px 20px;
-      background-color: #fff;
+      background-color: $c_white;
       &__titles {
         text-align: center;
         font-size: 26px;
@@ -69,7 +69,7 @@
           content: "";
           width: 70px;
           height: 4px;
-          background-color: #3CCACE;
+          background-color: $c_green;
           position: absolute;
           bottom: 0;
           left: 50%;
@@ -104,8 +104,8 @@
               text-align: center;
               margin: 0 5px 0 0;
               padding: 10px 20px;
-              background-color: #3CCACE;
-              color: #fff;
+              background-color: $c_green;
+              color: $c_white;
             }
           }
           &-text {
@@ -114,7 +114,7 @@
             line-height: 50px;
             margin: 0 0 0 2px;
             span {
-              color: #3CCACE;
+              color: $c_green;
             }
           }
           &-explanation {
@@ -133,7 +133,7 @@
       display: flex;
       align-items: center;
       &__contents {
-        color: #fff;
+        color: $c_white;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
         text-align: left;
         max-width: 1040px;
@@ -167,7 +167,7 @@
       width: 100%;
       height: 650px;
       padding: 60px 100px;
-      background-color: #fff;
+      background-color: $c_white;
       .title {
         font-size: 27px;
         text-align: center;
@@ -180,7 +180,7 @@
           content: "";
           width: 70px;
           height: 4px;
-          background-color: #3CCACE;
+          background-color: $c_green;
           position: absolute;
           bottom: 0;
           left: 50%;
@@ -238,7 +238,7 @@
           text-align: center;
           font-weight: bold;
           font-size: 23px;
-          color: #3CCACE;
+          color: $c_green;
           margin-top: 10px;
         }
         .displayLists {
@@ -253,10 +253,9 @@
             width: 220px;
             height: 245px;
             display: inline-block;
-            float: left;
             a {
               text-decoration: none;
-              background-color: #fff;
+              background-color: $c_white;
               display: inline-block;
               .displayList--image {
                 width: 220px;
@@ -269,7 +268,7 @@
               }
               .displayList--body {
                 background-color: white;
-                color: #333;
+                color: $c_black;
                 padding: 16px;
                 .name {
                   overflow: hidden;
