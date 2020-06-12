@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :displays
 
   # トップページからの遷移 add ozaki
-  get 'static/login'
   get 'static/regist'
   get 'static/exhibition'
   get 'static/detail_test'
