@@ -1,71 +1,150 @@
 .header
-  = render partial: 'header'
+  .header__inner
+    .header__inner__main
+      .header__inner__main__icon
+        =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
+      .header__inner__main__search-box
+        .header__inner__main__search-box__input
+          キーワードから探す
+        .header__inner__main__search-box__search
+          =image_tag 'icon-search 1.png', class: 'search-icon', size: '19x19'
+    .header__inner__navi
+      .header__inner__navi__left
+        .header__inner__navi__left__category
+          カテゴリー
+        .header__inner__navi__left__bland
+          ブランド
+      .header__inner__navi__right
+        .header__inner__navi__right__login
+          ログイン
+        .header__inner__navi__right__new
+          新規会員登録
 
 .bread-crumbs
   .ul
     .li
       FRIMA
     .li
-      =icon('fas', 'fa-angle-right')
+      =icon('fas', 'angle-right')
     .li
       メンズ
     .li
-      =icon('fas', 'fa-angle-right')
+      =icon('fas', 'angle-right')
     .li
       ジャケット/アウター
     .li
-      =icon('fas', 'fa-angle-right')
+      =icon('fas', 'angle-right')
     .li
-      product2
+      Goods
     
-
-
-  
-.main
-  .main__box
-    .content
-      .goods-box
-        .goods-box__name
-          product2
-        .goods-box__photo
-          %ul
-            %li
-              =image_tag 'icon_camera.png',size:"180x180"
+.wrap.page_goods_detail
+  .main
+    .show-main
+      .content-left
+      .content-right
+        .top-content
+          .item-box
+            .item-box__name
+              Goods
+            .item-box__body
               %ul
                 %li
-                  =image_tag 'icon_camera.png', size:"140x87"
+                  =image_tag '801065.png', size:"560x346"
+                  %ul
+                    %li
+                      =image_tag '801065.png', size:"140x87"
+                    %li
+                      =image_tag '801065.png', size:"140x87"
+                    %li
+                      =image_tag '801065.png', size:"140x87"
+            .item-box__price
+              .item-box__price__price
+                ¥20,000
+              .item-box__price__tax
+                (税込み)送料込み
+            .item-box__comment
+              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            .item-box__table
+              %table 
+                %tr
+                  %th 出品者
+                  %td hoge
+                %tr
+                  %th カテゴリー
+                  %td
+                    %a{href: '#'}
+                      %li メンズ
+                      %li ジャケット/アウター
+                      %li ノーカラージャケット
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品のサイズ
+                  %td 
+                %tr
+                  %th 商品の状態
+                  %td 新品/未使用
+                %tr
+                  %th 配送料の負担
+                  %td 着払い（購入者負担）
+                %tr
+                  %th 発送元の地域
+                  %td
+                    %a{href: '#'}
+                      %li 青森県
+                %tr
+                  %th 発送日の目安
+                  %td 1-2日で発送
+
+            .item-box__optional-area
+              %ul
+                = link_to "#", class: 'item-box__optional-area item-box__optional-area--like-btn' do
+                  = icon('fas', 'star', class: "goods-box__optional-area--like-btn--icon")
+                  %span
+                    お気に入り 0
+              %ul
                 %li
-                  =image_tag 'icon_camera.png', size:"140x87"
+                  = link_to "#", class: 'item-box__optional-area item-box__optional-area-report-btn' do
+                    = icon('fas', 'flag', class: "goods-box__another-area__btn--icon")
+                    %span
+                      不適切な商品の通報
+
+          .comment-box
+            .comment-contents
+            .new_comment
+              .comment-body
+              .notice-msg
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              .send-btn
                 %li
-                  =image_tag 'icon_camera.png', size:"140x87"
-        .goods-box__price
-          ¥20,000
-        .goods-box__price_tax
-          %span
-          (税込み)
-          %span
-          送料込み
-        .goods-box__comment
-          "お腹すいた・・・"
-        .goods-box__table
+                = icon('fas', 'comment')
+                %span
+                  コメントする
+        .links
+          .previous-page
+            .a{href: '#'}
+              = icon('fas', 'angle-left', class: "links__backpage-btn")
+              %span
+                前ページ
+          .next-page
+            .a{href: '#'}
+              %span
+                次ページ
+                = icon('fas', 'angle-right', class: "links__nextpage-btn")
+        .related-items
+          .a{href: '#'}
+            メンズをもっとみる
 
-
-        .goods-box__another-area
-          -# = another-area_btn 'お気に入り', class: 'like-btn'
-            = icon('fa', 'fa-star')
-              " お気に入り 0
-              "
-          -# = another-area_btn '通報' , class: 'report-btn'
-            = link to "#"
-            = icon('fa', 'fa-flag')
-              " 不適切な商品の通報
-              "
-      .comment-box
-
-.content
 
 .banner
   = render partial: 'banner'
 
 .footer
   =render partial: 'footer'
+
+%a{href: '#', class:'exhibitionBtn'}
+  .exhibitionBtn__text 出品する
+  =image_tag 'icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'
