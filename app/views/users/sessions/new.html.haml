@@ -3,8 +3,8 @@
     %h1.logo
       = image_tag("logo.png", alt: "ロゴ")
   .contents_box.mini
-    .form_wrap
-      .info_top
+    .form
+      .form_info_top
         .form_inner
           %p
             アカウントをお持ちでない方はこちら
@@ -18,7 +18,7 @@
 
       .form_inner
         = form_for(resource, class:'', as: resource_name, url: session_path(resource_name)) do |f|
-          %ul.field_box
+          %ul.field
             %li.field_list
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
             %li.field_list
