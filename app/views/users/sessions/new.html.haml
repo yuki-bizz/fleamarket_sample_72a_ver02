@@ -4,8 +4,8 @@
       = image_tag("logo.png", alt: "ロゴ")
   .contents_box.mini
     .form
-      .form_info_top
-        .form_inner
+      .form_info-top
+        .form__inner
           %p
             アカウントをお持ちでない方はこちら
           %ul.btn_wrap
@@ -16,12 +16,12 @@
               = link_to "/static/regist", class: '' do
                 新規会員登録
 
-      .form_inner
+      .form__inner
         = form_for(resource, class:'', as: resource_name, url: session_path(resource_name)) do |f|
           %ul.field
-            %li.field_list
+            %li.field-list
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
-            %li.field_list
+            %li.field-list
               = f.password_field :password, placeholder: "パスワード", autocomplete: "current-password"
             /- if devise_mapping.rememberable?
             / .field
@@ -31,7 +31,7 @@
               %li.btn_style
                 = f.submit "ログイン"
             
-        .info_bottom
+        .info-bottom
           %ul
             %li
               = link_to "パスワードをお忘れの方", new_password_path(resource_name)

@@ -310,10 +310,10 @@
 
   .form{
     padding: 0;
-    .form_inner {
+    .form__inner {
       padding: 40px;
     }
-    .form_info_top {
+    .form_info-top {
       border-bottom:1px solid #eee;
       p {
         text-align: center;
@@ -336,7 +336,7 @@
 .page_regist {
   padding-bottom: 40px;
 
-  .field_list {
+  .field-list {
     label {
       font-weight: bold;
       display: block;
@@ -359,7 +359,7 @@
         color: #888;
       }
     }
-    & + .field_list {
+    & + .field-list {
       margin-top: 32px;
     }
 
@@ -462,12 +462,12 @@
 
     .profile{
       
-      &_inner{
+      &__inner{
         height: 200px;
         background-image: url(user-bg.jpg);
         position: relative;
 
-        .profile_detail {
+        .profile__detail {
           position: absolute;
           display: block;
           width: 100%;
@@ -478,7 +478,7 @@
           -ms-transform: translate(-50%, -50%);
           color: $c_black;
 
-          &_inner{
+          &__inner{
 
             .photo{
               width: 60px;
@@ -542,11 +542,11 @@
     .tabs_box {
       background: $c_white;
 
-      &_inner {
+      &__inner {
         display: none;
         .info {
           
-          &_list{
+          &-list{
             position: relative;
             line-height: 1.5;
             width: 100%;
@@ -597,13 +597,13 @@
               -ms-transform: translateY(-50%);
             }            
           }
-          &_list + .info_list {
+          &-list + .info-list {
             border-top: 1px solid #eee;
           }
         }
        }
     }
-    .tabs_box_inner.contents_on {
+    .tabs_box__inner.contents_on {
       display: block;
     }
   }

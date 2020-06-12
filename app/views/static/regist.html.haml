@@ -6,17 +6,17 @@
     %h2.content_ttl
       会員情報入力
     .form
-      %form.form_inner
+      %form.form__inner
         .field
-          .field_list
+          .field-list
             %label.nickname.required
               ニックネーム
             %input{type:'text', clsss:'req', id:'Nickname',nickname:'',placeholder:"ニックネーム" ,required:'required'}
-          .field_list
+          .field-list
             %label.email.required
               メールアドレス
             %input{type:'email', clsss:'req', id:'Email',name:'email',placeholder:"PC・携帯どちらでも可" ,required:'required'}
-          .field_list
+          .field-list
             %label.password.required
               パスワード
             %input{type:'password', clsss:'req', id:'Password',name:'password',placeholder:"7文字以上の半角英数字" ,required:'required'}
@@ -28,7 +28,7 @@
                 本人確認
               %p
                 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          .field_list
+          .field-list
             %label.name.required
               お名前(全角)
             %ul#set_2coluum
@@ -36,7 +36,7 @@
                 %input{type:'text', clsss:'req', id:'name_01',name:'name_01',placeholder:"例）山田" ,required:'required'}
               %li.f_half
                 %input{type:'text', clsss:'req', id:'name_02',name:'name_02',placeholder:"例）彩" ,required:'required'}
-          .field_list
+          .field-list
             %label.kana.required
               お名前カナ(全角)
             %ul#set_2coluum
@@ -45,7 +45,7 @@
               %li.f_half
                 %input{type:'text', clsss:'req', id:'kana_02',name:'kana_02',placeholder:"例）アヤ" ,required:'required'}
 
-          .field_list
+          .field-list
             %label.birthday.required
               生年月日
               /selectboxはのちほどrubyでの処理だと思うのでいまはやや割愛気味/
@@ -112,11 +112,11 @@
               %p.c_gray
                 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-          .field_list#address
+          .field-list#address
             %label.postal_code.required
               郵便番号
             %input{type:'text', clsss:'req', id:'Post_Code',name:'postal_code',placeholder:"例）000-0000" ,required:'required'}
-          .field_list
+          .field-list
             %label.prefectures.required
               都道府県
             %ul
@@ -170,15 +170,15 @@
                   %option{:value => "鹿児島県"} 鹿児島県
                   %option{:value => "沖縄県"} 沖縄県
                   %option{:value => "未定"} 未定
-          .field_list
+          .field-list
             %label.address_detail.required
               番地
             %input{type:'text', clsss:'req', id:'AddressDetail',name:'address_detail',placeholder:"例）青山1-1-1" ,required:'required'}
-          .field_list
+          .field-list
             %label.building.option
               建物名
             %input{type:'text', clsss:'', id:'Building',name:'building',placeholder:"例）柳ビル103"}
-          .field_list
+          .field-list
             %label.tel.option
               電話
             %input{type:'text', clsss:'', id:'Tel',name:'tel',placeholder:"例）090123456878"}
