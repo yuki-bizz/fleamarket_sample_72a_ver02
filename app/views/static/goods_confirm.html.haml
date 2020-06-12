@@ -1,13 +1,12 @@
 .header
-  .header__logo
-    mercari
+  mercari
 .main
   .main__title
     購入内容の確認
   .main__item
     .main__item__box
       .main__item__box__image
-        = image_tag src="/assets/", size: "80x80"
+        = image_tag '', class: 'item-image', size: '80x80'
       .main__item__box__detail
         .main__item__box__detail__name
           ❣️お値下げ中❣️☆NIKE ナイキ スニーカー☆　23cm
@@ -44,3 +43,4 @@
         .main__purchase-box__inner__form__btn
           購入する
 .footer
+  =render partial: 'footer'

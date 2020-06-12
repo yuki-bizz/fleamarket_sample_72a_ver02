@@ -846,6 +846,7 @@
 .header {
   text-align: center;
   height: 128px;
+  background-color: #f5f5f5;
 }
 
 .main {
@@ -853,6 +854,7 @@
   text-align: center;
   width: 700px;
   margin: 0 auto;
+  padding:0;
   &__title {
     font-size: 22px;
     color: #333333;
@@ -863,7 +865,7 @@
   &__item {
     border-bottom: 1px solid #f5f5f5;
     &__box {
-      padding: 24px 16px;
+      padding: 32px 16px;
       display: flex;
       align-items: center;
       position: relative;
@@ -877,7 +879,7 @@
           font-size: 14px;
           color: #333;
           position: absolute;
-          top: 20px;
+          top: 32px;
           left: 283px;
           width: 250px;
           text-align: left;
@@ -963,7 +965,7 @@
         }
         &__icon {
           color: #0099e8;
-          margin-top: 4px;
+          margin-top: 8px;
           }
       }
       &__delivery {
@@ -978,11 +980,12 @@
         }
       &__icon {
         color: #0099e8;
-        margin-top: 4px;
+        margin-top: 8px;
         }
       }
       &__form {
         border-top: 1px solid #f5f5f5;
+        padding-bottom: 48px;
         &__btn {
           border: 1px solid #888;
           background: #888;
@@ -992,6 +995,7 @@
           font-size: 14px;
           border-radius: 4px;
           font-weight: 600;
+          margin-top: 32px;
         }
       }
     }
