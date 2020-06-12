@@ -376,7 +376,6 @@ input[type="number"] {
             color:  #ffb340;
           }
           .tree {
-            //display: none;
             z-index: 2;
             position: absolute;
             background-color: #fff;
@@ -388,7 +387,7 @@ input[type="number"] {
               flex-direction: column;
               position: relative;
               list-style: none;
-              // z-index: 10000;
+              display: none;
               &--item {
                 position: relative;
                 a {
