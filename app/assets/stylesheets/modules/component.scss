@@ -638,18 +638,18 @@
     .show-main {
       padding: 40px;
       margin: 0 auto;
-      .content-left {
-        margin: 0;
-        padding: 0;
-      }
-      .content-right {
+      // .content-left {
+      //   margin: 0;
+      //   padding: 0;
+      // }
+      .main-content {
         width: 700px;
         margin: 0 auto;
         padding: 0;
         .top-content {
           margin: 0;
           padding: 0;
-          .item-box {
+          .goods-box {
             background-color: #fff;
             padding: 24px 40px 40px;
             margin: 0;
@@ -658,7 +658,7 @@
               text-align: center;
               font-weight: bold;
             }
-            &__body {
+            &__photo {
               margin-top: 16px;
               ul {
                 display: flex;
@@ -706,7 +706,7 @@
                 text-align: center;
               }
             }
-            &__comment {
+            &__instruction {
               line-height: 1.5;
               font-size: 18px;
               margin-bottom: 30px;
@@ -780,21 +780,17 @@
             margin: 10px 0;
             background-color: #fff;
             text-align: center;
-            .comment-contents {
-              list-style: none;
+            .comment-area {
               margin: 0;
               padding: 0;
-            }
-            .new_comment {
-              margin: 0;
-              padding: 0;
-              .comment-body { 
+              .new-comment { 
                 width: 100%;
                 min-height: 104px;
                 padding: 10px;
                 border: 1px solid black;
               }
-              .notice-msg {
+              .notes-memo {
+                line-height:1.5;
                 font-size: 14px;
                 padding: 8px;
                 margin: 10px 0;
@@ -828,7 +824,7 @@
             float: right;
           }
         }
-        .related-items {
+        .same-category {
           a{
             width: 200px;
             display: block;
