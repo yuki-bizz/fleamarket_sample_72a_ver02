@@ -1,15 +1,15 @@
-.header
-  .header__inner
-    .header__inner__main
-      .header__inner__main__icon
+.header__menue
+  .header__menue__inner
+    .header__menue__inner__main
+      .header__menue__inner__main__icon
         %a{href: '#'}
           =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
-      .header__inner__main__search-box
-        %input.header__inner__main__search-box--input{:id => "searchInput", :name => "key", :placeholder => "キーワードから探す"}/
-        .header__inner__main__search-box--search
+      .header__menue__inner__main__search-box
+        %input.header__menue__inner__main__search-box--input{:id => "searchInput", :name => "key", :placeholder => "キーワードから探す"}/
+        .header__menue__inner__main__search-box--search
           %a{href: '#'}
             =image_tag 'icon-search 1.png', class: 'search-icon', size: '19x19'
-    .header__inner__navi
+    .header__menue__inner__navi
       %ul.leftLists
         %li.leftLists__category
           = link_to 'カテゴリー'
