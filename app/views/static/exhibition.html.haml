@@ -10,20 +10,11 @@
       %label 出品画像
       %span 必須
       .contents_box__goods-image__text
-      最大10枚までアップロードできます
-    -#   %form{:enctype => "multipart/form-data", :method => "post"}
-    -#     #dragDropArea
-    -#     .drag-drop-inside
-    -#   %p.drag-drop-info ここにファイルをドロップ
-    -#   %p または
-    -#   %p.drag-drop-buttons
-    -#     %input#fileInput{:accept => "image/*", :name => "photo", :onchange => "photoPreview(event)", :type => "file", :value => "ファイルを選択"}/
-    -#   #previewArea
-    -# %button{:name => "submit", :type => "submit", :value => "登録"}
-    -#   登録
-    -#   %button
-
-    -#   %input{type: "image"}
+        %p 画像をドラッグアンドドロップ
+        %p またはクリックしてファイルをダウンロードして下さい
+      .contents_box__goods-image__area
+        .contents_box__goods-image__area__icon
+          = icon('fa', 'camera')
     
     .contents_box__goods
       .contents_box__goods__name
@@ -34,14 +25,12 @@
         .contents_box__goods__explain__title
         商品の説明
         %span 必須
-        %textarea.goods_explain{placeholder:"商品の説明（必須1,000文字以内）&#13;&#10;(色"}
-        -# %input.explanation{type: "text", placeholder:"商品詳細"}
+        %textarea.goods_explain{placeholder:"商品の説明"}
         %p.word-count 0/1000
     
     .contents_box__detail
       .contents_box__detail__title 
-        商品の詳細
-      
+        商品の詳細      
       .contents_box__detail__category
         カテゴリー
         %span 必須
@@ -154,8 +143,9 @@
         .contents_box__price__selling-price__input_form 
           販売価格
           %span.required 必須
-          %span.mark ¥
-          %input.input_price{name: "price", type: "number", placeholder:"0"}
+          .contents_box__price__selling-price__input_form__price_colum
+            %span.mark ¥
+            %input.input_price{name: "price", type: "number", placeholder:"0"}
       .contents_box__price__fee
         .contents_box__price__fee__title
           販売手数料(10%)
@@ -167,24 +157,16 @@
         .contents_box__price__profit__decision
           ー
     .contents_box__btn_wrap
-      %button.exhibitin_btn{name: "exhibitin", type: "button", value:""}
+      %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
         %font 出品する
-      %button.save_btn{name: "save", type: "button", value:""}
-        %font 下書きに保存
-      
-      %p もどる
-    
-
-
+      %button.save_btn{name: "save", type: "submit", value:""}
+        %font 下書きに保存      
+      %p 
+        %a{href: '#'} もどる
     .contents_box__note 
-      %p 禁止されている行為および出品物
-
-
-.footer
-  %ul 
-    %li プライバシーポリシー
-    %li 利用規約
-    %li 特定商取引に関する表記
-
-  %p
-  
+      
+-# .footer
+-#   %ul 
+-#     %li プライバシーポリシー
+-#     %li 利用規約
+-#     %li 特定商取引に関する表記
