@@ -73,13 +73,15 @@
                   %th カテゴリー
                   %td
                     %ul
-                      =link_to "#", class: '' do
-                        %li メンズ
-                      =link_to "#", class: '' do
-                        %li ジャケット/アウター
-                      =link_to "#", class: '' do
-                        %li ノーカラージャケット
-                        
+                      %li 
+                        = link_to "#", class: '' do
+                          メンズ
+                      %li
+                        = link_to "#", class: '' do
+                          ジャケット/アウター
+                      %li
+                        = link_to "#", class: '' do
+                          ノーカラージャケット
                 %tr
                   %th ブランド
                   %td
@@ -96,22 +98,24 @@
                   %th 発送元の地域
                   %td
                     %ul
-                      =link_to "#", class: '' do
-                        %li 青森県
+                      %li
+                        = link_to "#", class: '' do
+                          青森県
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
 
             .goods-box__optional-area
               %ul
-                = link_to "#", class: 'item-box__optional-area item-box__optional-area--like-btn' do
-                  = icon('fas', 'star', class: "goods-box__optional-area--like-btn--icon")
-                  %span
-                    お気に入り 0
+                %li.like-btn
+                  = link_to "#", class: '' do
+                    = icon('fas', 'star', class: "like-btn--icon")
+                    %span
+                      お気に入り 0
               %ul
-                %li
-                  = link_to "#", class: 'item-box__optional-area item-box__optional-area-report-btn' do
-                    = icon('fas', 'flag', class: "goods-box__another-area__btn--icon")
+                %li.report-btn
+                  = link_to "#", class: 'report-btn' do
+                    = icon('fas', 'flag', class: "report-btn--icon")
                     %span
                       不適切な商品の通報
 

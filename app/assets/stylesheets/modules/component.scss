@@ -612,24 +612,24 @@
   page_goods_detail add_oikawa
  <<------------------------------ */
  /* ここのパンクズcssは共通部分なのでページごとでの記述はいずれ不要になります */
-.bread-crumbs {
-  background-color: $c_white;
-  width: 100%;
-  border-top: 1px solid #eee;
-  position: relative;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  padding: 0 60px;
-  ul {
-    padding: 17px 0 16px;
-    width: 100%;
-    max-width: 1040px;
-    font-size: 14px;
-    margin: 0 auto;
-    li {
-      display: inline;
-    }
-  }
-}
+// .bread-crumbs {
+//   background-color: $c_white;
+//   width: 100%;
+//   border-top: 1px solid #eee;
+//   position: relative;
+//   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+//   padding: 0 60px;
+//   ul {
+//     padding: 17px 0 16px;
+//     width: 100%;
+//     max-width: 1040px;
+//     font-size: 14px;
+//     margin: 0 auto;
+//     li {
+//       display: inline;
+//     }
+//   }
+// }
 
 .page_goods_detail{
   .show {
@@ -737,7 +737,6 @@
               ul{
                 margin: 10px 0 0;
                 display: flex;
-                padding: 0;
                 a {
                   color: $c_green;
                   margin-right: auto;
@@ -753,7 +752,7 @@
                   font-size: 14px;
                   margin: 0;
                   padding: 0;
-                  a {
+                  .report-btn {
                     padding: 6px 10px;
                     display: inline-block;
                     border: 1px solid #333;
