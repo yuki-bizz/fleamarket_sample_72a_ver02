@@ -49,6 +49,15 @@
         %option{value: "チケット"} チケット
         %option{value: "自転車・オートバイ"} 自転車・オートバイ
         %option{value: "その他"} その他
+      
+      .contents_box__detail__size
+        サイズ
+        %span 必須
+      %select.category_select{name: "size"}
+        %option{value: "選択して下さい"} 選択して下さい
+        %option{value: "S"} S
+        %option{value: "M"} M
+        %option{value: "L"} L
             
       .contents_box__detail__brand
         ブランド
@@ -76,6 +85,14 @@
         %option{value: "選択して下さい"} 選択して下さい
         %option{value: "送料込み（出品者負担）"} 送料込み（出品者負担）
         %option{value: "着払い（購入者負担）"} 着払い（購入者負担）
+      .contents_box__shipping__way
+        配送料の方法
+        %span 必須
+      %select.shipping_select{name: "way"}
+        %option{value: "選択して下さい"} 選択して下さい
+        %option{value: "未定"} 未定
+        %option{value: "ゆうメール"} ゆうメール
+        %option{value: "クロネコヤマト"} クロネコヤマト
       .contents_box__shipping__area
         配送元の地域
         %span 必須

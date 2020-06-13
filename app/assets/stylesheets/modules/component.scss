@@ -1132,7 +1132,7 @@
     }
     &__detail{
       width: 700px;
-      height: 444px;
+      height: 550px;
       padding: 40px;
       margin-bottom: 2px;
       background-color: #FFFFFF;
@@ -1143,6 +1143,34 @@
         
       }
       &__category{
+        font-size: 14px;
+        color: #333333;
+        font-weight: 600;
+        margin: 36px 0 0;
+      }
+         
+      span{
+        background-color: #ff0211;
+        color: #fff;
+        font-size: 12px;
+        margin-left: 8px;
+        padding: 0 4px;
+        border-radius: 2px;
+        line-height: 1.4em;
+        font-weight: 600;
+        display: inline-block;
+        height: 16px;
+      }
+      
+      .category_select{
+        width: 620px;
+        height: 48px;
+        padding: 0 56px 0 16px;
+        font-size: 16px;
+        margin-top: 16px;
+      }
+
+      &__size{
         font-size: 14px;
         color: #333333;
         font-weight: 600;
@@ -1212,7 +1240,7 @@
     }
     &__shipping{
       width: 700px;
-      height: 444px;
+      height: 550px;
       padding: 40px;
       margin-bottom: 2px;
       background-color:#FFFFFF;
@@ -1222,6 +1250,31 @@
         font-weight: 600;
       }
       &__burden{
+        font-size: 14px;
+        color: #333333;
+        font-weight: 600;
+        margin: 36px 0 0;
+      }
+      span{
+        background-color: #ff0211;
+        color: #fff;
+        font-size: 12px;
+        margin-left: 8px;
+        padding: 0 4px;
+        border-radius: 2px;
+        line-height: 1.4em;
+        font-weight: 600;
+        display: inline-block;
+        height: 16px;
+      }
+      .shipping_select{
+        width: 620px;
+        height: 48px;
+        padding: 0 56px 0 16px;
+        font-size: 16px;
+        margin-top: 16px;
+      }
+      &__way{
         font-size: 14px;
         color: #333333;
         font-weight: 600;
