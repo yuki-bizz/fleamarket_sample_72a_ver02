@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   get 'static/regist'
   get 'static/card'
 
+  # 商品購入確認ページの確認用 add tsutsumi
+  get 'static/goods_confirm'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "displays#index"
+
 end
