@@ -752,10 +752,12 @@
               margin: 0;
               padding: 0;
               .new-comment { 
-                width: 100%;
-                min-height: 104px;
-                padding: 10px;
-                border: 1px solid black;
+                textarea {
+                  width: 100%;
+                  min-height: 104px;
+                  padding: 10px;
+                  border: 1px solid black;
+                }
               }
               .notes-memo {
                 line-height:1.5;
