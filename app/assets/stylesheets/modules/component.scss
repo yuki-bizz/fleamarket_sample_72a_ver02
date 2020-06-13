@@ -850,14 +850,15 @@
 }
 
 .main {
-  background-color: white;
+  background-color: $c_white;
   text-align: center;
   width: 700px;
   margin: 0 auto;
   padding:0;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  color: #333333;
   &__title {
     font-size: 22px;
-    color: #333333;
     padding: 32px;
     font-weight: bold;
     border-bottom: 1px solid #f5f5f5;
@@ -867,17 +868,13 @@
     &__box {
       padding: 32px 16px;
       display: flex;
-      align-items: center;
       position: relative;
       &__image {
         margin-left: 160px;
       }
       &__detail {
-      
         &__name {
-          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
           font-size: 14px;
-          color: #333;
           position: absolute;
           top: 32px;
           left: 283px;
@@ -890,11 +887,9 @@
           font-weight: 600;
           &__main {
             font-size: 15px;
-            line-height: 1;
           }
           &__sub {
             font-size: 12px;
-            line-height: 1;
             margin-left: 8px;
             margin-top: 2px;
           }
@@ -904,33 +899,23 @@
   }
   &__purchase-box {
     &__inner {
-      max-width: 343px;
+      width: 343px;
       margin: 0 auto;
       &__price {
         display: flex;
         position: relative;
         margin-top: 32px;
         height: 20px;
+        font-weight: 600;
         &__title {
-          position: absolute;
-          top: 0;
-          left: 0;
-          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
           font-size: 18px;
-          color: #333;
-          line-height: 1;
-          font-weight: 600;
           margin-top: 4px;
         }
         &__amount {
           position: absolute;
           top: 0;
           right: 0;
-          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
           font-size: 24px;
-          color: #333;
-          line-height: 1;
-          font-weight: 600;
         }
       }
       &__point {
@@ -944,48 +929,42 @@
             background: #ccc;
           }
           &__label {
-            z-index: 2;
             padding: 0 0 0 8px;
             font-size: 14px;
-            font-weight: 400;
-            vertical-align: middle;
+            margin-top: 2px;
             color: #888;
-            font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
           }
       }
       &__payment {
         border-top: 1px solid #f5f5f5;
-        font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
         font-size: 14px;
-        color: #333;
         padding: 32px 0;
         text-align: left;
-      &__title {
-        font-weight: 600;
-        }
+        &__title {
+          font-weight: 600;
+          }
+          &__icon {
+            color: #0099e8;
+            margin-top: 8px;
+            }
+      }
+      &__delivery {
+        border-top: 1px solid #f5f5f5;
+        font-size: 14px;
+        padding: 32px 0;
+        text-align: left;
+        &__title {
+          font-weight: 600;
+          }
         &__icon {
           color: #0099e8;
           margin-top: 8px;
           }
       }
-      &__delivery {
-        border-top: 1px solid #f5f5f5;
-        font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-        font-size: 14px;
-        color: #333;
-        padding: 32px 0;
-        text-align: left;
-      &__title {
-        font-weight: 600;
-        }
-      &__icon {
-        color: #0099e8;
-        margin-top: 8px;
-        }
-      }
       &__form {
         border-top: 1px solid #f5f5f5;
         padding-bottom: 48px;
+        font-weight: 600;
         &__btn {
           border: 1px solid #888;
           background: #888;
@@ -994,12 +973,10 @@
           line-height: 48px;
           font-size: 14px;
           border-radius: 4px;
-          font-weight: 600;
           margin-top: 32px;
         }
       }
     }
-
   }
 }
  
