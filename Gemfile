@@ -68,3 +68,6 @@ gem "font-awesome-sass"
 
 #user
 gem 'devise'
+
+# payjpを導入
+gem 'payjp'
