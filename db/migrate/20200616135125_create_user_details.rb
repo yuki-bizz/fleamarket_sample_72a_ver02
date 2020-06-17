@@ -6,7 +6,7 @@ class CreateUserDetails < ActiveRecord::Migration[5.0]
       t.integer :tellphone_number
       t.string :self_explanation
       t.integer :sales_amount, null: false
-      t.integer :evaluation_icon, null: false
+      t.integer :evaluation_icon
       t.timestamps
     end
   end
