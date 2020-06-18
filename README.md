@@ -40,11 +40,11 @@ Things you may want to cover:
 |birth_day|integer|null: false|
 
 ### Association
-- has_many :goods
+- has_many :goods_items
 - has_many :comments dependent: :destroy
 - has_many :evaluations dependent: :destroy
 - has_many :orders dependent: :destroy
-- has_one :user_details dependent: :destroy
+- has_one :user_detail dependent: :destroy
 
 
 ## user_detailsテーブル
@@ -60,11 +60,11 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one :credit-cards dependent: :destroy
-- has_one :user_addresses dependent: :destroy
+- has_one :credit_card dependent: :destroy
+- has_one :user_address dependent: :destroy
 
 
-## goodsテーブル
+## goods_itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -97,11 +97,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |image_url|string|null: false|
 
 ### Association
-- belongs_to :good
+- belongs_to :goods_item
 
 
 ## areasテーブル
@@ -111,7 +111,7 @@ Things you may want to cover:
 |province|integer|null: false|
 
 ### Association
-- has_many :goods
+- has_many :goods_items
 - has_many :user_addresses
 
 
@@ -120,19 +120,19 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |content|string|null: false|
 
 ### Association
 - belongs_to :user
-- belongs_to :good
+- belongs_to :goods_item
 
 
 ## ordersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |payment_way|integer|null: false|
 |payment_status|integer|null: false|
@@ -141,21 +141,20 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :good
-
+- belongs_to :goods_item
 
 ## evaluationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |user_icon|integer||
 |user_evaluation|string||
 
 ### Association
 - belongs_to :user
-- belongs_to :good
+- belongs_to :goods_item
 
 
 ## user_addressesテーブル
@@ -171,7 +170,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :area
-- belongs_to :user_details
+- belongs_to :user_detail
 
 
 ## credit_cardsテーブル
@@ -183,7 +182,7 @@ Things you may want to cover:
 |card_id|string|null: false|
 
 ### Association
-- belongs_to :user_details
+- belongs_to :user_detail
 
 
 ## categoriesテーブル
@@ -193,7 +192,7 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :goods
+- has_many :goods_items
 - has_many :category_brands
 - has_many :brands, through: category_brands
 
@@ -205,7 +204,7 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :goods
+- has_many :goods_items
 - has_many :category_brands
 - has_many :categories, through: category_brands
 
