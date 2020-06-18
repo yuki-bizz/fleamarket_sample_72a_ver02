@@ -97,7 +97,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |image_url|string|null: false|
 
 ### Association
@@ -120,7 +120,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |content|string|null: false|
 
 ### Association
@@ -132,7 +132,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |payment_way|integer|null: false|
 |payment_status|integer|null: false|
@@ -147,7 +147,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|references|null: false, foreign_key: true|
+|goods_item_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |user_icon|integer||
 |user_evaluation|string||
