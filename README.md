@@ -89,7 +89,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |goods_item_id|references|null: false, foreign_key: true|
-|src|string||
+|src|string|null: false|
 
 ### Association
 - belongs_to :goods_item
