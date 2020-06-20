@@ -72,7 +72,8 @@ Things you may want to cover:
 |delivery_way|string|null: false|
 |delivery_date|string|null: false|
 |selling_price|integer|null: false|
-|status|string|null: false|
+|seller_id|integer|null: false|
+|buyer_id|integer||
 
 ### Association
 - belongs_to :user
