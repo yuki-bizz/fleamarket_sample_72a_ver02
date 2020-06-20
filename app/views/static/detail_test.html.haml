@@ -43,6 +43,14 @@
       -# .content-left
       .contents_box
         .top-content
+          .more
+            = icon('fas', 'sort-down', class: "more")
+            %ul
+              .more_list
+              %li
+                = link_to '編集', "/goods_items/#{goods_item.url}/edit", method: :get
+              %li
+                = link_to '削除', "/goods_items/#{goods_item.id}", method: :delete
           .goods-box
             .goods-box__name
               Goods
@@ -146,4 +154,3 @@
         .same-category
           =link_to "#", class: '' do
             メンズをもっとみる
-

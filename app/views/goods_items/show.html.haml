@@ -21,32 +21,40 @@
           新規会員登録
 
 .bread-crumbs
-  .ul
-    .li
+  %ul
+    %li
       FRIMA
-    .li
+    %li
       =icon('fas', 'angle-right')
-    .li
+    %li
       メンズ
-    .li
+    %li
       =icon('fas', 'angle-right')
-    .li
+    %li
       ジャケット/アウター
-    .li
+    %li
       =icon('fas', 'angle-right')
-    .li
+    %li
       Goods
     
 .wrap.page_goods_detail
-  .main
+  .show
     .show-main
-      .content-left
-      .content-right
+      -# .content-left
+      .contents_box
         .top-content
-          .item-box
-            .item-box__name
+          .more
+            = icon('fas', 'sort-down', class: "more")
+            %ul
+              .more_list
+              %li
+                = link_to "編集" , edit_goods_item_path(@goods_item.id)
+              -# %li
+              -#   = link_to '削除', "/tweets/#{tweet.id}", method: :delete
+          .goods-box
+            .goods-box__name
               Goods
-            .item-box__body
+            .goods-box__photo
               %ul
                 %li
                   =image_tag '801065.png', size:"560x346"
@@ -57,14 +65,14 @@
                       =image_tag '801065.png', size:"140x87"
                     %li
                       =image_tag '801065.png', size:"140x87"
-            .item-box__price
-              .item-box__price__price
+            .goods-box__price
+              .goods-box__price__price
                 ¥20,000
-              .item-box__price__tax
+              .goods-box__price__tax
                 (税込み)送料込み
-            .item-box__comment
+            .goods-box__instruction
               親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
-            .item-box__table
+            .goods-box__table
               %table 
                 %tr
                   %th 出品者
@@ -72,10 +80,16 @@
                 %tr
                   %th カテゴリー
                   %td
-                    %a{href: '#'}
-                      %li メンズ
-                      %li ジャケット/アウター
-                      %li ノーカラージャケット
+                    %ul
+                      %li 
+                        = link_to "#", class: '' do
+                          メンズ
+                      %li
+                        = link_to "#", class: '' do
+                          ジャケット/アウター
+                      %li
+                        = link_to "#", class: '' do
+                          ノーカラージャケット
                 %tr
                   %th ブランド
                   %td
@@ -91,30 +105,33 @@
                 %tr
                   %th 発送元の地域
                   %td
-                    %a{href: '#'}
-                      %li 青森県
+                    %ul
+                      %li
+                        = link_to "#", class: '' do
+                          青森県
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
 
-            .item-box__optional-area
+            .goods-box__optional-area
               %ul
-                = link_to "#", class: 'item-box__optional-area item-box__optional-area--like-btn' do
-                  = icon('fas', 'star', class: "goods-box__optional-area--like-btn--icon")
-                  %span
-                    お気に入り 0
+                %li.like-btn
+                  = link_to "#", class: '' do
+                    = icon('fas', 'star', class: "like-btn--icon")
+                    %span
+                      お気に入り 0
               %ul
-                %li
-                  = link_to "#", class: 'item-box__optional-area item-box__optional-area-report-btn' do
-                    = icon('fas', 'flag', class: "goods-box__another-area__btn--icon")
+                %li.report-btn
+                  = link_to "#", class: 'report-btn' do
+                    = icon('fas', 'flag', class: "report-btn--icon")
                     %span
                       不適切な商品の通報
 
           .comment-box
-            .comment-contents
-            .new_comment
-              .comment-body
-              .notice-msg
+            .comment-area
+              .new-comment
+                %textarea{type:'text', class:''}
+              .notes-memo
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -125,26 +142,15 @@
                   コメントする
         .links
           .previous-page
-            .a{href: '#'}
+            =link_to "#", class: 'links' do
               = icon('fas', 'angle-left', class: "links__backpage-btn")
               %span
                 前ページ
           .next-page
-            .a{href: '#'}
+            =link_to "#", class: 'links' do
               %span
                 次ページ
                 = icon('fas', 'angle-right', class: "links__nextpage-btn")
-        .related-items
-          .a{href: '#'}
+        .same-category
+          =link_to "#", class: '' do
             メンズをもっとみる
-
-
-.banner
-  = render partial: 'banner'
-
-.footer
-  =render partial: 'footer'
-
-%a{href: '#', class:'exhibitionBtn'}
-  .exhibitionBtn__text 出品する
-  =image_tag 'icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'

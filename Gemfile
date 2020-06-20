@@ -71,3 +71,5 @@ gem 'devise'
 
 # payjpを導入
 gem 'payjp'
+
+gem 'pry-rails'

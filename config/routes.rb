@@ -11,11 +11,13 @@ Rails.application.routes.draw do
   end
 
   resources :displays
+  resources :goods_items, only: [:show, :destroy, :edit]
 
   # トップページからの遷移 add ozaki
   get 'static/regist'
   get 'static/exhibition'
   get 'static/detail_test'
+  
 
   # ペタうち確認用
   get 'static/my_page'
