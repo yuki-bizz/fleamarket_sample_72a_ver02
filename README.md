@@ -72,7 +72,8 @@ Things you may want to cover:
 |delivery_way|string|null: false|
 |delivery_date|string|null: false|
 |selling_price|integer|null: false|
-|seller_id|integer|null: false|
+|status|string||
+|seller_id|integer||
 |buyer_id|integer||
 
 ### Association
