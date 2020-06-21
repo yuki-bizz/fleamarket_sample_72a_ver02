@@ -1,6 +1,6 @@
 class GoodsItem < ApplicationRecord
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   belongs_to :area
   belongs_to :brand 
   belongs_to :cateory

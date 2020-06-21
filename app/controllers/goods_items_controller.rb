@@ -6,6 +6,7 @@ class GoodsItemsController < ApplicationController
 
   def destroy
     goods_item = GoodsItem.find(params[:id])
+    # binding.pry
     goods_item.destroy
   end
 

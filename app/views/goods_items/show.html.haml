@@ -49,8 +49,8 @@
               .more_list
               %li
                 = link_to "編集" , edit_goods_item_path(@goods_item.id)
-              -# %li
-              -#   = link_to '削除', "/tweets/#{tweet.id}", method: :delete
+              %li
+                = link_to '削除', goods_item_path(@goods_item.id), method: :delete
           .goods-box
             .goods-box__name
               Goods
