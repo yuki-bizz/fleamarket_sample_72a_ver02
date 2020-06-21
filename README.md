@@ -38,30 +38,23 @@ Things you may want to cover:
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
+|delivery_family_name|string|null: false|
+|delivery_first_name|string|null: false|
+|delivery_family_name_kana|string|null: false|
+|delivery_first_name_kana|string|null: false|
+|postcode|integer|null: false|
+|province|string|null: false|
+|city|string|null: false|
+|address1|string|null: false|
+|address2|string||
+|tellphone_number|integer||
 
 ### Association
 - has_many :goods_items
 - has_many :comments dependent: :destroy
 - has_many :evaluations dependent: :destroy
 - has_many :orders dependent: :destroy
-- has_one :user_detail dependent: :destroy
-
-
-## user_detailsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_address_id|references||
-|credit_cards_id|references||
-|tellphone_number|integer||
-|self_explanation|string||
-|sales_amount|integer|null: false|
-|evaluation_icon|integer|null: false|
-
-### Association
-- belongs_to :user
 - has_one :credit_card dependent: :destroy
-- has_one :user_address dependent: :destroy
 
 
 ## goods_itemsテーブル
@@ -70,27 +63,25 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
-|explanation|string|null: false|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references||
-|condition|integer|null: false|
-|shipping_fee|integer|null: false|
-|area_id|references|null: false, foreign_key: true|
-|delivery_date|integer|null: false|
+|explanation|text|null: false|
+|category|string|null: false|
+|brand|string||
+|condition|string|null: false|
+|shipping_fee|string|null: false|
+|province|string|null: false|
+|delivery_way|string|null: false|
+|delivery_date|string|null: false|
 |selling_price|integer|null: false|
-|size|integer|null: false|
-|delivery_way|integer|null: false|
-|status|integer|null: false|
+|status|string||
+|seller_id|integer||
+|buyer_id|integer||
 
 ### Association
 - belongs_to :user
 - has_many :comments dependent: :destroy
-- belongs_to :area
-- belongs_to :brand 
-- belongs_to :category
 - has_many :images dependent: :destroy
-- has_many :evaluations dependent: :destroy
-- has_one :order : dependent: :destroy
+- has_one :evaluation dependent: :destroy
+- has_one :order dependent: :destroy
 
 
 ## imagesテーブル
@@ -98,21 +89,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |goods_item_id|references|null: false, foreign_key: true|
-|image_url|string|null: false|
+|src|string|null: false|
 
 ### Association
 - belongs_to :goods_item
-
-
-## areasテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|province|integer|null: false|
-
-### Association
-- has_many :goods_items
-- has_many :user_addresses
 
 
 ## commentsテーブル
@@ -157,22 +137,6 @@ Things you may want to cover:
 - belongs_to :goods_item
 
 
-## user_addressesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|postcode|integer|null: false|
-|area_id|references|null: false, foreign_key: true|
-|city|string|null: false|
-|address1|string|null: false|
-|address2|string||
-
-### Association
-- belongs_to :area
-- belongs_to :user_detail
-
-
 ## credit_cardsテーブル
 
 |Column|Type|Options|
@@ -182,43 +146,7 @@ Things you may want to cover:
 |card_id|string|null: false|
 
 ### Association
-- belongs_to :user_detail
-
-
-## categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :goods_items
-- has_many :category_brands
-- has_many :brands, through: category_brands
-
-
-## brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :goods_items
-- has_many :category_brands
-- has_many :categories, through: category_brands
-
-
-## category_brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :category
-- belongs_to :brand
+- belongs_to :user
 
 
 
