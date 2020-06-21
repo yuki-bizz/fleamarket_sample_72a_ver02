@@ -71,3 +71,10 @@ gem 'devise'
 
 # payjpを導入
 gem 'payjp'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'
+
+# デバッグツール
+gem 'pry-rails'
