@@ -72,13 +72,9 @@ gem 'devise'
 # payjpを導入
 gem 'payjp'
 
-<<<<<<< HEAD
-gem 'pry-rails'
-=======
 # 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
 
 # デバッグツール
 gem 'pry-rails'
->>>>>>> master
