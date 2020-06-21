@@ -1,9 +1,15 @@
 .contents.row
   .container
-    = form_with(model: @goods_item, local: true) do |form|
+    = form_for @goods_item do |form| 
       %h3
         編集する
-      = form.text_field :name, placeholder: "Nickname"
-      = form.text_field :image, placeholder: "Image Url"
-      = form.text_area :text, placeholder: "text" , rows: "10"
+      = form.text_field :name, placeholder: "商品名"
+      = form.text_area :explanation, placeholder: "説明", rows: "10"
+      = form.text_field :category_id, placeholder: "カテゴリー"
+      = form.text_field :brand_id, placeholder: "ブランド"
+      = form.text_field :size, placeholder: "商品のサイズ"
+      = form.text_field :condition, placeholder: "商品の状態"
+      = form.text_field :shipping_fee, placeholder: "配送料の負担"
+      = form.text_field :area_id, placeholder: "発送元の地域"
+      = form.text_field :delivery_way, placeholder: "発送日の目安"
       = form.submit "SEND"
