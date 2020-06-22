@@ -1,7 +1,6 @@
 class DisplaysController < ApplicationController
   def index
-    @goods_items = GoodsItem.all
-    pp @goods_items
+    @goods_items = GoodsItem.all.includes(user: :images)
     #カテゴリー
     @womens = GoodsItem.where(category: 'レディース')
     @mens = GoodsItem.where(category: 'メンズ')
