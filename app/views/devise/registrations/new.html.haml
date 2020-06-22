@@ -110,27 +110,8 @@
                 %p.c_gray
                   ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             .field-list
-              .attention
-                %span
-                  受取人様のお名前
-                %p
-                  安心・安全にご利用いただくために、お客さまの情報の登録にご協力ください。他のお客さまに公開されることはありません。
-              = f.label value="お名前(全角)", class:'name required'
-              %ul#set_2coluum
-                %li.f_half
-                  = f.text_field :delivery_family_name, placeholder:"例）山田", clsss:'req', id:'name_03'
-                %li.f_half
-                  = f.text_field :delivery_first_name, placeholder:"例）彩", clsss:'req', id:'name_04'
-            .field-list
-              = f.label value="お名前カナ(全角)", class:'name required'
-              %ul#set_2coluum
-                %li.f_half
-                  = f.text_field :delivery_family_name_kana, placeholder:"例）ヤマダ", clsss:'req', id:'kana_03'
-                %li.f_half
-                  = f.text_field :delivery_first_name_kana, placeholder:"例）アヤ", clsss:'req', id:'kana_04'
-            %p.page_ttl
-              お届け先住所
-            .field-list
+              %p.form_sub-ttl
+                お届け先住所
               = f.label value="郵便番号", class:'postal_code required'
               = f.text_field :postcode, autofocus: true,placeholder:"例）000-0000",clsss:'req',id:'Post_Code'
             .field-list
@@ -200,8 +181,22 @@
             .field-list
               = f.label value="電話", class:'address_detail option'
               = f.text_field :tellphone_number ,placeholder:"例）090123456878",clsss:'',id:'Tel'
-           
-
+            .field-list
+              %p.form_sub-ttl
+                受取人様のお名前
+              = f.label value="お名前(全角)", class:'name required'
+              %ul#set_2coluum
+                %li.f_half
+                  = f.text_field :delivery_family_name, placeholder:"例）山田", clsss:'req', id:'name_03'
+                %li.f_half
+                  = f.text_field :delivery_first_name, placeholder:"例）彩", clsss:'req', id:'name_04'
+            .field-list
+              = f.label value="お名前カナ(全角)", class:'name required'
+              %ul#set_2coluum
+                %li.f_half
+                  = f.text_field :delivery_family_name_kana, placeholder:"例）ヤマダ", clsss:'req', id:'kana_03'
+                %li.f_half
+                  = f.text_field :delivery_first_name_kana, placeholder:"例）アヤ", clsss:'req', id:'kana_04'
 
 
             %ul.btn_wrap
