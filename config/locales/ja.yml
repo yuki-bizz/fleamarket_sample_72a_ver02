@@ -26,6 +26,7 @@ ja:
         province: 都道府県
         city: 市区町村
         address1: 番地
+        tellphone_number: 電話番号
       ########## ユーザー登録時バリデーションここまで ##########
 
         restrict_dependent_destroy:
