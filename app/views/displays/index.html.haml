@@ -81,91 +81,135 @@
     .main__page__pickup
       .title ピックアップカテゴリー
       .display-box
-        .displayHead 新規投稿商品
+        .displayHead レディース
         .displayLists
-          .displayList
-            %a{href: 'static/detail_test'}
-              .displayList--image
-                =image_tag 'nuigurumi_bear.png', size: '160x150'
-              .displayList--body
-                %h3.name display1
-                .explanation
-                  %ul
-                    %li 3000円
-                    %li.likeIcon
-                      = icon('fas', 'star')
-                      0
-                  %p （税込）
-          .displayList
-            %a{href: 'static/detail_test'}
-              .displayList--image
-                =image_tag 'bicycle.png', size: '190x180'
-              .displayList--body
-                %h3.name display2
-                .explanation
-                  %ul
-                    %li 12000円
-                    %li.likeIcon
-                      = icon('fas', 'star')
-                      0
-                  %p （税込）
-          .displayList
-            %a{href: 'static/detail_test'}
-              .displayList--image
-                =image_tag 'smartphone.png', size: '160x160'
-              .displayList--body
-                %h3.name display3
-                .explanation
-                  %ul
-                    %li 10000円
-                    %li.likeIcon
-                      = icon('fas', 'star')
-                      0
-                  %p （税込）
+          - @womens.each do |women|
+            .displayList
+              - if women.buyer_id.nil?
+                %a{href: 'static/detail_test'}
+                  .displayList--image
+                    -# image_tagは商品出品機能が実装し終わったら追加する
+                    = image_tag "parka.png", size: '160x150'
+                  .displayList--body
+                    %h3.name 
+                      = women.name
+                    .explanation
+                      %ul
+                        %li
+                          = women.selling_price
+                          円
+                        %li.likeIcon
+                          = icon('fas', 'star')
+                          = women.status
+                      %p （税込）
+        .displayHead メンズ
+        .displayLists
+          - @mens.each do |man|
+            .displayList
+              - if man.buyer_id.nil?
+                %a{href: 'static/detail_test'}
+                  .displayList--image
+                    -# image_tagは商品出品機能が実装し終わったら追加する
+                    = image_tag "shoes.png", size: '160x150'
+                  .displayList--body
+                    %h3.name 
+                      = man.name
+                    .explanation
+                      %ul
+                        %li
+                          = man.selling_price
+                          円
+                        %li.likeIcon
+                          = icon('fas', 'star')
+                          = man.status
+                      %p （税込）
+        .displayHead おもちゃ・ホビー・グッズ
+        .displayLists
+          - @toys.each do |toy|
+            .displayList
+              - if toy.buyer_id.nil?
+                %a{href: 'static/detail_test'}
+                  .displayList--image
+                    -# image_tagは商品出品機能が実装し終わったら追加する
+                    = image_tag "nuigurumi_bear.png", size: '160x150'
+                  .displayList--body
+                    %h3.name 
+                      = toy.name
+                    .explanation
+                      %ul
+                        %li
+                          = toy.selling_price
+                          円
+                        %li.likeIcon
+                          = icon('fas', 'star')
+                          = toy.status
+                      %p （税込）
+        .displayHead 家電・スマホ・カメラ
+        .displayLists
+          - @appliances.each do |appliance|
+            .displayList
+              - if appliance.buyer_id.nil?
+                %a{href: 'static/detail_test'}
+                  .displayList--image
+                    -# image_tagは商品出品機能が実装し終わったら追加する
+                    = image_tag "smartphone.png", size: '160x150'
+                  .displayList--body
+                    %h3.name 
+                      = appliance.name
+                    .explanation
+                      %ul
+                        %li
+                          = appliance.selling_price
+                          円
+                        %li.likeIcon
+                          = icon('fas', 'star')
+                          = appliance.status
+                      %p （税込）
     .main__page__pickup
       .title ピックアップブランド
       .display-box
-        .displayHead アーカイバ
+        .displayHead apple
         .displayLists
-          .displayList
-            %a{href: 'static/detail_test'}
-              .displayList--image
-                =image_tag 'nuigurumi_bear.png', size: '160x150'
-              .displayList--body
-                %h3.name display1
-                .explanation
-                  %ul
-                    %li 3000円
-                    %li.likeIcon
-                      = icon('fas', 'star')
-                      0
-                  %p （税込）
-          .displayList
-            %a{href: 'static/detail_test'}
-              .displayList--image
-                =image_tag 'bicycle.png', size: '190x180'
-              .displayList--body
-                %h3.name display2
-                .explanation
-                  %ul
-                    %li 12000円
-                    %li.likeIcon
-                      = icon('fas', 'star')
-                      0
-                  %p （税込）
-          .displayList
-            %a{href: 'static/detail_test'}
-              .displayList--image
-                =image_tag 'smartphone.png', size: '160x160'
-              .displayList--body
-                %h3.name display3
-                .explanation
-                  %ul
-                    %li 10000円
-                    %li.likeIcon
-                      = icon('fas', 'star')
-                      0
-                  %p （税込）
+          - @apples.each do |apple|
+            .displayList
+              - if apple.buyer_id.nil?
+                %a{href: 'static/detail_test'}
+                  .displayList--image
+                    -# image_tagは商品出品機能が実装し終わったら追加する
+                    = image_tag "smartphone.png", size: '160x150'
+                  .displayList--body
+                    %h3.name 
+                      = apple.name
+                    .explanation
+                      %ul
+                        %li
+                          = apple.selling_price
+                          円
+                        %li.likeIcon
+                          = icon('fas', 'star')
+                          = apple.status
+                      %p （税込）
+        .displayHead Louis Vuitton
+        .displayLists
+          - @louis_vuittons.each do |louis_vuitton|
+            .displayList
+              - if louis_vuitton.buyer_id.nil?
+                %a{href: 'static/detail_test'}
+                  .displayList--image
+                    -# image_tagは商品出品機能が実装し終わったら追加する
+                    = image_tag "saihu.jpg", size: '160x150'
+                  .displayList--body
+                    %h3.name 
+                      = louis_vuitton.name
+                    .explanation
+                      %ul
+                        %li
+                          = louis_vuitton.selling_price
+                          円
+                        %li.likeIcon
+                          = icon('fas', 'star')
+                          = louis_vuitton.status
+                      %p （税込）
 
 .banner
   = render partial: 'banner'
