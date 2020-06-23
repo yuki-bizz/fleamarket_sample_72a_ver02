@@ -5,8 +5,8 @@
   .contents_box
     .form
       .form__inner
-        = form_for(@user, url: user_registration_path) do |f|
-          = render "devise/shared/error_messages", resource: @user
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
           .field
             .field-list
               = f.label value="ニックネーム", class:'nickname required'
@@ -179,9 +179,6 @@
               = f.label value="建物名", class:'address_detail option'
               = f.text_field :address2 ,placeholder:"例）柳ビル103",clsss:'',id:'Building'
             .field-list
-              = f.label value="電話", class:'address_detail option'
-              = f.text_field :tellphone_number ,placeholder:"例）090123456878",clsss:'',id:'Tel'
-            .field-list
               %p.form_sub-ttl
                 受取人様のお名前
               = f.label value="お名前(全角)", class:'name required'
@@ -197,7 +194,9 @@
                   = f.text_field :delivery_family_name_kana, placeholder:"例）ヤマダ", clsss:'req', id:'kana_03'
                 %li.f_half
                   = f.text_field :delivery_first_name_kana, placeholder:"例）アヤ", clsss:'req', id:'kana_04'
-
+            .field-list
+              = f.label value="電話", class:'address_detail option'
+              = f.text_field :tellphone_number ,placeholder:"例）090123456878",clsss:'',id:'Tel'
 
             %ul.btn_wrap
               %li.btn_style
