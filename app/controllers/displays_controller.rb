@@ -1,5 +1,6 @@
 class DisplaysController < ApplicationController
   def index
+    #N＋１問題解消
     @goods_items = GoodsItem.all.includes(user: :images)
     #カテゴリー
     @womens = GoodsItem.where(category: 'レディース')
