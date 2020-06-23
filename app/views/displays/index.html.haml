@@ -81,6 +81,7 @@
     .main__page__pickup
       .title ピックアップカテゴリー
       .display-box
+        -#カテゴリーはレディース、メンズ、おもちゃ、家電のみ
         .displayHead レディース
         .displayLists
           - @womens.each do |women|
@@ -168,6 +169,7 @@
     .main__page__pickup
       .title ピックアップブランド
       .display-box
+        -#ブランドはapple、Louis Vuittonのみ
         .displayHead apple
         .displayLists
           - @apples.each do |apple|
