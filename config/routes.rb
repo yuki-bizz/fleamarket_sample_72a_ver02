@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   get 'static/goods_confirm'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root "displays#index"
-#  root "static#regist"
+
 
 end
