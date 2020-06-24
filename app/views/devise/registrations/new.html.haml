@@ -50,62 +50,16 @@
               %ul#set_3coluum.birthday_select
                 %li.f_trisection.year               
                   %select{:name => "user[birth_year]"}
-                    %option{:value => "0"} --
-                    %option{:value => "1"} 1979
-                    %option{:value => "2"} 1978
-                    %option{:value => "3"} 1976
-                    %option{:value => "4"} 1975
-
+                    - for i in 1979..2020
+                      %option{:value => "#{i}"} #{i}
                 %li.f_trisection.manth
                   %select{:name => "user[birth_month]"}
-                    %option{:value => "0"} --
-                    %option{:value => "1"} 1
-                    %option{:value => "2"} 2
-                    %option{:value => "3"} 3
-                    %option{:value => "4"} 4
-                    %option{:value => "5"} 5
-                    %option{:value => "6"} 6
-                    %option{:value => "7"} 7
-                    %option{:value => "8"} 8
-                    %option{:value => "9"} 9
-                    %option{:value => "10"} 10
-                    %option{:value => "11"} 11
-                    %option{:value => "12"} 12
-
+                    - for i in 1..12
+                      %option{:value => "#{i}"} #{i}
                 %li.f_trisection.day
                   %select{:name => "user[birth_day]"}
-                    %option{:value => "0"} --
-                    %option{:value => "1"} 1
-                    %option{:value => "2"} 2
-                    %option{:value => "3"} 3
-                    %option{:value => "4"} 4
-                    %option{:value => "5"} 5
-                    %option{:value => "6"} 6
-                    %option{:value => "7"} 7
-                    %option{:value => "8"} 8
-                    %option{:value => "9"} 9
-                    %option{:value => "10"} 10
-                    %option{:value => "11"} 11
-                    %option{:value => "12"} 12
-                    %option{:value => "13"} 13
-                    %option{:value => "14"} 14
-                    %option{:value => "15"} 15
-                    %option{:value => "16"} 16
-                    %option{:value => "17"} 17
-                    %option{:value => "18"} 18
-                    %option{:value => "19"} 19
-                    %option{:value => "20"} 20
-                    %option{:value => "21"} 21
-                    %option{:value => "22"} 22
-                    %option{:value => "23"} 23
-                    %option{:value => "24"} 24
-                    %option{:value => "25"} 25
-                    %option{:value => "26"} 26
-                    %option{:value => "27"} 27
-                    %option{:value => "28"} 28
-                    %option{:value => "29"} 29
-                    %option{:value => "30"} 30
-                    %option{:value => "31"} 31
+                    - for i in 1..31
+                      %option{:value => "#{i}"} #{i}
               .attention
                 %p.c_gray
                   ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -204,8 +158,6 @@
         = render "devise/shared/links"
 
 :javascript
-
-
   jQuery.validator.addMethod("zen", function(value, element) {
     return this.optional( element ) || /\A[a-zA-Z0-9]+\z/.test( value );
   }, '全角で入力してください。');
@@ -221,6 +173,7 @@
   jQuery.validator.addMethod("tel", function(value, element) {
     return this.optional( element ) || /\A\d{10,11}\z/.test( value );
   }, '半角数字の桁数をご確認ください。');
+
 
   $("#new_user").validate({
     rules: {
