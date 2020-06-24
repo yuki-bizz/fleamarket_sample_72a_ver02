@@ -3,6 +3,32 @@ ja:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
+
+    models:
+      user: ユーザー
+    attributes:
+      ########## ユーザー登録時バリデーションここから ##########
+      user:
+        email: メールアドレス
+        nickname: ニックネーム
+        family_name: "お名前（全角）：例）山田 "
+        first_name: "お名前（全角）：例）彩 "
+        family_name_kana: "お名前カナ（全角）：例）ヤマダ "
+        first_name_kana: "お名前カナ（全角）：例）アヤ "
+        birth_year: "生年月日：年 "
+        birth_month: "生年月日：月 "
+        birth_day: "生年月日：日 "
+        delivery_family_name: "[受取人]お名前（全角）：例）山田 "
+        delivery_first_name: "[受取人]お名前（全角）：例）彩 "
+        delivery_family_name_kana: "[受取人]お名前カナ（全角）：例）ヤマダ "
+        delivery_first_name_kana: "[受取人]お名前カナ（全角）：例）アヤ "
+        postcode: 郵便番号
+        province: 都道府県
+        city: 市区町村
+        address1: 番地
+        tellphone_number: 電話番号
+      ########## ユーザー登録時バリデーションここまで ##########
+
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
