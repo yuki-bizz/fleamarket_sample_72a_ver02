@@ -202,3 +202,92 @@
               %li.btn_style
                 = f.submit "登録"
         = render "devise/shared/links"
+
+:javascript
+
+
+  jQuery.validator.addMethod("zen", function(value, element) {
+    return this.optional( element ) || /\A[a-zA-Z0-9]+\z/.test( value );
+  }, '全角で入力してください。');
+
+  jQuery.validator.addMethod("katakana", function(value, element) {
+    return this.optional( element ) || /^[ア-ン゛゜ァ-ォャ-ョー「」、]+$/.test( value );
+  }, '全角カタカナでご入力ください。');
+
+  jQuery.validator.addMethod("isZip", function(value, element) {
+    return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
+  }, '郵便番号をご確認ください。');
+
+  jQuery.validator.addMethod("tel", function(value, element) {
+    return this.optional( element ) || /\A\d{10,11}\z/.test( value );
+  }, '半角数字の桁数をご確認ください。');
+
+  $("#new_user").validate({
+    rules: {
+      "user[nickname]": {
+        required: true
+      },
+      "user[email]": {
+        required: true
+      },
+      "user[password]": {
+        required: true
+      },
+      "useruser[password_confirmation]": {
+        required: true
+      },
+      "user[family_name]": {
+        required: true,
+        zen: true
+      },
+      "user[first_name]": {
+        required: true,
+        zen: true
+      },
+      "user[family_name_kana]": {
+        required: true,
+        katakana: true
+      },
+      "user[first_name_kana]": {
+        required: true,
+        katakana: true
+      },
+      "user[birth_year]": {
+        required: true
+      },
+      "user[birth_month]": {
+        required: true
+      },
+      "user[birth_day]": {
+        required: true
+      },
+      "user[postcode]": {
+        required: true,
+        isZip: true
+      },
+      "user[province]": {
+        required: true
+      },
+      "user[city]": {
+        required: true
+      },
+      "user[address1]": {
+        required: true
+      },
+      "user[delivery_family_name]": {
+        required: true
+      },
+      "user[delivery_first_name]": {
+        required: true
+      },
+      "user[delivery_family_name_kana]": {
+        required: true
+      },
+      "user[delivery_first_name_kana]": {
+        required: true
+      },
+      "user[tellphone_number]": {
+        tel: true
+      }
+    }
+  });
