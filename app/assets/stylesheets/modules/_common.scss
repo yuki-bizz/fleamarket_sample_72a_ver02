@@ -406,24 +406,19 @@ input[type="number"] {
         margin-left: auto;
         display: flex;
         list-style: none;
-        &__login {
+        li {
           padding: 0 0 0 16px;
           a {
+            display: block;
             color: $c_black;
-            text-decoration: none;
           }
         }
-        &__new {
-          padding: 0 0 0 16px;
-          a {
-            color: $c_black;
-            text-decoration: none;
-          }
-        }
+        
       }
     }
   }
 }
+
 /*---------/ header ---------*/
 
 
