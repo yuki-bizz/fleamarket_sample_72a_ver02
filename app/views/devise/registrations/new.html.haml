@@ -18,13 +18,13 @@
               = f.email_field :email, placeholder:"PC・携帯どちらでも可", autocomplete: "email"
             .field-list
               = f.label value="パスワード", class:'password required'
-              - if @minimum_password_length
-                %em
-                  （#{@minimum_password_length}文字以上の半角英数字で入力してください）
+              /- if @minimum_password_length
+              /  %em
+              /    （#{@minimum_password_length}文字以上の半角英数字で入力してください）
               = f.password_field :password,placeholder:"7文字以上の半角英数字", autocomplete: "new-password"
               .attention
                 %p
-                  ※ 英字と数字の両方を含めて設定してください
+                  ※ #{@minimum_password_length}文字以上の英字と数字の両方を含めて設定してください
             .field-list
               = f.label value="パスワード確認", class:'password required'
               = f.password_field :password_confirmation, placeholder:"7文字以上の半角英数字", autocomplete: "new-password"
@@ -52,14 +52,17 @@
               %ul#set_3coluum.birthday_select
                 %li.f_trisection.year
                   %select{:name => "user[birth_year]"}
+                    %option{:value => ""} --
                     - for i in 1979..2020
                       %option{:value => "#{i}"} #{i}
                 %li.f_trisection.manth
                   %select{:name => "user[birth_month]"}
+                    %option{:value => ""} --
                     - for i in 1..12
                       %option{:value => "#{i}"} #{i}
                 %li.f_trisection.day
                   %select{:name => "user[birth_day]"}
+                    %option{:value => ""} --
                     - for i in 1..31
                       %option{:value => "#{i}"} #{i}
               .attention
@@ -75,6 +78,7 @@
               %ul
                 %li
                   %select{:name => "user[province]"}
+                    %option{:value => ""} 選択してください
                     %option{:value => "北海道"} 北海道
                     %option{:value => "青森県"} 青森県
                     %option{:value => "岩手県"} 岩手県
@@ -157,15 +161,14 @@
             %ul.btn_wrap
               %li.btn_style
                 = f.submit "登録"
-        = render "devise/shared/links"
 
 :javascript
-  jQuery.validator.addMethod("han", function(value, element) {
+  jQuery.validator.addMethod("han_em", function(value, element) {
     return this.optional( element ) || /^[a-zA-Z0-9]+$/.test( value );
   }, '半角英数字でご入力ください。');
 
   jQuery.validator.addMethod("zen", function(value, element) {
-    return this.optional( element ) || /\A[一-龥ぁ-ん]/.test( value );
+    return this.optional( element ) || /^[ぁ-んァ-ン一-龥]/.test( value );
   }, '全角で入力してください。');
 
   jQuery.validator.addMethod("katakana", function(value, element) {
@@ -176,9 +179,9 @@
     return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
   }, '郵便番号をご確認ください。');
 
-  jQuery.validator.addMethod("tel", function(value, element) {
-    return this.optional( element ) || /\A\d{10,11}\z/.test( value );
-  }, '半角数字の桁数をご確認ください。');
+  jQuery.validator.addMethod("han_m", function(value, element) {
+    return this.optional( element ) || /^[0-9]+$/.test( value );
+  }, '半角数字でご入力ください。');
 
 
 
@@ -193,12 +196,12 @@
       "user[password]": {
         required: true,
         minlength: 7,
-        han: true
+        han_em: true
       },
       "user[password_confirmation]": {
         required: true,
         minlength: 7,
-        han: true,
+        han_em: true,
         equalTo: "#user_password"
       },
       "user[family_name]": {
@@ -246,13 +249,15 @@
         required: true
       },
       "user[delivery_family_name_kana]": {
-        required: true
+        required: true,
+        katakana: true
       },
       "user[delivery_first_name_kana]": {
-        required: true
+        required: true,
+        katakana: true
       },
       "user[tellphone_number]": {
-        tel: true
+        han_m: true
       }
     },
     messages: {
