@@ -1,0 +1,7 @@
+.wrap.page_errors
+.errors
+- if @goods_item.errors.any?
+  #error_explanation
+    %ul
+      - @goods_item.errors.full_messages.each do |msg|
+        %li= msg

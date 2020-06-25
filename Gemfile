@@ -78,3 +78,6 @@ gem 'mini_magick'
 
 # デバッグツール
 gem 'pry-rails'
+
+# active_hashの導入
+gem 'active_hash'

@@ -12,10 +12,17 @@ Rails.application.routes.draw do
   #end
 
   #resources :displays
+  # 吉永記入
+  resources :displays
+  # 吉永記入
+  resources :goods_items, except: :show
 
   # トップページからの遷移 add ozaki
   get 'static/regist'
   get 'static/exhibition'
+  # 吉永記入
+  get 'goods_items/index'
+
   get 'static/detail_test'
 
   # ペタうち確認用
