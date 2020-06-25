@@ -3,6 +3,8 @@
     .logo
       = image_tag("logo.png", alt: "ロゴ")
   .contents_box
+    %h2.content_ttl
+      会員情報入力
     .form
       .form__inner
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -16,13 +18,13 @@
               = f.email_field :email, placeholder:"PC・携帯どちらでも可", autocomplete: "email"
             .field-list
               = f.label value="パスワード", class:'password required'
-              - if @minimum_password_length
-                %em
-                  （#{@minimum_password_length}文字以上の半角英数字で入力してください）
+              /- if @minimum_password_length
+              /  %em
+              /    （#{@minimum_password_length}文字以上の半角英数字で入力してください）
               = f.password_field :password,placeholder:"7文字以上の半角英数字", autocomplete: "new-password"
               .attention
                 %p
-                  ※ 英字と数字の両方を含めて設定してください
+                  ※ #{@minimum_password_length}文字以上の英字と数字の両方を含めて設定してください
             .field-list
               = f.label value="パスワード確認", class:'password required'
               = f.password_field :password_confirmation, placeholder:"7文字以上の半角英数字", autocomplete: "new-password"
@@ -48,64 +50,21 @@
             .field-list
               = f.label value="生年月日", class:'birthday required'
               %ul#set_3coluum.birthday_select
-                %li.f_trisection.year               
+                %li.f_trisection.year
                   %select{:name => "user[birth_year]"}
-                    %option{:value => "0"} --
-                    %option{:value => "1"} 1979
-                    %option{:value => "2"} 1978
-                    %option{:value => "3"} 1976
-                    %option{:value => "4"} 1975
-
+                    %option{:value => ""} --
+                    - for i in 1979..2020
+                      %option{:value => "#{i}"} #{i}
                 %li.f_trisection.manth
                   %select{:name => "user[birth_month]"}
-                    %option{:value => "0"} --
-                    %option{:value => "1"} 1
-                    %option{:value => "2"} 2
-                    %option{:value => "3"} 3
-                    %option{:value => "4"} 4
-                    %option{:value => "5"} 5
-                    %option{:value => "6"} 6
-                    %option{:value => "7"} 7
-                    %option{:value => "8"} 8
-                    %option{:value => "9"} 9
-                    %option{:value => "10"} 10
-                    %option{:value => "11"} 11
-                    %option{:value => "12"} 12
-
+                    %option{:value => ""} --
+                    - for i in 1..12
+                      %option{:value => "#{i}"} #{i}
                 %li.f_trisection.day
                   %select{:name => "user[birth_day]"}
-                    %option{:value => "0"} --
-                    %option{:value => "1"} 1
-                    %option{:value => "2"} 2
-                    %option{:value => "3"} 3
-                    %option{:value => "4"} 4
-                    %option{:value => "5"} 5
-                    %option{:value => "6"} 6
-                    %option{:value => "7"} 7
-                    %option{:value => "8"} 8
-                    %option{:value => "9"} 9
-                    %option{:value => "10"} 10
-                    %option{:value => "11"} 11
-                    %option{:value => "12"} 12
-                    %option{:value => "13"} 13
-                    %option{:value => "14"} 14
-                    %option{:value => "15"} 15
-                    %option{:value => "16"} 16
-                    %option{:value => "17"} 17
-                    %option{:value => "18"} 18
-                    %option{:value => "19"} 19
-                    %option{:value => "20"} 20
-                    %option{:value => "21"} 21
-                    %option{:value => "22"} 22
-                    %option{:value => "23"} 23
-                    %option{:value => "24"} 24
-                    %option{:value => "25"} 25
-                    %option{:value => "26"} 26
-                    %option{:value => "27"} 27
-                    %option{:value => "28"} 28
-                    %option{:value => "29"} 29
-                    %option{:value => "30"} 30
-                    %option{:value => "31"} 31
+                    %option{:value => ""} --
+                    - for i in 1..31
+                      %option{:value => "#{i}"} #{i}
               .attention
                 %p.c_gray
                   ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -119,6 +78,7 @@
               %ul
                 %li
                   %select{:name => "user[province]"}
+                    %option{:value => ""} 選択してください
                     %option{:value => "北海道"} 北海道
                     %option{:value => "青森県"} 青森県
                     %option{:value => "岩手県"} 岩手県
@@ -180,7 +140,7 @@
               = f.text_field :address2 ,placeholder:"例）柳ビル103",clsss:'',id:'Building'
             .field-list
               %p.form_sub-ttl
-                受取人様のお名前
+                受取人様の情報
               = f.label value="お名前(全角)", class:'name required'
               %ul#set_2coluum
                 %li.f_half
@@ -201,4 +161,112 @@
             %ul.btn_wrap
               %li.btn_style
                 = f.submit "登録"
-        = render "devise/shared/links"
+
+:javascript
+  jQuery.validator.addMethod("han_em", function(value, element) {
+    return this.optional( element ) || /^[a-zA-Z0-9]+$/.test( value );
+  }, '半角英数字でご入力ください。');
+
+  jQuery.validator.addMethod("zen", function(value, element) {
+    return this.optional( element ) || /^[ぁ-んァ-ン一-龥]/.test( value );
+  }, '全角で入力してください。');
+
+  jQuery.validator.addMethod("katakana", function(value, element) {
+    return this.optional( element ) || /^[ア-ン゛゜ァ-ォャ-ョー「」、]+$/.test( value );
+  }, '全角カタカナでご入力ください。');
+
+  jQuery.validator.addMethod("isZip", function(value, element) {
+    return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
+  }, '郵便番号をご確認ください。');
+
+  jQuery.validator.addMethod("han_m", function(value, element) {
+    return this.optional( element ) || /^[0-9]+$/.test( value );
+  }, '半角数字でご入力ください。');
+
+
+
+  $("#new_user").validate({
+    rules: {
+      "user[nickname]": {
+        required: true
+      },
+      "user[email]": {
+        required: true
+      },
+      "user[password]": {
+        required: true,
+        minlength: 7,
+        han_em: true
+      },
+      "user[password_confirmation]": {
+        required: true,
+        minlength: 7,
+        han_em: true,
+        equalTo: "#user_password"
+      },
+      "user[family_name]": {
+        required: true,
+        zen: true
+      },
+      "user[first_name]": {
+        required: true,
+        zen: true
+      },
+      "user[family_name_kana]": {
+        required: true,
+        katakana: true
+      },
+      "user[first_name_kana]": {
+        required: true,
+        katakana: true
+      },
+      "user[birth_year]": {
+        required: true
+      },
+      "user[birth_month]": {
+        required: true
+      },
+      "user[birth_day]": {
+        required: true
+      },
+      "user[postcode]": {
+        required: true,
+        isZip: true
+      },
+      "user[province]": {
+        required: true
+      },
+      "user[city]": {
+        required: true
+      },
+      "user[address1]": {
+        required: true
+      },
+      "user[delivery_family_name]": {
+        required: true
+      },
+      "user[delivery_first_name]": {
+        required: true
+      },
+      "user[delivery_family_name_kana]": {
+        required: true,
+        katakana: true
+      },
+      "user[delivery_first_name_kana]": {
+        required: true,
+        katakana: true
+      },
+      "user[tellphone_number]": {
+        han_m: true
+      }
+    },
+    messages: {
+      "user[password]": {
+          minlength: "7文字以上の半角英数字でご入力ください"
+      },
+      "user[password_confirmation]": {
+          minlength: "7文字以上の半角英数字でご入力ください",
+          equalTo: "パスワードが一致しません"
+      },
+    }
+  });

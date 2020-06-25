@@ -3,11 +3,10 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FleamarketSample72aVer02
-    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     %script{src:'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'}
-    %script{src: "/aseets/javascripts/jquery.validate.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     
   %body
