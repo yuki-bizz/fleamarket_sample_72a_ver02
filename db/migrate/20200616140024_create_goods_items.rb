@@ -9,7 +9,7 @@ class CreateGoodsItems < ActiveRecord::Migration[5.0]
       t.string :condition, null: false
       t.string :shipping_fee, null: false
       t.string :province , null: false
-      t.integer :delivery_way_id, null: false
+      t.string :delivery_way, null: false
       t.string :delivery_date, null: false
       t.integer :selling_price, null: false
       t.string :status
