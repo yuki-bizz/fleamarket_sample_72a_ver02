@@ -178,6 +178,17 @@ input[type="number"] {
     padding: 15px 10px 10px 10px;
     border-bottom: 1px dotted;
   }
+  .error_explanation {
+    h2 {
+      padding-bottom: 10px;
+    }
+    ul li {
+      color: $c_red;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+  }
+  
 
 
   &__inner{
@@ -203,9 +214,8 @@ input[type="number"] {
         }
       }
       #set_3coluum{
+        display: flex;
         .f_trisection {
-          display: inline-block;
-          vertical-align: middle;
         }
       }
 
