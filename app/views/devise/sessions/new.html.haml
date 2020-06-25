@@ -1,21 +1,29 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Log in
-      %h5 登録しているユーザーでログイン
-      = render "devise/shared/links"
-    .account-page__inner--right.user-form
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+.wrap.page_login.one_col.page_form
+  .logo_wrap
+    .logo
+      = image_tag("logo.png", alt: "ロゴ")
+  .contents_box.mini
+
+
+    .form
+      .form_info-top
+        .form__inner
+          %p
+            アカウントをお持ちでない方はこちら
+          %ul.btn_wrap
+            %li.btn_style
+              = link_to "/users/sign_up", class: '' do
+                新規会員登録
+
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html:{ class:'form__inner' }) do |f|
         .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email, autofocus: true
-          .field
-            .field-label
-              = f.label :password
-              %i (英数字8文字以上)
-            .field-input
-              = f.password_field :password, autocomplete: "off"
-          .actions
-            = f.submit "Log in", class: 'btn'
+          .field-list
+            = f.label value="メールアドレス", class:'email'
+            = f.email_field :email, placeholder:"ご登録のメールアドレス", autofocus: true
+          .field-list
+            = f.label value="パスワード", class:'password'
+          .field-list
+            = f.password_field :password, placeholder:"7文字以上の半角英数字", autocomplete: "off"
+          %ul.btn_wrap
+            %li.btn_style
+              = f.submit "ログイン", class: 'btn'
