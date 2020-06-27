@@ -626,6 +626,9 @@
             background-color: $c_white;
             padding: 24px 40px 40px;
             margin: 0;
+            .more{
+              float: right;
+            }
             &__name {
               font-size: 24px;
               text-align: center;
@@ -684,6 +687,7 @@
               background-color: $c_red;
               text-align: center;
               a {
+                display: block;
                 color: $c_white;
                 font-weight: 600;
               }

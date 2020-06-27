@@ -28,11 +28,11 @@
             = icon('fas', 'sort-down', class: "more")
             %ul
               .more_list
-                -# -if user_signed_in? && current_user.id == seller_id
-                %li
-                  =link_to "編集" , edit_goods_item_path(@goods_item.id)
-                %li
-                  =link_to '削除', goods_item_path(@goods_item.id), method: :delete
+                =if user_signed_in? && current_user.id == seller_id
+                  %li
+                    =link_to "編集" , edit_goods_item_path(@goods_item.id)
+                  %li
+                    =link_to '削除', goods_item_path(@goods_item.id), method: :delete
             .goods-box__name
               Goods
             -# image_tagは商品出品機能が実装終了後に追加
