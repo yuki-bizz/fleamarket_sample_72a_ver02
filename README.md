@@ -64,7 +64,6 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |explanation|text|null: false|
-|category|string|null: false|
 |brand|string||
 |condition|string|null: false|
 |shipping_fee|string|null: false|
@@ -78,10 +77,22 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- belongs_to :category
 - has_many :comments dependent: :destroy
 - has_many :images dependent: :destroy
 - has_one :evaluation dependent: :destroy
 - has_one :order dependent: :destroy
+
+
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|goods_item_id|string|
+
+### Association
+- has_many :goods_items dependent: :destroy
 
 
 ## imagesテーブル

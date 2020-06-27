@@ -440,13 +440,19 @@
       bottom: 5px;
       right: -20px;
     }
-    .manth:after{
+    .month:after{
       content:"月";
     }
     .year:after{
       content:"年";
     }
   }
+    #token_submit{
+      color: $c_white;
+      background: $c_green;
+      cursor: pointer;
+      margin-top: 40px;
+    }
 }
 
 
