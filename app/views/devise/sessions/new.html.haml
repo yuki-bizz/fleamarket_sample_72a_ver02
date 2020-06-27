@@ -1,10 +1,8 @@
-.wrap.page_login.one_col.page_form
+.wrap.page_login.one_col.page_form 
   .logo_wrap
     .logo
       = image_tag("logo.png", alt: "ロゴ")
   .contents_box.mini
-
-
     .form
       .form_info-top
         .form__inner
@@ -12,7 +10,7 @@
             アカウントをお持ちでない方はこちら
           %ul.btn_wrap
             %li.btn_style
-              = link_to "/users/sign_up", class: '' do
+              = link_to "/users/sign_up" do
                 新規会員登録
 
       = form_for(resource, as: resource_name, url: session_path(resource_name), html:{ class:'form__inner' }) do |f|
@@ -22,8 +20,7 @@
             = f.email_field :email, placeholder:"ご登録のメールアドレス", autofocus: true
           .field-list
             = f.label value="パスワード", class:'password'
-          .field-list
             = f.password_field :password, placeholder:"7文字以上の半角英数字", autocomplete: "off"
           %ul.btn_wrap
             %li.btn_style
-              = f.submit "ログイン", class: 'btn'
+              = f.submit "ログイン", class: 'btn' 
