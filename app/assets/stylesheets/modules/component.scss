@@ -626,9 +626,6 @@
             background-color: $c_white;
             padding: 24px 40px 40px;
             margin: 0;
-            .more{
-              float: right;
-            }
             &__name {
               font-size: 24px;
               text-align: center;
@@ -680,6 +677,7 @@
               }
             }
             .buy-btn {
+              color: $c_white;
               font-size: 24px;
               line-height: 60px;
               margin-top: 16px;

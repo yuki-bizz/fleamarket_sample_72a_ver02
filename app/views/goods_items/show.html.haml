@@ -25,10 +25,10 @@
         .top-content
           .goods-box
             .more
-            = icon('fas', 'sort-down', class: "more")
-            %ul
+            - if user_signed_in? && current_user.id == @goods_item.seller_id
+              = icon('fas', 'sort-down', class: "more")
               .more_list
-              - if user_signed_in? && current_user.id == seller_id
+              %ul
                 %li
                   =link_to "編集" , edit_goods_item_path(@goods_item.id)
                 %li
@@ -53,8 +53,8 @@
               .goods-box__price__tax
                 (税込み)送料込み
             .buy-btn
-              - if user_signed_in? && current_user.id == seller_id
-                エラー！出品者は購入できません。
+              - if user_signed_in? && current_user.id == @goods_item.seller_id
+                出品者は購入できません。
               - else
                 =link_to "#", class: 'btn' do
                   %span
