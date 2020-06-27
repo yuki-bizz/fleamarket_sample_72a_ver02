@@ -28,11 +28,11 @@
             = icon('fas', 'sort-down', class: "more")
             %ul
               .more_list
-                =if user_signed_in? && current_user.id == seller_id
-                  %li
-                    =link_to "編集" , edit_goods_item_path(@goods_item.id)
-                  %li
-                    =link_to '削除', goods_item_path(@goods_item.id), method: :delete
+              - if user_signed_in? && current_user.id == seller_id
+                %li
+                  =link_to "編集" , edit_goods_item_path(@goods_item.id)
+                %li
+                  =link_to '削除', goods_item_path(@goods_item.id), method: :delete
             .goods-box__name
               Goods
             -# image_tagは商品出品機能が実装終了後に追加
@@ -53,7 +53,7 @@
               .goods-box__price__tax
                 (税込み)送料込み
             .buy-btn
-              =link_to "#", class: 'links' do
+              =link_to "#", class: 'btn' do
                 %span 
                   商品購入画面に進む
             .goods-box__instruction
