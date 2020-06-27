@@ -84,24 +84,24 @@
         -#カテゴリーはレディース、メンズ、おもちゃ、家電のみ
         .displayHead レディース
         .displayLists
-          - @womens.each do |women|
+          - @ladys.each do |lady|
             .displayList
-              - if women.buyer_id.nil?
-                = link_to "/static/detail_test" do
+              - if lady.buyer_id.nil?
+                %a{href: 'static/detail_test'}
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "parka.png", size: '160x150'
                   .displayList--body
                     %h3.name 
-                      = women.name
+                      = lady.name
                     .explanation
                       %ul
                         %li
-                          = women.selling_price
+                          = lady.selling_price
                           円
                         %li.likeIcon
                           = icon('fas', 'star')
-                          = women.status
+                          = lady.status
                       %p （税込）
         .displayHead メンズ
         .displayLists
@@ -126,45 +126,45 @@
                       %p （税込）
         .displayHead おもちゃ・ホビー・グッズ
         .displayLists
-          - @toys.each do |toy|
+          - @toy_hobby_goods.each do |toy_hobby_good|
             .displayList
-              - if toy.buyer_id.nil?
-                = link_to "/static/detail_test" do
+              - if toy_hobby_good.buyer_id.nil?
+                %a{href: 'static/detail_test'}
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "nuigurumi_bear.png", size: '160x150'
                   .displayList--body
                     %h3.name 
-                      = toy.name
+                      = toy_hobby_good.name
                     .explanation
                       %ul
                         %li
-                          = toy.selling_price
+                          = toy_hobby_good.selling_price
                           円
                         %li.likeIcon
                           = icon('fas', 'star')
-                          = toy.status
+                          = toy_hobby_good.status
                       %p （税込）
         .displayHead 家電・スマホ・カメラ
         .displayLists
-          - @appliances.each do |appliance|
+          - @appliance_smartphone_cameras.each do |appliance_smartphone_camera|
             .displayList
-              - if appliance.buyer_id.nil?
-                = link_to "/static/detail_test" do
+              - if appliance_smartphone_camera.buyer_id.nil?
+                %a{href: 'static/detail_test'}
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "smartphone.png", size: '160x150'
                   .displayList--body
                     %h3.name 
-                      = appliance.name
+                      = appliance_smartphone_camera.name
                     .explanation
                       %ul
                         %li
-                          = appliance.selling_price
+                          = appliance_smartphone_camera.selling_price
                           円
                         %li.likeIcon
                           = icon('fas', 'star')
-                          = appliance.status
+                          = appliance_smartphone_camera.status
                       %p （税込）
     .main__page__pickup
       .title ピックアップブランド
