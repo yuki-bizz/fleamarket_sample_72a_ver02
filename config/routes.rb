@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'sign_out', :to => 'users/sessions#destroy'
   end
 
-  resources :displays
+  # resources :displays
   resources :goods_items, only: [:show, :destroy, :edit]
 
   # トップページからの遷移 add ozaki
