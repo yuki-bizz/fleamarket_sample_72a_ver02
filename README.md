@@ -152,7 +152,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|goods_item_id|string|
 
 ### Association
 - has_many :goods_items dependent: :destroy
