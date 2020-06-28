@@ -108,7 +108,7 @@
           - @mens.each do |man|
             .displayList
               - if man.buyer_id.nil?
-                = link_to "goods_items/show" do
+                = link_to "/goods_items/show" do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "shoes.png", size: '160x150'
