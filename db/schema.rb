@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20200627080654) do
     t.integer  "user_id",                     null: false
     t.string   "name",                        null: false
     t.text     "explanation",   limit: 65535, null: false
+    t.integer  "category_id",                 null: false
     t.string   "brand"
     t.string   "condition",                   null: false
     t.string   "shipping_fee",                null: false
@@ -56,9 +57,6 @@ ActiveRecord::Schema.define(version: 20200627080654) do
     t.integer  "buyer_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "ancestry"
-    t.integer  "category_id"
-    t.index ["ancestry"], name: "index_goods_items_on_ancestry", using: :btree
     t.index ["user_id"], name: "index_goods_items_on_user_id", using: :btree
   end
 
