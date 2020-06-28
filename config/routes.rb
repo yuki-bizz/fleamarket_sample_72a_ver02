@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   # 商品情報編集ページから商品詳細ページへの遷移 add oikawa
   patch '/goods_items/show'
   
+  #  root "displays#index"
+  root "displays#index"
 end
