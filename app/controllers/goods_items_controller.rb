@@ -1,7 +1,8 @@
 class GoodsItemsController < ApplicationController
 
+before_action :set_goods_item
+
   def show
-    @goods_item = GoodsItem.find(params[:id])
   end
 
   def destroy
@@ -10,6 +11,11 @@ class GoodsItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+
+  def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
   end
 
