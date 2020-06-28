@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   get 'static/regist'
   get 'static/card'
 
+  # my_pageサイドメニューからクレジットカード登録へ遷移 add tsutsumi
+  get 'static/new'
+
   # 商品購入確認ページの確認用 add tsutsumi
   get 'static/goods_confirm'
   
