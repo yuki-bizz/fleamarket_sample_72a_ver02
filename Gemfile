@@ -78,3 +78,6 @@ gem 'mini_magick'
 
 # デバッグツール
 gem 'pry-rails'
+
+# 多階層ancestryの導入
+gem 'ancestry'

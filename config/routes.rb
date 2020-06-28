@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   get 'static/goods_confirm'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "displays#index"
 
   # 商品情報編集ページから商品詳細ページへの遷移 add oikawa
   patch '/goods_items/show'
