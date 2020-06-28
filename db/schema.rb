@@ -22,10 +22,9 @@ ActiveRecord::Schema.define(version: 20200627080654) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          null: false
-    t.string   "goods_item_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
