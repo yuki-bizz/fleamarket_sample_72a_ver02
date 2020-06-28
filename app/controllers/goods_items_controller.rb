@@ -6,7 +6,6 @@ before_action :set_goods_item
   end
 
   def destroy
-    goods_item = GoodsItem.find(params[:id])
     goods_item.destroy
   end
 
