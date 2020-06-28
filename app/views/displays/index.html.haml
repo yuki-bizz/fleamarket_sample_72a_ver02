@@ -87,7 +87,7 @@
           - @ladys.each do |lady|
             .displayList
               - if lady.buyer_id.nil?
-                %a{href: 'goods_items/show'}
+                =link_to “/goods_items/show” do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "parka.png", size: '160x150'
@@ -129,7 +129,7 @@
           - @toy_hobby_goods.each do |toy_hobby_good|
             .displayList
               - if toy_hobby_good.buyer_id.nil?
-                %a{href: 'goods_items/show'}
+                =link_to “/goods_items/show” do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "nuigurumi_bear.png", size: '160x150'
@@ -150,7 +150,7 @@
           - @appliance_smartphone_cameras.each do |appliance_smartphone_camera|
             .displayList
               - if appliance_smartphone_camera.buyer_id.nil?
-                %a{href: 'goods_items/show'}
+                =link_to “/goods_items/show” do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "smartphone.png", size: '160x150'
