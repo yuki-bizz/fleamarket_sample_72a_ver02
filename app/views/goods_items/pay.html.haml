@@ -43,6 +43,7 @@
       .main__purchase-box__inner__form
         .main__purchase-box__inner__form__btn
           購入する
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript", "data-text" => "購入する", "data-key" => "PAYJP_KEY"}
 .footer
-
 

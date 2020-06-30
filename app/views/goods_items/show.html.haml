@@ -41,8 +41,6 @@
             %i.fas.fa-plus-circle
             登録してください
       .main__purchase-box__inner__form
-        .main__purchase-box__inner__form__btn
-          購入する
+        = form_tag(action: :purchase, method: :post) do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript", "data-text" => "購入する", "data-key" => "pk_test_ad0b446a5dbe7a7e4a4156e7"}
 .footer
-
-

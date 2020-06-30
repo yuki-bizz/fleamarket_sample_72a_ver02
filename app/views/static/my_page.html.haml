@@ -186,7 +186,8 @@
               = link_to "regist", class: '' do
                 本人情報
             %li.menu-list.fa
-              = link_to "card", class: '' do
+              -# = link_to "card", class: '' do
+              = link_to "new", class: '' do
                 クレジットカード登録
             %li.menu-list.fa
               = link_to "ログアウト", destroy_user_session_path, method: :delete
