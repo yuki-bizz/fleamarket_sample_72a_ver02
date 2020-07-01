@@ -1,12 +1,203 @@
--# = form_for @goods_item do |f|
--#   商品名 
--#   = f.text_field :name
--#   %br/
--#   価格
--#   = f.number_field :price
--#   %br/
--#   = f.fields_for :images do |i|
--#     = i.file_field :src
--#     %br/
+.wrap.page_exhibition
 
--#   = f.submit
+  = form_for @goods_item do |f|
+    .contents_box
+      .contents_box__goods-image
+        .contents_box__goods-image__picture          
+        %label 出品画像
+        %span.h 必須
+
+        .contents_box__goods-image__text
+        %p 画像をアップロードしてください
+        .contents_box__goods-image__area
+          -# .contents_box__goods-image__area__icon
+          -#  = icon('fa', 'camera')
+          #image-box
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :src, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+      -# .contents_box__goods-image__text
+      -#   %p 画像をドラッグアンドドロップ
+      -#   %p またはクリックしてファイルをダウンロードして下さい
+      -# .contents_box__goods-image__area
+      -#   .contents_box__goods-image__area__icon
+      -#     = icon('fa', 'camera')
+    
+      .contents_box__goods
+        .contents_box__goods__name
+          商品名
+          %span 必須
+          = f.text_field :name 
+          -# %input{type: "text", placeholder:"40文字まで"}
+
+        .contents_box__goods__explain
+          -# .contents_box__goods__explain__title
+          商品の説明
+          %span 必須
+          = f.text_field :explanation
+          -# %textarea.goods_explain{placeholder:"商品の説明"}
+          -# %p.word-count 0/1000
+
+      .contents_box__detail
+        .contents_box__detail__title 
+          商品の詳細      
+        .contents_box__detail__category
+          カテゴリー
+          %span 必須
+        = f.text_field :category
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   %option{value: "レディース"} レディース
+        -#   %option{value: "メンズ"} メンズ
+        -#   %option{value: "ベビー・キッズ"} ベビー・キッズ
+        -#   %option{value: "インテリア・住まい・小物"} インテリア・住まい・小物
+        -#   %option{value: "本・音楽・ゲーム"} 本・音楽・ゲーム
+        -#   %option{value: "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
+        -#   %option{value: "コスメ・香水・美容"} コスメ・香水・美容
+        -#   %option{value: "家電・スマホ・カメラ"} 家電・スマホ・カメラ
+        -#   %option{value: "スポーツ・レジャー"} スポーツ・レジャー
+        -#   %option{value: "ハンドメイド"} ハンドメイド
+        -#   %option{value: "チケット"} チケット
+        -#   %option{value: "自転車・オートバイ"} 自転車・オートバイ
+        -#   %option{value: "その他"} その他
+
+        -# .contents_box__detail__size
+        -#   サイズ
+        -#   %span 必須
+        -# %select.category_select{name: "size"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   %option{value: "S"} S
+        -#   %option{value: "M"} M
+        -#   %option{value: "L"} L
+
+        .contents_box__detail__brand
+          ブランド
+          %span.free_will 任意
+          = f.text_field :brand
+          -# %input{type: "text", placeholder:"例）エルメス"}
+        .contents_box__detail__status
+          商品の状態
+          %span 必須
+          = f.text_field :condition
+        -# %select.status_select{name: "status"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   %option{value: "新品・未使用"} 新品・未使用
+        -#   %option{value: "未使用に近い"} 未使用に近い
+        -#   %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
+        -#   %option{value: "やや傷や汚れあり"} やや傷や汚れあり
+        -#   %option{value: "傷や汚れあり"} 傷や汚れあり
+        -#   %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
+
+      .contents_box__shipping
+        .contents_box__shipping__title
+          配送について
+        .contents_box__shipping__burden
+          配送料の負担
+          %span 必須
+        = f.text_field :shipping_fee
+        -# %select.shipping_select{name: "burden"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   %option{value: "送料込み（出品者負担）"} 送料込み（出品者負担）
+        -#   %option{value: "着払い（購入者負担）"} 着払い（購入者負担）
+        .contents_box__shipping__way
+          配送の方法
+          %span 必須
+        = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name
+        -# %select.shipping_select{name: "way"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   %option{value: "未定"} 未定
+        -#   %option{value: "ゆうメール"} ゆうメール
+        -#   %option{value: "クロネコヤマト"} クロネコヤマト
+        .contents_box__shipping__area
+          配送元の地域
+          %span 必須
+        = f.text_field :province
+        -# %select.shipping_select{name: "area"}
+        -#   %option{value: "1"} 選択して下さい
+        -#   %option{value: "２"} 北海道
+        -#   %option{value: "３"} 青森県
+        -#   %option{value: "４"} 岩手県
+        -#   %option{value: "５"} 宮城県
+        -#   %option{value: "６"} 秋田県
+        -#   %option{value: "7"} 山形県
+        -#   %option{value: "8"} 福島県
+        -#   %option{value: "9"} 茨城県
+        -#   %option{value: "10"} 栃木県
+        -#   %option{value: "11"} 群馬県
+        -#   %option{value: "12"} 埼玉県
+        -#   %option{value: "13"} 千葉県
+        -#   %option{value: "14"} 東京都
+        -#   %option{value: "15"} 神奈川県
+        -#   %option{value: "16"} 新潟県
+        -#   %option{value: "17"} 富山県
+        -#   %option{value: "18"} 石川県
+        -#   %option{value: "19"} 福井県
+        -#   %option{value: "20"} 山梨県
+        -#   %option{value: "21"} 長野県
+        -#   %option{value: "22"} 岐阜県
+        -#   %option{value: "23"} 静岡県
+        -#   %option{value: "24"} 愛知県
+        -#   %option{value: "25"} 三重県
+        -#   %option{value: "26"} 滋賀県
+        -#   %option{value: "27"} 京都府
+        -#   %option{value: "28"} 大阪府
+        -#   %option{value: "29"} 兵庫県
+        -#   %option{value: "30"} 奈良県
+        -#   %option{value: "31"} 和歌山県
+        -#   %option{value: "32"} 鳥取県
+        -#   %option{value: "33"} 島根県
+        -#   %option{value: "34"} 岡山県
+        -#   %option{value: "35"} 広島県
+        -#   %option{value: "36"} 山口県
+        -#   %option{value: "37"} 徳島県
+        -#   %option{value: "38"} 香川県
+        -#   %option{value: "39"} 愛媛県
+        -#   %option{value: "40"} 高知県
+        -#   %option{value: "41"} 福岡県
+        -#   %option{value: "42"} 佐賀県
+        -#   %option{value: "43"} 長崎県
+        -#   %option{value: "44"} 熊本県
+        -#   %option{value: "45"} 大分県
+        -#   %option{value: "46"} 宮崎県
+        -#   %option{value: "47"} 鹿児島県
+        -#   %option{value: "48"} 沖縄県
+
+        .contents_box__shipping__days
+          配送までの日数
+          %span 必須
+        = f.text_field :delivery_date
+        -# %select.shipping_select{name: "days"}
+        -#   %option{value: "1日~2日で発送"} 選択して下さい
+        -#   %option{value: "2日~3日で発送"} 新品・未使用
+        -#   %option{value: "4日~7日で発送"} 未使用に近い
+
+      .contents_box__price
+        .contents_box__price__selling-price
+          %p 価格
+          .contents_box__price__selling-price__input_form 
+            販売価格
+            %span.required 必須
+            .contents_box__price__selling-price__input_form__price_colum
+              %span.mark ¥
+              = f.number_field :selling_price
+              -# %input.input_price{name: "price", type: "number", placeholder:"0"}
+        .contents_box__price__fee
+          .contents_box__price__fee__title
+            -# 販売手数料(10%)
+          .contents_box__price__fee__decision
+            -# ー
+        .contents_box__price__profit
+          .contents_box__price__profit__title
+            -# 販売利益
+          .contents_box__price__profit__decision
+            -# ー
+      .contents_box__btn_wrap
+        %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
+          %font 出品する
+        -# %button.save_btn{name: "save", type: "submit", value:""}
+        -#   %font 下書きに保存      
+        %p 
+          %a{href: '#'} もどる
+      .contents_box__note 

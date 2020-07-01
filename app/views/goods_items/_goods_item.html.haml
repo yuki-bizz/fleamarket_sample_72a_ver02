@@ -10,9 +10,8 @@
   %p= goods_item.shipping_fee
   %p= goods_item.province
   %p= goods_item.delivery_date
-  -# %p= goods_item.delivery_way_id
   %p= goods_item.delivery_way.name
   %p= goods_item.selling_price
   
-  = goods_item.images.each do |image|
+  - goods_item.images.each do |image|
     = image_tag image.src.url

@@ -28,6 +28,20 @@ ja:
         address1: 番地
         tellphone_number: 電話番号
       ########## ユーザー登録時バリデーションここまで ##########
+      ############ 商品出品時バリデーションここから ###########
+    attributes:
+      goods_item:
+        name: 商品名
+        explanation: 商品の説明
+        category: カテゴリー
+        condition: 商品の状態
+        shipping_fee: 配送料の負担
+        province: 配送元の地域
+        delivery_way: 配送の方法
+        delivery_date: 配送までの日数
+        selling_price: 販売価格
+        images: 画像
+      ############ 商品出品時バリデーションここまで ###########
 
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
@@ -230,3 +244,5 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+    
+    ########## 商品出品時バリデーションここから ##########
