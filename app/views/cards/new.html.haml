@@ -1,3 +1,5 @@
+= form_tag(action: :pay, method: :post) do
+  %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_3ebd06a552bf3c90542f2dfc"}
 .wrap.page_credit_card.one_col.page_form
   .logo_wrap
     .logo

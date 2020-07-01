@@ -30,8 +30,8 @@ class GoodsItemsController < ApplicationController
     )
   end
 
-  def pay
-  end
+  #def pay
+  #end
 
   private
 

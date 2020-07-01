@@ -1,5 +1,5 @@
 class CreateGoodsItems < ActiveRecord::Migration[5.0]
-  def change
+  def up
     create_table :goods_items do |t|
       t.references :user, null: false, foreign_key: true 
       t.string :name, null: false
