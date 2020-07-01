@@ -1,0 +1,6 @@
+.content
+  = goods_item.name
+  = goods_item.price
+    円
+  - goods_item.images.each do |image|
+    = image_tag image.src.url
