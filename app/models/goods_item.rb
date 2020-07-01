@@ -1,6 +1,7 @@
 class GoodsItem < ApplicationRecord
   validates  :name,:province, :explanation, :category, :condition, :shipping_fee, :category, :delivery_way_id, :delivery_date, :selling_price, presence: true
   belongs_to :user
+  belongs_to :category
   has_many :images, dependent: :destroy
   # has_one :order, dependent: :destroy
   

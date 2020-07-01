@@ -464,7 +464,7 @@
       
       &__inner{
         height: 200px;
-        background-image: url(user-bg.jpg);
+        background-image: url(/images/user-bg.jpg);
         position: relative;
 
         .profile__detail {
@@ -588,7 +588,7 @@
               content: "";
               width: 48px;
               height: 48px;
-              background-image: url(logo_s.svg);
+              background-image: url(/images/logo_s.svg);
               position: absolute;
               top: 50%;
               left:10px;
@@ -674,6 +674,20 @@
                 margin-top: 10px;
                 padding: 0;
                 text-align: center;
+              }
+            }
+            .buy-btn {
+              color: $c_white;
+              font-size: 24px;
+              line-height: 60px;
+              margin-top: 16px;
+              margin-bottom: 32px;
+              background-color: $c_red;
+              text-align: center;
+              a {
+                display: block;
+                color: $c_white;
+                font-weight: 600;
               }
             }
             &__instruction {
