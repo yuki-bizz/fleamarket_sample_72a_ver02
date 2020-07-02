@@ -3,10 +3,10 @@ class DisplaysController < ApplicationController
     #N＋１問題解消
     @goods_items = GoodsItem.all.includes(user: :images)
     #カテゴリー
-    @womens = GoodsItem.where(category: 'レディース')
-    @mens = GoodsItem.where(category: 'メンズ')
-    @toys = GoodsItem.where(category: 'おもちゃ・ホビー・グッズ')
-    @appliances = GoodsItem.where(category: '家電・スマホ・カメラ')
+    @ladys = GoodsItem.where(category_id: '1')
+    @mens = GoodsItem.where(category_id: '2')
+    @toy_hobby_goods = GoodsItem.where(category_id: '6')
+    @appliance_smartphone_cameras = GoodsItem.where(category_id: '8')
     #ブランド
     @apples = GoodsItem.where(brand: 'apple')
     @louis_vuittons = GoodsItem.where(brand: 'Louis Vuitton')

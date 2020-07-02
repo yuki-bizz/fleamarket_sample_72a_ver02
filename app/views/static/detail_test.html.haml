@@ -1,25 +1,5 @@
-.header
-  .header__inner
-    .header__inner__main
-      .header__inner__main__icon
-        =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
-      .header__inner__main__search-box
-        .header__inner__main__search-box__input
-          キーワードから探す
-        .header__inner__main__search-box__search
-          =image_tag 'icon-search 1.png', class: 'search-icon', size: '19x19'
-    .header__inner__navi
-      .header__inner__navi__left
-        .header__inner__navi__left__category
-          カテゴリー
-        .header__inner__navi__left__bland
-          ブランド
-      .header__inner__navi__right
-        .header__inner__navi__right__login
-          ログイン
-        .header__inner__navi__right__new
-          新規会員登録
-
+.header__menu
+  = render partial: 'displays/header'
 .bread-crumbs
   %ul
     %li
@@ -44,8 +24,18 @@
       .contents_box
         .top-content
           .goods-box
+            .more
+            = icon('fas', 'sort-down', class: "more")
+            %ul
+              .more_list
+              - if user_signed_in? && current_user.id == seller_id
+                %li
+                  =link_to "編集" , edit_goods_item_path(@goods_item.id)
+                %li
+                  =link_to '削除', goods_item_path(@goods_item.id), method: :delete
             .goods-box__name
               Goods
+            -# image_tagは商品出品機能が実装終了後に追加
             .goods-box__photo
               %ul
                 %li
@@ -62,8 +52,15 @@
                 ¥20,000
               .goods-box__price__tax
                 (税込み)送料込み
+            .buy-btn
+              - if user_signed_in? && current_user.id == seller_id
+                エラー！出品者は購入できません。
+              - else
+                =link_to "#", class: 'btn' do
+                  %span
+                    商品購入画面に進む
             .goods-box__instruction
-              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+              2018年に新品で購入し、主に自宅で使っていました。キーの光沢が若干ある他は、外見も大きな傷など無く、きれいに使っていたつもりです。ですが、２年使用したものなので細かい傷や使用感の気になる方の購入はお勧めしません。
             .goods-box__table
               %table 
                 %tr
@@ -147,3 +144,12 @@
           =link_to "#", class: '' do
             メンズをもっとみる
 
+.banner
+  = render partial: 'displays/banner'
+
+.footer__menue
+  =render partial: 'displays/footer'
+
+  =link_to "出品する", static_exhibition_path, class:'exhibitionBtn'
+  .exhibitionBtn__text 出品する
+  =image_tag '/app/assets/images/icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'

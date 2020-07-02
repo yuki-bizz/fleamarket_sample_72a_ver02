@@ -1,11 +1,13 @@
 class GoodsItemsController < ApplicationController
+
   def index
     @goods_items = Item.order('id DESC').limit(3)
   end
 
+before_action :set_goods_item
+
   def show
   end
-
   
   # 商品出品機能との連携が必要か！？
   def new
@@ -40,6 +42,21 @@ class GoodsItemsController < ApplicationController
       :name,
       :selling_price,
     ).merge(user_id: current_user.id)
+  end
+
+end
+
+  def destroy
+    goods_item.destroy
+  end
+
+  def edit
+  end
+
+  private
+
+  def set_goods_item
+    @goods_item = GoodsItem.find(params[:id])
   end
 
 end
