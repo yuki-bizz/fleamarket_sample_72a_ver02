@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'purchase/index'
+
+  get 'purchase/new'
+
+  get 'purchase/create'
+
+  get 'purchase/pay'
+
   # get 'goods_items/index'
 
   # get 'goods_items/show'
