@@ -1,3 +1,9 @@
 = link_to '出品', new_product_path
+%br/
+
+商品を出品しました
+%br
+= link_to "戻る", root_path , class: 'btn'
 .contents
-  = render @products
+  = render @goods_items
+  
