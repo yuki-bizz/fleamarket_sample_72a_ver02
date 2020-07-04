@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   patch 'users/:id/edit',to: 'users#update'
 
   # resources :displays
-  resources :goods_items, only: [:show, :destroy, :edit]
+  resources :goods_items, only: [:index, :new, :show, :destroy, :edit]
+  # 商品情報編集ページから商品詳細ページへの遷移 add oikawa
+  get 'goods_items/:id/edit', to: 'goods_items#edit'
+  patch 'goods_items/:id/edit', to: 'goods_items#update'
+  patch '/goods_items/show'
 
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
@@ -41,9 +45,6 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  # 商品情報編集ページから商品詳細ページへの遷移 add oikawa
-  patch '/goods_items/show'
   
   root "displays#index"
 

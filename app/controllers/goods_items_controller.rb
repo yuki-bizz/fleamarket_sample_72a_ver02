@@ -26,18 +26,18 @@ class GoodsItemsController < ApplicationController
  # 商品詳細ページ
  def show
  end
- 
+
 # 商品編集画面
  def edit
  end
 
- #  # 商品更新機能
-#   def update
-#     if @goods_item.update(goods_item_params)
-#       redirect_to root_path
-#     else
-#       render :edit
-#   end
+  # 商品更新機能
+  def update
+    if @goods_item.update(goods_item_params)
+      redirect_to root_path
+    else
+      render :edit
+  end
 
  # 商品削除機能
   def destroy
