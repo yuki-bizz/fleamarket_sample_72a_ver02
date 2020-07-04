@@ -1,21 +1,34 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Edit Account
-      %h5 アカウントの編集
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "トップページに戻る", :back, class: 'btn'
-    .account-page__inner--right.user-form
-      = form_for(current_user) do |f|
-        .field
-          .field-label
-            = f.label :nickname
-          .field-input
-            = f.text_field :nickname, autofocus: true
-        .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email
-        .actions
-          = f.submit "Update", class: 'btn'
+.header__menu
+  = render partial: 'displays/header'
+
+.wrap.page_account_regist
+  .contents_box
+    .inner.cf
+      .main_box
+        %h2.content_ttl
+          アカウントの編集
+        .form
+          .form__inner
+            = form_for(current_user) do |f|
+              .field
+                .field-list
+                  = f.label :nickname
+                  = f.text_field :nickname
+                .field-list
+                  = f.label :email
+                  = f.email_field :email
+                .field-list
+                  = f.label :current_password
+                  = f.text_field :current_password
+                .field-list
+                  = f.label :password
+                  = f.text_field :password
+                .field-list
+                  = f.label :password_confirmation
+                  = f.text_field :password_confirmation
+
+                %ul.btn_wrap
+                  %li.btn_style
+                    = f.submit "更新"
+
+      = render partial: 'side'
