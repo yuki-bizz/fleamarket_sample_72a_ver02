@@ -23,3 +23,5 @@ public/uploads/*
 .history
 
 config/secrets.yml
+
+.DS_Store
