@@ -12,19 +12,19 @@
             = form_for(current_user) do |f|
               .field
                 .field-list
-                  = f.label :nickname
+                  = f.label :nickname, class:'required'
                   = f.text_field :nickname
                 .field-list
-                  = f.label :email
+                  = f.label :email, class:'required'
                   = f.email_field :email
                 .field-list
-                  = f.label :current_password
+                  = f.label :current_password, class:'required'
                   = f.text_field :current_password
                 .field-list
-                  = f.label :password
+                  = f.label :password, class:'required'
                   = f.text_field :password
                 .field-list
-                  = f.label :password_confirmation
+                  = f.label :password_confirmation, class:'required'
                   = f.text_field :password_confirmation
 
                 %ul.btn_wrap
@@ -32,3 +32,45 @@
                     = f.submit "更新"
 
       = render partial: 'side'
+
+:javascript
+  jQuery.validator.addMethod("han_em", function(value, element) {
+    return this.optional( element ) || /^[a-zA-Z0-9]+$/.test( value );
+  }, '半角英数字でご入力ください。');
+
+  $(".edit_user").validate({
+    rules: {
+      "user[nickname]": {
+        required: true
+      },
+      "user[email]": {
+        required: true
+      },
+      "user[current_password]": {
+        required: true,
+        minlength: 7,
+        han_em: true
+      },
+      "user[password]": {
+        required: true,
+        minlength: 7,
+        han_em: true
+      },
+      "user[password_confirmation]": {
+        required: true,
+        minlength: 7,
+        han_em: true,
+        equalTo: "#user_password"
+      }
+    },
+    messages: {
+      "user[password]": {
+          minlength: "7文字以上の半角英数字でご入力ください"
+      },
+      "user[password_confirmation]": {
+          minlength: "7文字以上の半角英数字でご入力ください",
+          equalTo: "パスワードが一致しません"
+      },
+    }
+  });
+  
