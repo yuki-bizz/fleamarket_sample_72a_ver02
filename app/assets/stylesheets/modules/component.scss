@@ -614,6 +614,22 @@
     }
   }
 }
+/* ------------------------------ >>
+  page_account_regist add_kazoe
+ <<------------------------------ */
+.page_account_regist{
+  .contents_box{
+    margin: 0 auto;
+    width: $contents_wide;
+    
+
+    .main_box {
+      float: right;
+      width: $contents_box;
+      
+    }
+  }
+}
 
 /* ------------------------------ >>
   page_goods_detail add_oikawa
