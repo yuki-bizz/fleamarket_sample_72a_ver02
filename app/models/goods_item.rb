@@ -3,15 +3,17 @@ class GoodsItem < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
+  ### 購入機能実装時使用 ###
   # has_one :order, dependent: :destroy
   
 
-  # has_many :images
+  
   # モデルimage.rbにバリデーションをかける
   validates_associated :images
   validates :images, presence: true
   # fields_forメソッドを利用するために、imageモデルを小モデルとする
   accepts_nested_attributes_for :images, allow_destroy: true
+  ### 購入機能実装時使用 ###
   # has_one :order, dependent: :destroy
 
   # active_hashによるリレーション

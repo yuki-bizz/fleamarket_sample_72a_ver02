@@ -15,7 +15,7 @@ class GoodsItemsController < ApplicationController
 
   def create
     @goods_item = GoodsItem.new(goods_item_params)
-    # binding.pry
+    
     if @goods_item.save
       redirect_to goods_items_path
     else
