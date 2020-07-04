@@ -2,7 +2,7 @@
   .header__menu__inner
     .header__menu__inner__main
       .header__menu__inner__main__icon
-        %a{href: '#'}
+        %a{href: '/'}
           =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
       .header__menu__inner__main__search-box
         %input.header__menu__inner__main__search-box--input{:id => "searchInput", :name => "key", :placeholder => "キーワードから探す"}/
@@ -19,7 +19,7 @@
         %li.rightLists__login
         - if user_signed_in?
           %li.rightLists__my_page
-            = link_to "マイページ", static_my_page_path(resource_name), class: 'btn'
+            = link_to "マイページ", user_path(current_user.id), class: 'btn'
           %li.rightLists__logout
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
         - else
