@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   #   get 'sign_out', :to => 'users/sessions#destroy'
   # end
 
+  #user my_page add kazoe
+  resources :users, only: [:show]
+
   # resources :displays
   resources :goods_items, only: [:show, :destroy, :edit]
 
@@ -47,6 +50,7 @@ Rails.application.routes.draw do
 
   # ペタうち確認用
   get 'static/my_page'
+  #get 'users/:id' => 'users#show'
 
   # my_pageサイドメニューから確認用 add kazoe
   get 'static/regist'
