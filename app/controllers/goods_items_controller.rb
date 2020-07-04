@@ -1,6 +1,7 @@
 class GoodsItemsController < ApplicationController
-before_action :set_goods_item
-# before_action :move_to_root_path, except: [:index]
+  before_action :authenticate_user!
+  before_action :set_goods_item, only: [:show, :edit]
+
 
   def index
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
@@ -35,16 +36,16 @@ before_action :set_goods_item
   private
 
   def goods_item_params
-    params.require(:goods_item).permit(:name, :price, :explanation, :category, :brand, :condition, :shipping_fee, :province, :delivery_date, :delivery_way_id, :selling_price, :status, :seller_id, images_attributes: [:src]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
+    params.require(:goods_item).permit(:name, :price, :explanation, :category, :brand, :condition_id, :shipping_fee_id, :province_id, :delivery_date_id, :delivery_way_id, :selling_price, :status, :seller_id, images_attributes: [:src]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
 
   def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
   end
 
-   # def  move_to_index
-  #   redirect_to action: :root_path unless user_signed_in?
-  # end
+  def redirect_root
+    redirect_to root_path unless user_signed_in?
+  end
 
 end
 

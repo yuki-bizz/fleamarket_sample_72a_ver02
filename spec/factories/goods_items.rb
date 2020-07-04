@@ -6,11 +6,11 @@ FactoryBot.define do
     explanation           {"aaaabbbccccddddeeee"}
     category              {"aaaaaaaaa"}
     brand                 {"aaaaaaaaa"}
-    condition             {"aaaaaaaaa"}
-    shipping_fee          {"aaaaaaaaa"}
-    province              {"aaaaaaaaa"}
+    condition_id             {"aaaaaaaaa"}
+    shipping_fee_id          {"aaaaaaaaa"}
+    province_id              {"aaaaaaaaa"}
     delivery_way_id       {"aaaaaaaaa"}
-    delivery_date         {"aaaaaaaaa"}
+    delivery_date_id         {"aaaaaaaaa"}
     selling_price         {"000000000"}
     status                {"aaaaaaaaa"}
     seller_id             {"11"}

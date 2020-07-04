@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200630131933) do
+ActiveRecord::Schema.define(version: 20200702123820) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -42,22 +42,22 @@ ActiveRecord::Schema.define(version: 20200630131933) do
   end
 
   create_table "goods_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                     null: false
-    t.string   "name",                        null: false
-    t.text     "explanation",   limit: 65535, null: false
+    t.integer  "user_id",                        null: false
+    t.string   "name",                           null: false
+    t.text     "explanation",      limit: 65535, null: false
     t.string   "brand"
-    t.string   "condition",                     null: false
-    t.string   "shipping_fee",                  null: false
-    t.string   "province",                      null: false
-    t.integer  "delivery_way_id",               null: false
-    t.string   "delivery_date",                 null: false
-    t.integer  "selling_price",                 null: false
+    t.integer  "condition_id",                   null: false
+    t.integer  "shipping_fee_id",                null: false
+    t.integer  "province_id",                    null: false
+    t.integer  "delivery_way_id",                null: false
+    t.integer  "delivery_date_id",               null: false
+    t.integer  "selling_price",                  null: false
     t.string   "status"
     t.integer  "seller_id"
     t.integer  "buyer_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "category_id",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "category_id",                    null: false
     t.index ["user_id"], name: "index_goods_items_on_user_id", using: :btree
   end
 

@@ -11,13 +11,12 @@ Rails.application.routes.draw do
   # end
 
   # resources :displays
-  resources :goods_items, only: [:show, :destroy, :edit]
+  resources :goods_items
 
   # トップページからの遷移 add ozaki
   # get 'static/regist'
   # get 'static/exhibition'
-  # 吉永記入
-  get 'goods_items/index'
+  
 
   get 'static/detail_test'
   

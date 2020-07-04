@@ -33,12 +33,12 @@ ja:
       goods_item:
         name: 商品名
         explanation: 商品の説明
-        category: カテゴリー
-        condition: 商品の状態
-        shipping_fee: 配送料の負担
-        province: 配送元の地域
-        delivery_way: 配送の方法
-        delivery_date: 配送までの日数
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        shipping_fee_id: 配送料の負担
+        province_id: 配送元の地域
+        delivery_way_id: 配送の方法
+        delivery_date_id: 配送までの日数
         selling_price: 販売価格
         images: 画像
       ############ 商品出品時バリデーションここまで ###########

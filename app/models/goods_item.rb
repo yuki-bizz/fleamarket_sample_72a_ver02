@@ -1,5 +1,5 @@
 class GoodsItem < ApplicationRecord
-  validates  :name,:province, :explanation, :category, :condition, :shipping_fee, :category, :delivery_way_id, :delivery_date, :selling_price, presence: true
+  validates  :name,:province_id, :explanation, :category_id, :condition_id, :shipping_fee_id, :delivery_way_id, :delivery_date_id, :selling_price, presence: true
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
@@ -17,7 +17,10 @@ class GoodsItem < ApplicationRecord
   # active_hashによるリレーション
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :delivery_way
-  
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :shipping_fee
+  belongs_to_active_hash :province
+  belongs_to_active_hash :delivery_date
 
 
 
