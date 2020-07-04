@@ -81,3 +81,5 @@ gem 'pry-rails'
 
 # 多階層ancestryの導入
 gem 'ancestry'
+
+gem 'active_hash'

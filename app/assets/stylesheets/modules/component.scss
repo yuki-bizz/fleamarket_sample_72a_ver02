@@ -988,7 +988,7 @@
 
 
 
- /* ------------------------------ >>
+/* ------------------------------ >>
   page_exhibition add_yoshinaga
  <<------------------------------ */
  .wrap.page_exhibition{
@@ -1010,7 +1010,7 @@
         font-size: 14px;
         font-weight: 600;
       }
-      span{
+      span.h{
         background-color: #ff0211;
           color: #fff;
           font-size: 12px;
@@ -1049,7 +1049,6 @@
       padding: 40px;
       background-color:#FFFFFF;
       margin-bottom: 2px;
-
       &__name{
         font-size: 14px;
         color:#333333;
@@ -1074,7 +1073,6 @@
           margin: 20px 0 50px;
         }
       }
-
       &__explain{
         font-size: 14px;
         color:#333333;
@@ -1091,24 +1089,11 @@
           display: inline-block;
           height: 16px;
         }
-        .goods_explain{
+        textarea{
           width: 620px;
           height: 154px;
           margin: 16px 0 0;
           padding: 13px 16px;
-        }
-        textarea::placeholder{
-          font-size: 16px;
-          text-rendering: auto;
-          text-align: start;
-
-        }
-        
-        .word-count{
-          font-size: 12px;
-          color: #888888;
-          margin: 16px 0 0;
-          text-align: right;
         }
       }
     }
@@ -1122,7 +1107,6 @@
         font-size: 14px;
         color: #888888;
         font-weight: 600;
-        
       }
       &__category{
         font-size: 14px;
@@ -1130,7 +1114,6 @@
         font-weight: 600;
         margin: 36px 0 0;
       }
-         
       span{
         background-color: #ff0211;
         color: #fff;
@@ -1143,22 +1126,19 @@
         display: inline-block;
         height: 16px;
       }
-      
-      .category_select{
+      input{
         width: 620px;
         height: 48px;
         padding: 0 56px 0 16px;
         font-size: 16px;
         margin-top: 16px;
       }
-
       &__size{
         font-size: 14px;
         color: #333333;
         font-weight: 600;
         margin: 36px 0 0;
       }
-         
       span{
         background-color: #ff0211;
         color: #fff;
@@ -1171,15 +1151,13 @@
         display: inline-block;
         height: 16px;
       }
-      
-      .category_select{
+      input{
         width: 620px;
         height: 48px;
         padding: 0 56px 0 16px;
         font-size: 16px;
         margin-top: 16px;
       }
-
       &__brand{
         font-size: 14px;
         color: #333333;
@@ -1205,14 +1183,13 @@
           margin: 16px 0 0 ;
         }
       }
-      
       &__status{
         font-size: 14px;
         color: #333333;
         font-weight: 600;
         margin: 36px 0 0;
       }
-      .status_select{
+      select{
         width: 620px;
         height: 48px;
         padding: 0 56px 0 16px;
@@ -1249,7 +1226,7 @@
         display: inline-block;
         height: 16px;
       }
-      .shipping_select{
+      input{
         width: 620px;
         height: 48px;
         padding: 0 56px 0 16px;
@@ -1274,7 +1251,7 @@
         display: inline-block;
         height: 16px;
       }
-      .shipping_select{
+      select{
         width: 620px;
         height: 48px;
         padding: 0 56px 0 16px;
@@ -1286,14 +1263,12 @@
         color: #333333;
         font-weight: 600;
         margin: 36px 0 0;
-
       }
       &__days{
         font-size: 14px;
         color: #333333;
         font-weight: 600;
         margin: 36px 0 0;
-
       }
     }
     &__price{
@@ -1314,7 +1289,6 @@
           color: #333333;
           font-weight: 600;
           margin: 16px 0 0;
-          
         span.required{
           background-color: #ff0211;
           color: #fff;
@@ -1333,8 +1307,7 @@
           .mark{
             color: #333333;
           }
-
-          .input_price{
+          input{
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 285px;
@@ -1345,7 +1318,6 @@
           }
       }
     }
-      
       &__fee{
         width: 620px;
         height: 70px;
@@ -1355,11 +1327,9 @@
         font-size: 14px;
         color: #333;
         &_title{
-
         }
-
       }
-      .contents_box__price__profit{
+      .contents_box_price_profit{
         width: 620px;
         height: 58px;
         padding: 12px 0 0;
@@ -1367,10 +1337,8 @@
         justify-content: space-between;
         font-size: 14px;
         color: #333;
-
       }
     }
-    
     &__btn_wrap{
       width: 700px;
       background-color: #FFFFFF;
@@ -1385,7 +1353,6 @@
         padding: 0 24px;
         border: 1px solid transparent;
         border-radius:4px
-                  
       }
       .save_btn{
         width: 360px;
@@ -1398,28 +1365,20 @@
         border: 1px solid transparent;
         margin: 24px 0 24px 0;
         border-radius:4px  
-        
       }
-
       p{
         width: 360px;
         height: 20px;
         margin: 0 auto;
         font-size: 14px;
       }
-
     }
-
     &__note{
       width: 700px;
       height: 100px;
       background-color: #FFFFFF;
       font-size: 12px;
       text-align: center;
-        
     }
-    
   }
 }
-
-
