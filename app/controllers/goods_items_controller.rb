@@ -1,6 +1,9 @@
 class GoodsItemsController < ApplicationController
 
-before_action :set_goods_item
+before_action :set_goods_item, except: [:new]
+  def new
+    @parents = Category.where(ancestry: nil)
+  end
 
   def show
   end
