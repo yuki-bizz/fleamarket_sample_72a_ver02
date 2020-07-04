@@ -17,21 +17,15 @@ Rails.application.routes.draw do
   patch 'users/:id/edit',to: 'users#update'
 
   # resources :displays
-  resources :goods_items
-  # 商品情報編集ページから商品詳細ページへの遷移 add oikawa
-  patch '/goods_items/show'
-  # get 'goods_items/:id/edit', to: 'goods_items#edit'
-  # patch 'goods_items/:id/edit', to: 'goods_items#update'
-  
+  resources :goods_items, only: [ :new, :show, :destroy, :edit]
 
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
 
   # トップページからの遷移 add ozaki
   get 'static/regist'
-  get 'goods_items/new'
   # get 'static/exhibition'
-  get 'static/detail_test'
+  # get 'static/detail_test'
   
  # my_page add kazoe
   get 'static/my_page'

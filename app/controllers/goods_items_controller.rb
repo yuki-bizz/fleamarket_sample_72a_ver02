@@ -5,13 +5,13 @@ class GoodsItemsController < ApplicationController
 # 一覧画面（確認用）
   def index
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
-  end
 
 # 商品出品画面
   def new
     redirect_to new_user_session_path unless user_signed_in?
     @goods_item = GoodsItem.new
     @goods_item.images.new
+    @parents = Category.where(ancestry: nil)
   end
 
 # # 商品保存機能

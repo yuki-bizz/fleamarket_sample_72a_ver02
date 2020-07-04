@@ -148,6 +148,10 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
 
-
-
+### Association
+- has_many :goods_items dependent: :destroy
