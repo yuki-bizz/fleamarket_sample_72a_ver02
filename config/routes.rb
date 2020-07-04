@@ -17,15 +17,15 @@ Rails.application.routes.draw do
   patch 'users/:id/edit',to: 'users#update'
 
   # resources :displays
-  resources :goods_items, only: [:show, :destroy, :edit]
+  resources :goods_items, only: [ :new, :show, :destroy, :edit]
 
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
 
   # トップページからの遷移 add ozaki
   get 'static/regist'
-  get 'static/exhibition'
-  get 'static/detail_test'
+  # get 'static/exhibition'
+  # get 'static/detail_test'
   
  # my_page add kazoe
   get 'static/my_page'
