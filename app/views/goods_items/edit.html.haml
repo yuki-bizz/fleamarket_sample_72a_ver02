@@ -1,18 +1,126 @@
 -# = render partial: 'form'
 
+.edit__header
+  商品情報編集ページ
 
-.contents.row
-  .container
-    = form_for @goods_item do |form| 
-      %h3
-        編集する
-      = form.text_field :name, placeholder: "商品名"
-      = form.text_area :explanation, placeholder: "説明", rows: "10"
-      = form.text_field :category, placeholder: "カテゴリー"
-      = form.text_field :brand, placeholder: "ブランド"
-      -# = form.text_field :size, placeholder: "商品のサイズ"
-      = form.text_field :condition, placeholder: "商品の状態"
-      = form.text_field :shipping_fee, placeholder: "配送料の負担"
-      -# = form.text_field :area_id, placeholder: "発送元の地域"
-      = form.text_field :delivery_way, placeholder: "発送日の目安"
-      = form.submit "SEND"
+  = form_for @goods_item do |f|
+    .contents_box
+      .contents_box__goods-image
+        .contents_box__goods-image__picture
+        %label 出品画像
+        %span.h 必須
+
+        .contents_box__goods-image__text
+        %p 画像をアップロードしてください
+        .contents_box__goods-image__area
+          -# .contents_box__goods-image__area__icon
+          -# = icon('fa', 'camera')
+          #image-box
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :src, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+      
+      .contents_box__goods
+        .contents_box__goods__name
+          商品名
+          %span 必須
+          = f.text_field :name
+          -# %input{type: "text", placeholder:"40文字まで"}
+        
+        .contents_box__goods__explain
+          -# .contents_box__goods__explain__title
+          商品の説明
+          %span 必須
+          = f.text_field :explanation
+            -# %textarea.goods_explain{placeholder:"商品の説明"}
+            -# %p.word-count 0/1000
+
+      .contents_box__detail
+        .contents_box__detaill__title
+          商品の詳細
+        .contents_box__detail__category
+          カテゴリー
+          %span 必須
+        -# = f.text_field :category_id
+        -# ##########この上の記述は残す
+
+        .contents_box__detail__brand
+          ブランド
+          %span.free_will 任意
+          = f.text_field :brand
+        
+        .contents_box__detail__status
+          商品の状態
+          %span 必須
+        = f.collection_select :condition_id, Condition.all, :id, :name
+
+      .contents_box__shipping
+        .contents_box__shipping__title
+          配送について
+        .contents_box__shipping__burden
+          配送料の負担
+          %span 必須
+        = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name
+
+        .contetnts_box__shipping__way
+          配送の方法
+          %span 必須
+      = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name
+
+        .contents_box__shipping__area
+          配送元の地域
+          %span
+        = f.collection_select :province_id, Province.all, :id, :name
+
+        .contents_box__shipping__days
+          配送までの日数
+          %span 必須
+        = f.collection_select :delivery_date_id, DliverDate.all, :id, :name
+
+      .contents_box__price
+        .contents_box__price__selling-price
+          %p 価格
+          .contents_box__price__selling-price__input_form
+            販売価格
+            %span.required 必須
+            .contents_box__price__selling-price__input_form__price_colum
+              %span.mark ¥
+              = f.number_field :selling_price
+                -# %input.input_price{name: "price", type: "number", placeholder:"0"}
+        .contents_box__price__fee
+          .contents_box__price__fee__title
+            -# 販売手数料 10%
+          .contents_box__price__fee__decision
+            -# ー
+        .contents_box__price__profit
+          .contents_box__price__profit__title
+            -# 販売利益
+          .contents_box__price__prifit__decision
+            -# ー
+      .contents_box__btn_wrap
+        %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
+          %font 編集を反映する
+          -# %button.save_btn{name: "save", type: "submit", value:""}
+          -#   %font 下書きに保存
+          %p
+            %a{href: ' displays#index'} 戻る
+      .contents_box__note
+      
+
+-# .contents.row
+-#   .container
+-#     = form_for @goods_item do |form| 
+-#       %h3
+-#         編集する
+-#       = form.text_field :name, placeholder: "商品名"
+-#       = form.text_area :explanation, placeholder: "説明", rows: "10"
+-#       = form.text_field :category, placeholder: "カテゴリー"
+-#       = form.text_field :brand, placeholder: "ブランド"
+-#       -# = form.text_field :size, placeholder: "商品のサイズ"
+-#       = form.text_field :condition, placeholder: "商品の状態"
+-#       = form.text_field :shipping_fee, placeholder: "配送料の負担"
+-#       -# = form.text_field :area_id, placeholder: "発送元の地域"
+-#       = form.text_field :delivery_way, placeholder: "発送日の目安"
+-#       = form.submit "SEND"
