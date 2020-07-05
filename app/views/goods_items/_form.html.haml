@@ -13,6 +13,11 @@
           
           
           #image-box
+            #previews
+              - if @goods_item.persisted?
+                - @goods_item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+
             = f.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
                 = image.file_field :src, class: 'js-file'
@@ -21,6 +26,7 @@
 
               - if @goods_item.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
             - if @goods_item.persisted?
               .js-file_group{"data-index" => "#{@goods_item.images.count}"}
                 = file_field_tag :src, name: "goods_item[images_attributes][#{@goods_item.images.count}][src]", class: 'js-file'
