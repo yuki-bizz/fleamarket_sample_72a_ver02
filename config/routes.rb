@@ -23,11 +23,10 @@ Rails.application.routes.draw do
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
 
   # トップページからの遷移 add ozaki
-  # get 'static/regist'
+  get 'static/regist'
   # get 'static/exhibition'
-  
+  # get 'static/detail_test'
 
-  get 'static/detail_test'
   
  # my_page add kazoe
   get 'static/my_page'

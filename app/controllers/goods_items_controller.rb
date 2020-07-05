@@ -2,7 +2,6 @@ class GoodsItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_goods_item, only: [:show, :edit]
 
-
   def index
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
   end
@@ -11,6 +10,7 @@ class GoodsItemsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
     @goods_item = GoodsItem.new
     @goods_item.images.new
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
@@ -21,6 +21,7 @@ class GoodsItemsController < ApplicationController
     else
       render :new
     end
+
   end
 
   def show

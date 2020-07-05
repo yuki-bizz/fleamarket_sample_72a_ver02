@@ -385,22 +385,6 @@
         content:"日";
       }
     }
-  
-    .required:after,
-    .option:after{
-      padding: 5px;
-      font-size: 1.3rem;
-      color: $c_white;
-      margin-left: 5px;
-    }
-    .required:after {
-      content:"必須";
-      background: $c_red;
-    }
-    .option:after{
-      content:"任意";
-      background: #ccc;
-    }
   }
 }
 /* ------------------------------ >>
