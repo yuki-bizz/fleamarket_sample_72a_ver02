@@ -5,6 +5,7 @@ class GoodsItemsController < ApplicationController
 # 一覧画面（確認用）
   def index
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
+  end
 
 # 商品出品画面
   def new
@@ -14,14 +15,16 @@ class GoodsItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
-# # 商品保存機能
-  # def create
-  #   @goods_item = GoodsItem.new(goods_item_params)
-  #   if @goods_item.save
-  #     redirect_to goods_items_path
-  #   else
-  #     render :new
-  # end
+# 商品保存機能
+  def create
+    @goods_item = GoodsItem.new(goods_item_params)
+
+    if @goods_item.save
+      redirect_to goods_items_path
+    else
+      render :new
+    end
+  end
 
 # 商品詳細ページ
  def show
@@ -31,30 +34,32 @@ class GoodsItemsController < ApplicationController
  def edit
  end
 
-# # 商品更新機能
-#   def update
-#     if @goods_item.update(goods_item_params)
-#       redirect_to root_path
-#     else
-#       render :edit
-#   end
+# 商品更新機能
+  def update
+    if @goods_item.update(goods_item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
-# # 商品削除機能
-#   def destroy
-#     goods_item.destroy
-#   end
+# 商品削除機能
+  def destroy
+    goods_item.destroy
+  end
 
   private
 
-  # def goods_item_params
-  #   params.require(:goods_item).permit(:name, :price, :explanation, :brand, :condition_id, :shipping_fee [:src, :_destroy, :id])
-  # end
+  def goods_item_params
+    params.require(:goods_item).permit(:name, :price, :explanation, :category, :brand, :condition_id, :shipping_fee_id, :province_id, :delivery_date_id, :delivery_way_id, :selling_price, :status, :seller_id, images_attributes: [:src]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
+  end
  
   def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
   end
 
-  # def redirect_root
-  #   redirect_to root_path unless user_sined_in?
-  # end
+  def redirect_root
+    redirect_to root_path unless user_signed_in?
+  end
+
 end
