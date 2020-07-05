@@ -10,76 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200702123820) do
-
-  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.string   "customer_id"
-    t.string   "card_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
-  end
-
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
-  end
-
-  create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "goods_item_id",   null: false
-    t.integer  "user_id",         null: false
-    t.integer  "user_icon"
-    t.string   "user_evaluation"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["goods_item_id"], name: "index_evaluations_on_goods_item_id", using: :btree
-    t.index ["user_id"], name: "index_evaluations_on_user_id", using: :btree
-  end
-
-  create_table "goods_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                     null: false
-    t.string   "name",                        null: false
-    t.text     "explanation",   limit: 65535, null: false
-    t.string   "brand"
-    t.integer  "condition_id",                   null: false
-    t.integer  "shipping_fee_id",                null: false
-    t.integer  "province_id",                    null: false
-    t.integer  "delivery_way_id",                null: false
-    t.integer  "delivery_date_id",               null: false
-    t.integer  "selling_price",                  null: false
-    t.string   "status"
-    t.integer  "seller_id"
-    t.integer  "buyer_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "category_id",                    null: false
-    t.index ["user_id"], name: "index_goods_items_on_user_id", using: :btree
-  end
-
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "goods_item_id", null: false
-    t.string   "src",           null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["goods_item_id"], name: "index_images_on_goods_item_id", using: :btree
-  end
-
-  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "goods_item_id",   null: false
-    t.integer  "user_id",         null: false
-    t.integer  "payment_way",     null: false
-    t.integer  "payment_status",  null: false
-    t.integer  "shipping_status", null: false
-    t.integer  "delivery_status", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["goods_item_id"], name: "index_orders_on_goods_item_id", using: :btree
-    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
-  end
+ActiveRecord::Schema.define(version: 20200607062502) do
 
   create_table "statics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -106,7 +37,6 @@ ActiveRecord::Schema.define(version: 20200702123820) do
     t.string   "city",                                   null: false
     t.string   "address1",                               null: false
     t.string   "address2"
-    t.string   "tellphone_number"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -116,10 +46,4 @@ ActiveRecord::Schema.define(version: 20200702123820) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "evaluations", "goods_items"
-  add_foreign_key "evaluations", "users"
-  add_foreign_key "goods_items", "users"
-  add_foreign_key "images", "goods_items"
-  add_foreign_key "orders", "goods_items"
-  add_foreign_key "orders", "users"
 end
