@@ -4,6 +4,7 @@
     = goods_item.selling_price
     円
   %p= goods_item.explanation
+  -######## カテゴリー機能実装後調整 ########
   %p= goods_item.category
   %p= goods_item.brand
   %p= goods_item.condition.name
@@ -12,3 +13,6 @@
   %p= goods_item.delivery_date.name
   %p= goods_item.delivery_way.name
   %p= goods_item.selling_price
+  
+  - goods_item.images.each do |image|
+    = image_tag image.src.url
