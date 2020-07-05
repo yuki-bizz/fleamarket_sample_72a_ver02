@@ -17,8 +17,7 @@ class GoodsItemsController < ApplicationController
 
 # 商品保存機能
   def create
-    @goods_item = GoodsItem.new(goods_item_params)
-
+    @goods_item = GoodsItem.new(goods_item_params)   
     if @goods_item.save
       redirect_to goods_items_path
     else
@@ -37,7 +36,7 @@ class GoodsItemsController < ApplicationController
 # 商品更新機能
   def update
     if @goods_item.update(goods_item_params)
-      redirect_to root_path
+      redirect_to goods_item_path(goods_item.id)
     else
       render :edit
     end
@@ -46,6 +45,18 @@ class GoodsItemsController < ApplicationController
 # 商品削除機能
   def destroy
     goods_item.destroy
+    redirect_to root_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @goods_item.update(goods_item_params)
+      redirect_to goods_item_path(goods_item.id)
+    else
+      render :edit
+    end
   end
 
   private
