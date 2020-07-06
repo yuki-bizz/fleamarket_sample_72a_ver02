@@ -16,7 +16,7 @@
             #previews
               - if @goods_item.persisted?
                 - @goods_item.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i }, #unless @goods_item.image.blank?,# width: "100", height: '100'
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100' unless image.src.blank?
 
             = f.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
