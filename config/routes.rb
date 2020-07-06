@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'purchase/new'
+
+  get 'purchase/create'
+
+  get 'purchase/purchase'
+
+  get 'purchase/done'
+
   get 'cards/new'
 
   get 'cards/show'
@@ -54,4 +62,13 @@ Rails.application.routes.draw do
     end
   end
 
+  #  クレジットカード支払関係
+  resources :orders do
+    collection do
+      get 'goods_confirm', to: 'orders#goods_confirm'
+      post 'pay', to: 'orders#pay'
+      get 'done', to: 'orders#done'
+    end
+  end
+  
 end
