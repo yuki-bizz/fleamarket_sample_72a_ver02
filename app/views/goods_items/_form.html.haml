@@ -10,14 +10,25 @@
         .contents_box__goods-image__text
         %p 画像をアップロードしてください
         .contents_box__goods-image__area
-          
-          
+          -# .contents_box__goods-image__area__icon
+          -#   = icon('fa', 'camera')
           #image-box
+            #previews
+              - if @goods_item.persisted?
+                - @goods_item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
             = f.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
                 = image.file_field :src, class: 'js-file'
-                %br/
-                %span.js-remove 削除
+              -# %br/
+              %span.js-remove 削除
+            - if @goods_item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @goods_item.persisted?
+            .js-file_group{"data-index" => "#{@goods_item.images.count}"}
+              = file_field_tag :src, name: "goods_item[images_attributes][#{@goods_item.images.count}][src]", class: 'js-file'
+              .js-remove 削除
+            
      
       .contents_box__goods
         .contents_box__goods__name
@@ -38,8 +49,24 @@
         .contents_box__detail__category
           カテゴリー
           %span 必須
+        -######## 下１行、カテゴリー機能実装後削除 ########
         = f.text_field :category_id
-        -######## カテゴリー機能実装後調整 ########
+        -######## カテゴリー入力フォーム ########
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     %option{value: "#{parent.name}"} #{parent.name}
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     - parent.children.each do |child|
+        -#       %option{value: "#{child.name}"} #{child.name}
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     - parent.children.each do |child|
+        -#       - child.children.each do |grandchild|
+        -#         %option{value: "#{grandchild.name}"} #{grandchild.name}
 
         .contents_box__detail__brand
           ブランド
@@ -79,7 +106,7 @@
           %p 価格
           .contents_box__price__selling-price__input_form 
             販売価格
-            %span.required 必須
+            %span.requir 必須
             .contents_box__price__selling-price__input_form__price_colum
               %span.mark ¥
               = f.number_field :selling_price, placeholder:"0"

@@ -17,7 +17,14 @@ Rails.application.routes.draw do
   patch 'users/:id/edit',to: 'users#update'
 
   # resources :displays
-  resources :goods_items
+  # resources :goods_items
+
+  resources :goods_items do
+      collection do 
+       get 'check'
+      end
+   end
+   
 
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
