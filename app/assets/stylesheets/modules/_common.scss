@@ -146,6 +146,7 @@ input[type="number"] {
       
       &-list::after{
         content: "\f054";
+        color: #ccc;
         width: 14px;
         height: 14px;
         position: absolute;
@@ -155,20 +156,28 @@ input[type="number"] {
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
       }
-      &-list.on {
+      &-list:hover::after{
+        color: #777;
+      }
+      &-list:hover{
+        background: #fefefe;
+        color: #777;
+      }
+      &-list a.on{
         background: #eee;
         font-weight: bold;
         &.on::after{
-          color: #ccc;
+          color: #333;
         }
       }
-      &-list + .menu_list {
+      &-list + .menu-list {
         border-top: 1px solid #eee;
       }
 
     }
   }
 }
+
 
 /*-------/ side_var ---------*/
 
