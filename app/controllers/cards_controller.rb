@@ -2,6 +2,8 @@ class CardsController < ApplicationController
   
   require "payjp"
 
+  before_action :sign_in_required
+
   def new
     @card = Card.where(user_id: current_user.id) 
     redirect_to action: "show" if @card.exists?
@@ -49,4 +51,11 @@ class CardsController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
+
+  private
+
+  def sign_in_required
+    redirect_to new_user_session_url unless user_signed_in?
+  end
+  
 end

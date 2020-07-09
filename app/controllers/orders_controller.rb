@@ -1,7 +1,15 @@
 class OrdersController < ApplicationController
+
   require 'payjp'
+
+  before_action :sign_in_required
   before_action :set_card, only: [:goods_confirm, :pay]
   before_action :set_goods_item
+
+  # def show
+  #   @image_top = @goods_item.images.first
+  #   card = Card.where(user_id: current_user.id)
+  # end
 
   def goods_confirm
     @image_top = @goods_item.images.first
@@ -32,6 +40,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def sign_in_required
+    redirect_to new_user_session_url unless user_signed_in?
+  end
 
   def set_card
     @set_card = Card.where(user_id: current_user.id)

@@ -65,10 +65,11 @@ Rails.application.routes.draw do
   #  クレジットカード支払関係
   resources :orders do
     collection do
+      # get 'show', to: 'orders#show'
       get 'goods_confirm', to: 'orders#goods_confirm'
       post 'pay', to: 'orders#pay'
       get 'done', to: 'orders#done'
     end
   end
-  
+
 end
