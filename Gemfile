@@ -85,3 +85,6 @@ gem 'pry-rails'
 gem 'active_hash'
 # 多階層ancestryの導入
 gem 'ancestry'
+
+# S3にファイルをアップロードするため
+gem 'fog-aws'

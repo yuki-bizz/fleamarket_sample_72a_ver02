@@ -1,0 +1,20 @@
+ここは、最終的には商品出品完了ページにします。
+%br/
+現在は入力情報を確認、ここから出品、トップページへ戻れます
+%br/
+%br/
+= link_to '出品', new_goods_item_path
+*ここから出品できます
+%br/
+%br/
+%br/
+.con 商品を出品しました
+%br/
+%br/
+%br/
+= link_to "もどる", root_path, class: 'btn'
+%br/
+%br/
+%br/
+.contents
+  = render @goods_items
