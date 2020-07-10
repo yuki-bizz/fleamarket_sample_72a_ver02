@@ -22,10 +22,15 @@
                   - exp_month = @default_card_information.exp_month.to_s
                   - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                   = exp_month + " / " + exp_year
-          .delete__btn
-            = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-              %input{ type: "hidden", name: "card_id", value: "" }
-              %ul.btn_wrap
-                %li.btn_style
-                  %a#button
-                    削除する
+          .btn-set
+            .btn-set-multi.btn_wrap
+              %ul
+                %li
+                  = link_to :back do
+                    %button#button.btn_style.btn_back
+                      戻る
+            .btn-set-multi.btn_wrap
+              = form_tag(delete_cards_path, method: :post, id: 'charge-form', name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button#button.btn_style.btn_delete
+                  削除する

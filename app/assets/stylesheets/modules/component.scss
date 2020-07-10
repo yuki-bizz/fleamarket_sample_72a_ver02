@@ -481,9 +481,41 @@
     .add-border-right {
       border-right: 1px solid #ccc;
     }
-    
   }
+  .btn-set {
+    display: table;
+    width: 100%;
+    padding: 25px 0;
 
+    &-multi{
+     display: table-cell;
+      width: 50%;
+    }
+    &-multi:nth-child(odd){
+      padding-right: 10px;
+    }
+    &-multi:nth-child(even){
+      padding-left: 10px;
+    }
+    .btn_wrap {
+      
+      #button.btn_style {
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 10px 16px 8px;
+        height: 48px;
+      }
+      #button.btn_style.btn_back {
+        color: $c_white;
+        background: $c_green;
+      }
+      #button.btn_style.btn_delete {
+      }
+    }
+  }
 }
 
 
