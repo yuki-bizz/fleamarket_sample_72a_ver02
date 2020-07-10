@@ -6,11 +6,6 @@ class OrdersController < ApplicationController
   before_action :set_card, only: [:goods_confirm, :pay]
   before_action :set_goods_item
 
-  # def show
-  #   @image_top = @goods_item.images.first
-  #   card = Card.where(user_id: current_user.id)
-  # end
-
   def goods_confirm
     @image_top = @goods_item.images.first
     @card = @set_card.first
@@ -31,12 +26,19 @@ class OrdersController < ApplicationController
       :customer => @card.customer_id,
       :currency => 'jpy'
     )
+    # @goods_item = GoodsItem.find(1)
+    @goods_item.update( buyer_id: current_user.id)
     redirect_to action: 'done', goods_item_id: @goods_item
   end
 
   def done
     @top_image = @goods_item.images.first
     Order.create(goods_item_id: @goods_item.id, user_id: current_user.id)
+  end
+
+  def show
+    @image_top = @goods_item.images.first
+    card = Card.where(user_id: current_user.id)
   end
 
   private
@@ -50,7 +52,7 @@ class OrdersController < ApplicationController
   end
 
   def set_goods_item
-    @goods_item = GoodsItem.find(1)
+    @goods_item = GoodsItem.find(2)
   end
 
 end
