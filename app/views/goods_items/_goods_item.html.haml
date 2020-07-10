@@ -1,0 +1,19 @@
+.content
+  %p= goods_item.name
+  %p
+    = goods_item.selling_price
+    円
+  %p= goods_item.explanation
+  -######## カテゴリー機能実装後調整 ########
+  %p= goods_item.category_id
+  %p= goods_item.brand
+  %p= goods_item.condition.name
+  %p= goods_item.shipping_fee.name
+  %p= goods_item.province.name
+  %p= goods_item.delivery_date.name
+  %p= goods_item.delivery_way.name
+  %p= goods_item.selling_price
+  
+  - goods_item.images.each do |image|
+    = image_tag image.src.url
+  = link_to '編集', edit_goods_item_path(goods_item)

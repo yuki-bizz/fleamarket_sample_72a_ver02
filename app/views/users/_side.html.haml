@@ -1,0 +1,41 @@
+.side_box
+  %nav.side_nav
+    %ul.menu
+      %li.menu-list.fa
+        = link_to "マイページ", user_path(current_user.id)
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          お知らせ
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          やることリスト
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          出品した商品・出品中
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          出品した商品・取引中
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          出品した商品・売却済み
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          購入した商品・取引中
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          購入した商品・過去の取引
+
+  %nav.side_nav
+    %h3.nav_ttl
+      設定
+    %ul.menu
+      %li.menu-list.fa
+        = link_to "#", class: '' do
+          プロフィール
+      %li.menu-list.fa
+        = link_to "メール・パスワード", edit_user_path(@user.id)
+      %li.menu-list.fa
+        = link_to "card", class: '' do
+          クレジットカード登録
+      %li.menu-list.fa
+        = link_to "ログアウト", destroy_user_session_path, method: :delete

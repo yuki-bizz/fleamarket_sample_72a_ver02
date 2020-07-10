@@ -1,0 +1,130 @@
+.wrap.page_exhibition
+
+  = form_for @goods_item do |f|
+    .contents_box
+      .contents_box__goods-image
+        .contents_box__goods-image__picture          
+        %label 出品画像
+        %span.h 必須
+
+        .contents_box__goods-image__text
+        %p 画像をアップロードしてください
+        .contents_box__goods-image__area
+          -# .contents_box__goods-image__area__icon
+          -#   = icon('fa', 'camera')
+          #image-box
+            #previews
+              - if @goods_item.persisted?
+                - @goods_item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :src, class: 'js-file'
+              -# %br/
+              %span.js-remove 削除
+            - if @goods_item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @goods_item.persisted?
+            .js-file_group{"data-index" => "#{@goods_item.images.count}"}
+              = file_field_tag :src, name: "goods_item[images_attributes][#{@goods_item.images.count}][src]", class: 'js-file'
+              .js-remove 削除
+            
+     
+      .contents_box__goods
+        .contents_box__goods__name
+          商品名
+          %span 必須
+          = f.text_field :name, placeholder: '商品名を入力して下さい（40文字まで）', maxlength: '40'
+          
+        .contents_box__goods__explain
+          
+          商品の説明
+          %span 必須
+          = f.text_area :explanation, placeholder: '商品の説明を記入して下さい（1000文字まで）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;例）2015年に５万円で購入した革靴です。'.html_safe, maxlength: '1000'
+          
+
+      .contents_box__detail
+        .contents_box__detail__title 
+          商品の詳細      
+        .contents_box__detail__category
+          カテゴリー
+          %span 必須
+        -######## 下１行、カテゴリー機能実装後削除 ########
+        = f.text_field :category_id
+        -######## カテゴリー入力フォーム ########
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     %option{value: "#{parent.name}"} #{parent.name}
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     - parent.children.each do |child|
+        -#       %option{value: "#{child.name}"} #{child.name}
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     - parent.children.each do |child|
+        -#       - child.children.each do |grandchild|
+        -#         %option{value: "#{grandchild.name}"} #{grandchild.name}
+
+        .contents_box__detail__brand
+          ブランド
+          %span.free_will 任意
+          = f.text_field :brand, placeholder:"入力して下さい"
+         
+        .contents_box__detail__status
+          商品の状態
+          %span 必須
+        = f.collection_select :condition_id, Condition.all, :id, :name
+
+      .contents_box__shipping
+        .contents_box__shipping__title
+          配送について
+        .contents_box__shipping__burden
+          配送料の負担
+          %span 必須
+        = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name
+        
+        .contents_box__shipping__way
+          配送の方法
+          %span 必須
+        = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name
+        
+        .contents_box__shipping__area
+          配送元の地域
+          %span 必須
+        = f.collection_select :province_id, Province.all, :id, :name
+        
+        .contents_box__shipping__days
+          配送までの日数
+          %span 必須
+        = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name
+
+      .contents_box__price
+        .contents_box__price__selling-price
+          %p 価格
+          .contents_box__price__selling-price__input_form 
+            販売価格
+            %span.requir 必須
+            .contents_box__price__selling-price__input_form__price_colum
+              %span.mark ¥
+              = f.number_field :selling_price, placeholder:"0"
+              
+        .contents_box__price__fee
+          .contents_box__price__fee__title
+            
+          .contents_box__price__fee__decision
+            
+        .contents_box__price__profit
+          .contents_box__price__profit__title
+            
+          .contents_box__price__profit__decision
+          
+      .contents_box__btn_wrap
+        %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
+          %font 出品する
+        
+        %p 
+        = link_to "もどる", root_path, class: 'btn'
+      .contents_box__note 
