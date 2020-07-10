@@ -1,5 +1,5 @@
 class ChangeColTel < ActiveRecord::Migration[5.0]
-  def change
+  def up
     change_column :users, :tellphone_number ,:string
   end
 end

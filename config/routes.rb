@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   
+  get 'purchase/new'
+
+  get 'purchase/create'
+
+  get 'purchase/purchase'
+
+  get 'purchase/done'
+
+  get 'cards/new'
+
+  get 'cards/show'
+
   devise_for :users
   # devise_for :users, controllers: {
   #   registrations: 'users/registrations',
@@ -54,5 +66,24 @@ Rails.application.routes.draw do
   patch '/goods_items/show'
   
   root "displays#index"
+
+  #  クレジットカード登録関係
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+
+  #  クレジットカード支払関係
+  resources :orders do
+    collection do
+      # get 'show', to: 'orders#show'
+      get 'goods_confirm', to: 'orders#goods_confirm'
+      post 'pay', to: 'orders#pay'
+      get 'done', to: 'orders#done'
+    end
+  end
 
 end
