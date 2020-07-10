@@ -11,8 +11,8 @@
           = form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
             .field-list
               %label.card-number.required
-                %label カード番号
-                = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+                カード番号
+              = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               %ul.card_wrap
                 %li
                   = image_tag("card/visa.svg", alt: "visa")
@@ -62,8 +62,8 @@
                     %option{value: "2030"}30
 
             .field-list
-              %label.security_cord.required                 
+              %label.security_cord.required
                 セキュリティコード
-                = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-                #card_token
-                = submit_tag "登録する", id: "token_submit"
+              = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+              #card_token
+              = submit_tag "登録する", id: "token_submit"

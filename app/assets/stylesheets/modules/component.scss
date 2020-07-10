@@ -424,11 +424,80 @@
       bottom: 5px;
       right: -20px;
     }
-    .manth:after{
+    .month:after{
       content:"月";
     }
     .year:after{
       content:"年";
+    }
+  }
+  #token_submit{
+    color: $c_white;
+    background: $c_green;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  .field-list{
+    .required{
+      @include label-add;
+      @include required;
+    }
+  }
+  .card_confirm {
+    width: 100%;
+    text-align: left;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+
+    th,
+    td {
+      padding: 10px 16px 8px;
+      display: table-cell;
+    }
+    th {
+      width: 120px;
+      background: #efefef;
+    }
+    .add-border-bottom {
+      border-bottom: 1px solid #ccc;
+      
+    }
+    .add-border-right {
+      border-right: 1px solid #ccc;
+    }
+  }
+  .btn-set {
+    display: table;
+    width: 100%;
+    padding: 25px 0;
+
+    &-multi{
+     display: table-cell;
+      width: 50%;
+    }
+    &-multi:nth-child(odd){
+      padding-right: 10px;
+    }
+    &-multi:nth-child(even){
+      padding-left: 10px;
+    }
+    .btn_wrap {
+      
+      #button.btn_style {
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 10px 16px 8px;
+        height: 48px;
+      }
+      #button.btn_style.btn_back {
+        color: $c_white;
+        background: $c_green;
+      }
+      #button.btn_style.btn_delete {
+      }
     }
   }
 }
@@ -1400,7 +1469,7 @@
 /* ------------------------------ >>
   cards_show add_tsutsumi 
  <<------------------------------ */
- .form{
+.form{
   .card {
     font-size: 20px;
     &__title{
@@ -1420,5 +1489,4 @@
     }
   }
 }
-
 
