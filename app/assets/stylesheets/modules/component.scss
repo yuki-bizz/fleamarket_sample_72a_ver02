@@ -447,12 +447,43 @@
       content:"年";
     }
   }
-    #token_submit{
-      color: $c_white;
-      background: $c_green;
-      cursor: pointer;
-      margin-top: 40px;
+  #token_submit{
+    color: $c_white;
+    background: $c_green;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  .field-list{
+    .required{
+      @include label-add;
+      @include required;
     }
+  }
+  .card_confirm {
+    width: 100%;
+    text-align: left;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+
+    th,
+    td {
+      padding: 10px 16px 8px;
+      display: table-cell;
+    }
+    th {
+      width: 120px;
+      background: #efefef;
+    }
+    .add-border-bottom {
+      border-bottom: 1px solid #ccc;
+      
+    }
+    .add-border-right {
+      border-right: 1px solid #ccc;
+    }
+    
+  }
+
 }
 
 

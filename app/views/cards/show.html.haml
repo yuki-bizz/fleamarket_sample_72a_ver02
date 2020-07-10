@@ -1,16 +1,31 @@
-.form
-  .card
-    .card__title
-      %label 登録クレジットカード情報
-    .card__number
-      カード番号
-      = "**** **** **** " + @default_card_information.last4
-    .card__expiration
-      有効期限
-      - exp_month = @default_card_information.exp_month.to_s
-      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      = exp_month + " / " + exp_year
-    .card__btn
-      = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-        %input{ type: "hidden", name: "card_id", value: "" }
-        %button#button 削除する
+.wrap.page_credit_card.one_col.page_form
+  .logo_wrap
+    .logo
+      = image_tag("logo.png", alt: "ロゴ")
+  .contents_box
+    %h2.content_ttl
+      登録クレジットカード情報
+    .form
+      .form__inner
+        .field
+          %table.card_confirm
+            %tbody
+              %tr
+                %th.add-border-bottom.add-border-right
+                  カード番号
+                %td.add-border-bottom
+                  = "**** **** **** " + @default_card_information.last4
+              %tr
+                %th.add-border-right
+                  有効期限
+                %td
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+          .delete__btn
+            = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %ul.btn_wrap
+                %li.btn_style
+                  %a#button
+                    削除する

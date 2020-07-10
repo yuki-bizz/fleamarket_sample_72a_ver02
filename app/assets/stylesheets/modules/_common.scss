@@ -53,6 +53,28 @@ input[type="number"] {
     -moz-appearance:textfield;
 }
 
+@mixin label-add {
+  &:after{
+    padding: 5px;
+    font-size: 1.3rem;
+    color: $c_white;
+    margin-left: 5px;
+  }
+}
+@mixin required {
+  &:after {
+    content:"必須";
+    background: $c_red;
+  }
+}
+@mixin optinon {
+  &:after{
+    content:"任意";
+    background: #ccc;
+  }
+  
+}
+
 /*-------font-awesome -------*/
 .fa,
 .far,
