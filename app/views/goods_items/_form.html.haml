@@ -124,9 +124,12 @@
           
       .contents_box__btn_wrap
         -# = f.submit
-        %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
-          %font 出品する
-        
+        - if @goods_items_id.nil?
+          %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
+            %font 出品する
+        - else
+          %button.exhibition_btn{name: "edit", type: "submit", value:""}
+            %font 更新する
         %p 
         = link_to "もどる", root_path, class: 'btn'
       .contents_box__note 
