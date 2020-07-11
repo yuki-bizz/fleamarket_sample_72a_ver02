@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
       :customer => @card.customer_id,
       :currency => 'jpy'
     )
-    # @goods_item = GoodsItem.find(1)
+    @goods_item = GoodsItem.find(params[:id])
     @goods_item.update( buyer_id: current_user.id)
     redirect_to action: 'done', goods_item_id: @goods_item
   end
@@ -36,10 +36,10 @@ class OrdersController < ApplicationController
     Order.create(goods_item_id: @goods_item.id, user_id: current_user.id)
   end
 
-  def show
-    @image_top = @goods_item.images.first
-    card = Card.where(user_id: current_user.id)
-  end
+  # def show
+  #   @image_top = @goods_item.images.first
+  #   card = Card.where(user_id: current_user.id)
+  # end
 
   private
 
@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
   end
 
   def set_goods_item
-    @goods_item = GoodsItem.find(2)
+    @goods_item = GoodsItem.find(params[:id])
   end
 
 end

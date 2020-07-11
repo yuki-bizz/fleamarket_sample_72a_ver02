@@ -22,10 +22,9 @@ ActiveRecord::Schema.define(version: 20200702123820) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          null: false
-    t.string   "goods_item_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20200702123820) do
     t.integer  "user_id",                        null: false
     t.string   "name",                           null: false
     t.text     "explanation",      limit: 65535, null: false
+    t.integer  "category_id",                    null: false
     t.string   "brand"
     t.integer  "condition_id",                   null: false
     t.integer  "shipping_fee_id",                null: false
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20200702123820) do
     t.integer  "buyer_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "category_id",                    null: false
     t.index ["user_id"], name: "index_goods_items_on_user_id", using: :btree
   end
 

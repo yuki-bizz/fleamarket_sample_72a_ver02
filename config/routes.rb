@@ -78,7 +78,7 @@ Rails.application.routes.draw do
 
   #  クレジットカード支払関係
   resources :orders do
-    collection do
+    member do
       # get 'show', to: 'orders#show'
       get 'goods_confirm', to: 'orders#goods_confirm'
       post 'pay', to: 'orders#pay'
