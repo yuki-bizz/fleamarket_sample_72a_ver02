@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   # resources :displays
   # resources :goods_items, except: :index
+  # resources :goods_items
 
   resources :goods_items do
       collection do 
