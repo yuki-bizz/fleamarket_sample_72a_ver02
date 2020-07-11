@@ -424,11 +424,80 @@
       bottom: 5px;
       right: -20px;
     }
-    .manth:after{
+    .month:after{
       content:"月";
     }
     .year:after{
       content:"年";
+    }
+  }
+  #token_submit{
+    color: $c_white;
+    background: $c_green;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  .field-list{
+    .required{
+      @include label-add;
+      @include required;
+    }
+  }
+  .card_confirm {
+    width: 100%;
+    text-align: left;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+
+    th,
+    td {
+      padding: 10px 16px 8px;
+      display: table-cell;
+    }
+    th {
+      width: 120px;
+      background: #efefef;
+    }
+    .add-border-bottom {
+      border-bottom: 1px solid #ccc;
+      
+    }
+    .add-border-right {
+      border-right: 1px solid #ccc;
+    }
+  }
+  .btn-set {
+    display: table;
+    width: 100%;
+    padding: 25px 0;
+
+    &-multi{
+     display: table-cell;
+      width: 50%;
+    }
+    &-multi:nth-child(odd){
+      padding-right: 10px;
+    }
+    &-multi:nth-child(even){
+      padding-left: 10px;
+    }
+    .btn_wrap {
+      
+      #button.btn_style {
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 10px 16px 8px;
+        height: 48px;
+      }
+      #button.btn_style.btn_back {
+        color: $c_white;
+        background: $c_green;
+      }
+      #button.btn_style.btn_delete {
+      }
     }
   }
 }
@@ -1012,19 +1081,21 @@
         margin: 16px 0 0;       
       }
       &__area{
-        width: 620px;
-        height: 150px;
+        width: 600px;
+        height: 100px;
         background-color: #f5f5f5;
         border: 1px dotted #ccc;
         margin-top: 16px;
         &__icon{
           font-size: 20px;
           text-align: center;
-          line-height: 150px;
+          line-height: 50px;
         }
-        p{
-          font-size: 12px;
+        input{
+          
+          
         }
+        
       }
     }
     &__goods{
@@ -1276,7 +1347,8 @@
           color: #333333;
           font-weight: 600;
           margin: 16px 0 0;
-        span.required{
+          
+        span.requir{
           background-color: #ff0211;
           color: #fff;
           font-size: 12px;
@@ -1370,3 +1442,29 @@
     }
   }
 }
+
+
+/* ------------------------------ >>
+  cards_show add_tsutsumi 
+ <<------------------------------ */
+.form{
+  .card {
+    font-size: 20px;
+    &__title{
+      margin: 30px 0;
+    } 
+    &__number{
+      font-size: 15px; 
+    }
+    &__expiration{
+      margin-top: 30px;
+      font-size: 15px;
+    }
+    #button{
+      color: white;
+      background: $c_green;
+      margin-top: 40px;
+    }
+  }
+}
+

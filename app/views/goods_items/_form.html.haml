@@ -10,8 +10,8 @@
         .contents_box__goods-image__text
         %p 画像をアップロードしてください
         .contents_box__goods-image__area
-          
-          
+          -# .contents_box__goods-image__area__icon
+          -#   = icon('fa', 'camera')
           #image-box
             #previews
               - if @goods_item.persisted?
@@ -50,8 +50,24 @@
         .contents_box__detail__category
           カテゴリー
           %span 必須
+        -######## 下１行、カテゴリー機能実装後削除 ########
         = f.text_field :category_id
-        -######## カテゴリー機能実装後調整 ########
+        -######## カテゴリー入力フォーム ########
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     %option{value: "#{parent.name}"} #{parent.name}
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     - parent.children.each do |child|
+        -#       %option{value: "#{child.name}"} #{child.name}
+        -# %select.category_select{name: "category"}
+        -#   %option{value: "選択して下さい"} 選択して下さい
+        -#   - @parents.each do |parent|
+        -#     - parent.children.each do |child|
+        -#       - child.children.each do |grandchild|
+        -#         %option{value: "#{grandchild.name}"} #{grandchild.name}
 
         .contents_box__detail__brand
           ブランド
@@ -91,7 +107,7 @@
           %p 価格
           .contents_box__price__selling-price__input_form 
             販売価格
-            %span.required 必須
+            %span.requir 必須
             .contents_box__price__selling-price__input_form__price_colum
               %span.mark ¥
               = f.number_field :selling_price, placeholder:"0"

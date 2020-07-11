@@ -1,0 +1,17 @@
+.header
+  mercari
+.main
+  .main__title
+    購入が完了しました！！
+  .main__item
+    .main__item__box
+      -# = image_tag @image_top.image.url, class: 'item-image', size: '240x240'
+      .main__item__box__detail
+        .main__item__box__detail__name
+          = @goods_item.name
+          .main__item__box__detail__price
+            .main__item__box__detail__price__main
+              = "¥ #{@goods_item.selling_price}"
+            .main__item__box__detail__price__sub
+              (税込)  送料込み
+.footer

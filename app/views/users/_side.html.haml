@@ -1,9 +1,8 @@
 .side_box
   %nav.side_nav
     %ul.menu
-      %li.menu-list.fa.on
-        = link_to "#", class: '' do
-          マイページ
+      %li.menu-list.fa
+        = link_to "マイページ", user_path(current_user.id)
       %li.menu-list.fa
         = link_to "#", class: '' do
           お知らせ

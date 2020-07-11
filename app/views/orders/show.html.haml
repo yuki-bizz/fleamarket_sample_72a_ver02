@@ -1,0 +1,50 @@
+.header
+  mercari
+.main
+  .main__title
+    購入内容の確認
+  .main__item
+    .main__item__box
+      .main__item__box__image
+        -# = image_tag @image_top.image.url, class: 'item-image', size: '80x80'
+      .main__item__box__detail
+        .main__item__box__detail__name
+          = @goods_item.name
+          .main__item__box__detail__price
+            .main__item__box__detail__price__main
+              = "¥ #{@goods_item.selling_price}"
+            .main__item__box__detail__price__sub
+              (税込)  送料込み
+  .main__purchase-box
+    .main__purchase-box__inner
+      .main__purchase-box__inner__price
+        .main__purchase-box__inner__price__title
+          支払い金額
+        .main__purchase-box__inner__price__amount
+          = "¥ #{@goods_item.selling_price}"
+      .main__purchase-box__inner__point
+        .main__purchase-box__inner__point__tag
+        .main__purchase-box__inner__point__label
+          ポイントを使用 (所持ポイント: P0)
+      .main__purchase-box__inner__payment
+        .main__purchase-box__inner__payment__title
+          支払い方法
+        .main__purchase-box__inner__payment__icon
+          - if @default_card_information.blank?
+            %i.fas.fa-plus-circle
+            = link_to "登録してください", new_cards_path
+          - else
+            = "**** **** ****" + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+      .main__purchase-box__inner__delivery
+        .main__purchase-box__inner__delivery__title
+          配送先
+        .main__purchase-box__inner__delivery__icon
+          %i.fas.fa-plus-circle
+          登録してください
+      .main__purchase-box__inner__form
+        = form_tag(action: :pay, method: :post, goods_item_id: @goods_item) do
+          %button.main__purchase-box__inner__form__btn  購入する
+.footer
