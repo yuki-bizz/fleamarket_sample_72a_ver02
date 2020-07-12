@@ -26,8 +26,7 @@ class OrdersController < ApplicationController
       :customer => @card.customer_id,
       :currency => 'jpy'
     )
-    @goods_item = GoodsItem.find(params[:id])
-    @goods_item.update( buyer_id: current_user.id)
+    @goods_item.update!( buyer_id: current_user.id)
     redirect_to action: 'done', goods_item_id: @goods_item
   end
 

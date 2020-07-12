@@ -1,5 +1,5 @@
 .header__menu
-  = render partial: 'header'
+  = render partial: 'displays/header'
 .wrap.page_top
   .main__page
     .main__page__visual
@@ -47,7 +47,7 @@
             %span 業界最安
           %p.list-explanation
             最大3%でお得に出品&購入！
-
+​
     .main__page__middle
       .main__page__middle__contents
         %h2.title 会員数日本一位
@@ -84,10 +84,10 @@
         -#カテゴリーはレディース、メンズ、おもちゃ、家電のみ
         .displayHead レディース
         .displayLists
-          - @ladys.each do |lady|
+          - @ladies.each do |lady|
             .displayList
               - if lady.buyer_id.nil?
-                =link_to "/goods_items/show" do
+                =link_to goods_item_path(lady.id) do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "parka.png", size: '160x150'
@@ -212,13 +212,13 @@
                           = icon('fas', 'star')
                           = louis_vuitton.status
                       %p （税込）
-
+​
 .banner
-  = render partial: 'banner'
-
+  = render partial: 'displays/banner'
+​
 .footer__menue
-  =render partial: 'footer'
-
+  =render partial: 'displays/footer'
+​
 %a{href: 'goods_items/new', class:'exhibitionBtn'}
   .exhibitionBtn__text 出品する
   =image_tag 'icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'

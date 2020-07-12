@@ -1,10 +1,10 @@
 class GoodsItem < ApplicationRecord
   validates  :name,:province_id, :explanation, :category_id, :condition_id, :shipping_fee_id, :delivery_way_id, :delivery_date_id, :selling_price, presence: true
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, optional: true
   has_many :images, dependent: :destroy
-  ### 購入機能実装時使用 ###
-  # has_one :order, dependent: :destroy
+  ## 購入機能実装時使用 ###
+  has_one :order, dependent: :destroy
   
 
   
