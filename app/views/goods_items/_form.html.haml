@@ -123,13 +123,10 @@
           .contents_box__price__profit__decision
           
       .contents_box__btn_wrap
-        -# = f.submit
-        - if @goods_items_id.nil?
-          %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
-            %font 出品する
+        - if @goods_item.id.nil?
+          = f.submit'出品する', class:'new'
         - else
-          %button.exhibition_btn{name: "edit", type: "submit", value:""}
-            %font 更新する
+          = f.submit'更新する', class:'edit'
         %p 
         = link_to "もどる", root_path, class: 'btn'
       .contents_box__note 

@@ -1,6 +1,5 @@
 class GoodsItemsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_goods_item, except: [:index, :new, :create]
+  before_action :set_goods_item, only: [:show, :edit, :update, :destroy]
 
   def check
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
@@ -18,7 +17,6 @@ class GoodsItemsController < ApplicationController
   def create
     @goods_item = GoodsItem.new(goods_item_params)   
     if @goods_item.save
-      # redirect_to goods_items_path
       redirect_to action: :check
     else
       render :new
@@ -36,7 +34,7 @@ class GoodsItemsController < ApplicationController
 # 商品更新機能
   def update
     if @goods_item.update(goods_item_params)
-      redirect_to goods_item_path(goods_item.id)
+      redirect_to goods_item_path(@goods_item.id)
     else
       render :edit
     end
@@ -44,22 +42,11 @@ class GoodsItemsController < ApplicationController
 
 # 商品削除機能
   def destroy
-    goods_item.destroy
+    @goods_item.destroy
     redirect_to root_path
   end
 
   def edit
-  end
-
-  def update
-    # if @goods_item.update(goods_item_params)
-    #   redirect_to goods_item_path(goods_item.id)
-    # else
-    #   render :edit
-    # end
-    @goods_item = GoodsItem.find_by(id: params[:id])
-    @goods_item.update(id: params[:id])
-    redirect_to action: :check
   end
 
   private
@@ -72,10 +59,6 @@ class GoodsItemsController < ApplicationController
  
   def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
-  end
-
-  def redirect_root
-    redirect_to root_path unless user_signed_in?
   end
 
 end
