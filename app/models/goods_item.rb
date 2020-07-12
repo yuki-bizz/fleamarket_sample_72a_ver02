@@ -23,7 +23,5 @@ class GoodsItem < ApplicationRecord
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :province
   belongs_to_active_hash :delivery_date
-
-
-
+  
 end
