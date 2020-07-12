@@ -35,7 +35,6 @@
       %li.menu-list.fa
         = link_to "メール・パスワード", edit_user_path(@user.id)
       %li.menu-list.fa
-        = link_to "card", class: '' do
-          クレジットカード登録
+        = link_to "クレジットカード登録", new_card_path
       %li.menu-list.fa
         = link_to "ログアウト", destroy_user_session_path, method: :delete
