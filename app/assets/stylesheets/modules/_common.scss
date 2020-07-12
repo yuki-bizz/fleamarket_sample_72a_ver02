@@ -67,7 +67,7 @@ input[type="number"] {
     background: $c_red;
   }
 }
-@mixin optinon {
+@mixin option {
   &:after{
     content:"任意";
     background: #ccc;
@@ -239,8 +239,6 @@ input[type="number"] {
       font-weight: bold;
     }
   }
-  
-
 
   &__inner{
     width: 456px;
@@ -272,6 +270,15 @@ input[type="number"] {
 
       &-list{
         display: block;
+
+        .required{
+          @include label-add;
+          @include required;
+        }
+        .option{
+          @include label-add;
+          @include option;
+      }
 
         .form_sub-ttl {
           font-weight: bold;
@@ -337,7 +344,6 @@ input[type="number"] {
     }
   }
 }
-
 
 /*-------/ page_form --------*/
 
