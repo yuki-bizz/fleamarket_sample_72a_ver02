@@ -71,9 +71,29 @@ input[type="number"] {
   &:after{
     content:"任意";
     background: #ccc;
-  }
+  } 
+}
+@mixin btn_style {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1.5;
+    font-size: 16px;
+    padding: 10px 16px 8px;
+    height: 48px;
+    display: block;
+    text-align: center;
   
 }
+@mixin overlap{
+  background:rgba(0, 0, 0, 0.85);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 
 /*-------font-awesome -------*/
 .fa,
