@@ -35,11 +35,14 @@ class GoodsItemsController < ApplicationController
 
   def create
     @goods_item = GoodsItem.new(goods_item_params)
-    
     if @goods_item.save
       # redirect_to goods_items_path
       redirect_to action: :check
     else
+      @category_parent_array = ["選択して下さい"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
 

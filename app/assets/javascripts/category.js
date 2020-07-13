@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load',function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -9,7 +9,7 @@ $(document).on('turbolinks:load',function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='contents-select-wrapper__added' id= 'children_wrapper'>
                         <div class='contents-select-wrapper__box'>
-                          <select class="contents-select-wrapper__box--select" id="child_category" name="category_id">
+                          <select class="contents-select-wrapper__box--select" id="child_category">
                             <option value="---" data-category="---">選択して下さい</option>
                             ${insertHTML}
                           <select>
@@ -22,7 +22,7 @@ $(document).on('turbolinks:load',function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='contents-select-wrapper__added' id= 'grandchildren_wrapper'>
                               <div class='contents-select-wrapper__box'>
-                                <select class="contents-select-wrapper__box--select" id="grandchild_category" name="category_id">
+                                <select class="contents-select-wrapper__box--select" id="grandchild_category" name="goods_item[category_id]">
                                   <option value="---" data-category="---">選択して下さい</option>
                                   ${insertHTML}
                                 </select>
