@@ -1,5 +1,5 @@
 class GoodsItemsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_goods_item, only: [:show, :edit]
 ​
   def index
@@ -40,7 +40,7 @@ class GoodsItemsController < ApplicationController
   end
 ​
   def show
-    @parents = Category.where(ancestry:nil)
+    # @parents = Category.where(ancestry:nil)
   end
 ​
   def destroy
