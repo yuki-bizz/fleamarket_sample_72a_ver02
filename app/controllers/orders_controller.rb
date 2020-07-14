@@ -6,24 +6,25 @@ class OrdersController < ApplicationController
   before_action :set_card, only: [:goods_confirm, :pay]
   before_action :set_goods_item
 
-  def show
-    @image_top = @goods_item.images.first
-  end
+  # def show
+  #   @image_top = @goods_item.images.first
+  # end
 
   def goods_confirm
     @image_top = @goods_item.images.first
+    @set_card = Card.where(user_id: current_user.id)
     @card = @set_card.first
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @default_card_information = customer.cards.retrieve(@card.card_id)
+    if @card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def pay
     @card = @set_card.first
     if @card.blank?
       redirect_to controller: "cards", action: "new"
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       Payjp::Charge.create(
