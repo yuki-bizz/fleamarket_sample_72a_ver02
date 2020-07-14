@@ -1039,6 +1039,80 @@
 }
  
 
+ /* ------------------------------ >>
+  page_orders add_kazoe
+ <<------------------------------ */
+.page_orders{
+  .contents_box{
+    background: $c_white;
+    &__inner{
+      padding: 40px;
+      .item-image{
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+        .img {
+          display: block;
+          width: 100%;
+        }
+      }
+      .detail{
+        display: flex;
+        align-items: baseline;
+        &__price{
+          margin-right: 15px;
+          p{
+            font-size: 1.8rem;
+            font-weight: bold;
+          }
+          span {
+            font-weight: normal;
+            font-size: 1.3rem;
+          }
+        }
+        &__name{
+          p{
+            font-size: 1.8rem;
+          }
+        }
+       }
+    }
+  }
+
+  .overlap{
+    @include overlap;
+
+    &__inner{
+      width: $contents_mini;
+      margin: 0 auto;
+      padding: 40px;
+      .btn_style{
+        width: 100%;
+        margin: 0;
+        a{
+          @include btn_style;
+          width: 100%;
+        }
+      }
+    }
+    p {
+      color: $c_white;
+    }
+    &_ttl{
+      text-align: center;
+      font-size: 2.2rem;
+      padding: 32px 0;
+    }
+    &_info{
+      line-height: 1.5;
+      font-size: 1.6rem;
+    }
+    .btn_style + .btn_style{
+      margin-top: 25px;
+    }
+  }
+}
+
 
 
  /* ------------------------------ >>
@@ -1172,8 +1246,10 @@
       &__category{
         font-size: 14px;
         color: #333333;
-        font-weight: 600;
         margin: 36px 0 0;
+      }
+      .contents-default__label {
+        font-weight: 600;
       }
          
       span{
