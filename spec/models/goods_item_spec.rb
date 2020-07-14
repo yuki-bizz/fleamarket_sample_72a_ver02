@@ -20,28 +20,28 @@ describe GoodsItem do
       expect(goods_item.errors[:explanation]).to include("を入力してください")
     end
 
-    it "categoryがない場合は登録できないこと" do
-      goods_item = build(:goods_item, category: nil)
+    it "category_idがない場合は登録できないこと" do
+      goods_item = build(:goods_item, category_id: nil)
       goods_item.valid?
       expect(goods_item.errors[:category]).to include("を入力してください")
     end
 
-    it "conditionがない場合は登録できないこと" do
-      goods_item = build(:goods_item, condition: nil)
+    it "condition_idがない場合は登録できないこと" do
+      goods_item = build(:goods_item, condition_id: nil)
       goods_item.valid?
-      expect(goods_item.errors[:condition]).to include("を入力してください")
+      expect(goods_item.errors[:condition_id]).to include("を入力してください")
     end
 
-    it "shipping_feeがない場合は登録できないこと" do
-      goods_item = build(:goods_item, shipping_fee: nil)
+    it "shipping_fee_idがない場合は登録できないこと" do
+      goods_item = build(:goods_item, shipping_fee_id: nil)
       goods_item.valid?
-      expect(goods_item.errors[:shipping_fee]).to include("を入力してください")
+      expect(goods_item.errors[:shipping_fee_id]).to include("を入力してください")
     end
 
-    it "provinceがない場合は登録できないこと" do
-      goods_item = build(:goods_item, province: nil)
+    it "province_idがない場合は登録できないこと" do
+      goods_item = build(:goods_item, province_id: nil)
       goods_item.valid?
-      expect(goods_item.errors[:province]).to include("を入力してください")
+      expect(goods_item.errors[:province_id]).to include("を入力してください")
     end
 
     it "delivery_way_idがない場合は登録できないこと" do
@@ -50,10 +50,10 @@ describe GoodsItem do
       expect(goods_item.errors[:delivery_way_id]).to include("を入力してください")
     end
 
-    it "delivery_dateがない場合は登録できないこと" do
-      goods_item = build(:goods_item, delivery_date: nil)
+    it "delivery_date_idがない場合は登録できないこと" do
+      goods_item = build(:goods_item, delivery_date_id: nil)
       goods_item.valid?
-      expect(goods_item.errors[:delivery_date]).to include("を入力してください")
+      expect(goods_item.errors[:delivery_date_id]).to include("を入力してください")
     end
 
     it "selling_priceがない場合は登録できないこと" do
@@ -61,20 +61,14 @@ describe GoodsItem do
       goods_item.valid?
       expect(goods_item.errors[:selling_price]).to include("を入力してください")
     end
-
     
+    it "srcがない場合は登録できないこと" do
+      goods_item = build(:goods_item, images: [])
+      goods_item.valid?
+      expect(goods_item.errors.full_messages).to include("画像を入力してください")
+    end
       
 
   end
 end
 
-# require 'rails_helper'
-# describe GoodsItem do
-#   describe '#save' do
-#     it "nameがない場合は登録できないこと" do
-#      user = GoodsItem.new(name: "", price:"aaa", explanation:"aaa", category:"aaa", condition:"aaa", shipping_fee:"ssss" province:"ttt", delivery_date:"rrr", delivery_way_id:"ddd", selling_price:"222" )
-#      user.valid?
-#      expect(goods_item.errors[:name]).to include("can't be blank")
-#     end
-#   end
-# end

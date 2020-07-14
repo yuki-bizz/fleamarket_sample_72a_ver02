@@ -1054,7 +1054,7 @@
     background-color: var(--main-bg-color);
     &__goods-image{
       width: 700px;
-      height: 300px;
+      height: 450px;
       padding: 40px;
       background-color: #FFFFFF;
       border-bottom: var(--main-bg-color);
@@ -1081,7 +1081,7 @@
         margin: 16px 0 0;       
       }
       &__area{
-        width: 600px;
+        width: 610px;
         height: 100px;
         background-color: #f5f5f5;
         border: 1px dotted #ccc;
@@ -1092,10 +1092,12 @@
           line-height: 50px;
         }
         input{
-          
+          // display: none;
           
         }
-        
+        #igoods_item_images_attributes_1_src{
+          display: none;
+        }
       }
     }
     &__goods{

@@ -6,26 +6,29 @@
         .contents_box__goods-image__picture          
         %label 出品画像
         %span.h 必須
-
+        
         .contents_box__goods-image__text
         %p 画像をアップロードしてください
         .contents_box__goods-image__area
           -# .contents_box__goods-image__area__icon
-          -#   = icon('fa', 'camera')
+            -# = icon('fa', 'camera')
           #image-box
             #previews
               - if @goods_item.persisted?
                 - @goods_item.images.each_with_index do |image, i|
                   = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+
             = f.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
-                = image.file_field :src, class: 'js-file'
+                = f.label :images , "画像を入力",{for: "images"}
+                = image.file_field :src, class: 'js-file', id:'images'
               -# %br/
               %span.js-remove 削除
             - if @goods_item.persisted?
               = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
           - if @goods_item.persisted?
             .js-file_group{"data-index" => "#{@goods_item.images.count}"}
+              
               = file_field_tag :src, name: "goods_item[images_attributes][#{@goods_item.images.count}][src]", class: 'js-file'
               .js-remove 削除
             
