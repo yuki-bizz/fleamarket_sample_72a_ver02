@@ -5,31 +5,56 @@ class GoodsItemsController < ApplicationController
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
   end
 
-# 商品出品画面
+  def index
+    #カテゴリー
+    @ladies_category = Category.find_by(name: "レディース")
+    @ladies = GoodsItem.where(category_id: @ladies_category.subtree)
+    @mens_category = Category.find_by(name: "メンズ")
+    @mens = GoodsItem.where(category_id: @mens_category.subtree)
+    @toy_hobby_goods_category = Category.find_by(name: 'おもちゃ・ホビー・グッズ')
+    @toy_hobby_goods = GoodsItem.where(category_id: @toy_hobby_goods_category.subtree)
+    @appliance_smartphone_cameras_category = Category.find_by(name: '家電・スマホ・カメラ')
+    @appliance_smartphone_cameras = GoodsItem.where(category_id: @appliance_smartphone_cameras_category.subtree)
+    #ブランド
+    @apples = GoodsItem.where(brand: 'apple')
+    @louis_vuittons = GoodsItem.where(brand: 'Louis Vuitton')
+  end
+
   def new
     redirect_to new_user_session_path unless user_signed_in?
+    @parent = Category.where(ancestry:nil)
     @goods_item = GoodsItem.new
     @goods_item.images.new
-    @parents = Category.where(ancestry: nil)
+
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["選択して下さい"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+   end
   end
 
 # 商品保存機能
   def create
-    @goods_item = GoodsItem.new(goods_item_params)   
+    @goods_item = GoodsItem.new(goods_item_params)
     if @goods_item.save
       redirect_to action: :check
     else
+      @category_parent_array = ["選択して下さい"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
   end
 
 # 商品詳細ページ
- def show
- end
+  def show
+    @parents = Category.where(ancestry:nil)
+  end
 
 # 商品編集画面
- def edit
- end
+  def edit
+  end
 
 # 商品更新機能
   def update
@@ -38,7 +63,7 @@ class GoodsItemsController < ApplicationController
     else
       render :edit
     end
-  end
+  
 
 # 商品削除機能
   def destroy
@@ -47,6 +72,22 @@ class GoodsItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  # def update
+  #   @goods_item = GoodsItem.find_by(id: params[:id])
+  #   @goods_item.update(id: params[:id])
+  #   redirect_to action: :index
+  # end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private
@@ -60,5 +101,4 @@ class GoodsItemsController < ApplicationController
   def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
   end
-
 end
