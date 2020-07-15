@@ -47,33 +47,18 @@
       .contents_box__detail
         .contents_box__detail__title 
           商品の詳細      
-        .contents_box__detail__category
-          カテゴリー
-          %span 必須
-        -######## 下１行、カテゴリー機能実装後削除 ########
-        = f.text_field :category_id
-        -######## カテゴリー入力フォーム ########
-        -# %select.category_select{name: "category"}
-        -#   %option{value: "選択して下さい"} 選択して下さい
-        -#   - @parents.each do |parent|
-        -#     %option{value: "#{parent.name}"} #{parent.name}
-        -# %select.category_select{name: "category"}
-        -#   %option{value: "選択して下さい"} 選択して下さい
-        -#   - @parents.each do |parent|
-        -#     - parent.children.each do |child|
-        -#       %option{value: "#{child.name}"} #{child.name}
-        -# %select.category_select{name: "category"}
-        -#   %option{value: "選択して下さい"} 選択して下さい
-        -#   - @parents.each do |parent|
-        -#     - parent.children.each do |child|
-        -#       - child.children.each do |grandchild|
-        -#         %option{value: "#{grandchild.name}"} #{grandchild.name}
-
+        .contents-product-detail__category
+          = f.label 'カテゴリー', class: 'contents-default__label'
+          %span.contents-default--require  必須
+          .contents-select-wrapper
+            .contents-select-wrapper__box
+            //親カテゴリーのセレクトボックスの生成
+            = f.select :category, @category_parent_array, {}, {class: 'contents_box__detail__category--select', id: 'parent_category'}
         .contents_box__detail__brand
           ブランド
           %span.free_will 任意
           = f.text_field :brand, placeholder:"入力して下さい"
-         
+        
         .contents_box__detail__status
           商品の状態
           %span 必須

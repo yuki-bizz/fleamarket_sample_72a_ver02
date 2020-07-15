@@ -33,9 +33,11 @@ Rails.application.routes.draw do
   # resources :goods_items
 
   resources :goods_items do
-      collection do 
-       get 'check'
-      end
+    collection do 
+      get 'check'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
    end
    
 
@@ -63,7 +65,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  root "displays#index"
+  root "goods_items#index"
 
   #  クレジットカード登録関係
   resources :cards, only: [:new, :show] do

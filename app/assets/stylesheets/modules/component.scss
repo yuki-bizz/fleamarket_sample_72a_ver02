@@ -1241,9 +1241,12 @@
       &__category{
         font-size: 14px;
         color: #333333;
-        font-weight: 600;
         margin: 36px 0 0;
       }
+      .contents-default__label {
+        font-weight: 600;
+      }
+         
       span{
         background-color: #ff0211;
         color: #fff;
