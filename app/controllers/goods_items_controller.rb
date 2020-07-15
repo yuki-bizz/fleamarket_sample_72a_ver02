@@ -55,7 +55,7 @@ class GoodsItemsController < ApplicationController
 # 商品編集画面
   def edit
   end
-
+  
 # 商品更新機能
   def update
     if @goods_item.update(goods_item_params)
@@ -63,6 +63,7 @@ class GoodsItemsController < ApplicationController
     else
       render :edit
     end
+  end
   
 
 # 商品削除機能
