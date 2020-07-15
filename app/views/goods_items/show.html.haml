@@ -7,15 +7,15 @@
     %li
       =icon('fas', 'angle-right')
     %li
-      = @goods_item.category.parent.parent.name
+      メンズ
     %li
       =icon('fas', 'angle-right')
     %li
-      = @goods_item.category.parent.name
+      ジャケット/アウター
     %li
       =icon('fas', 'angle-right')
     %li
-      = @goods_item.category.name
+      Goods
     
 .wrap.page_goods_detail
   .show
@@ -71,30 +71,14 @@
                   %td
                     %ul
                       %li 
-                        - @parents.each do |parent|
-                          -if @goods_item.category_id == parent.id
-                            = link_to '#' do
-                              = parent.name
-                              %br
-                          - parent.children.each do |child|
-                            -if @goods_item.category_id == child.id
-                              = link_to '#' do
-                                = parent.name
-                                %br
-                              = link_to '#' do
-                                = child.name
-                                %br
-                            - child.children.each do |grandchild|
-                              -if @goods_item.category_id == grandchild.id
-                                = link_to '#' do
-                                  = parent.name
-                                %br
-                                = link_to '#' do
-                                  = child.name
-                                %br
-                                = link_to '#' do
-                                  = grandchild.name
-                                %br
+                        = link_to "#", class: '' do
+                          メンズ
+                      %li
+                        = link_to "#", class: '' do
+                          ジャケット/アウター
+                      %li
+                        = link_to "#", class: '' do
+                          ノーカラージャケット
                 %tr
                   %th ブランド
                   %td
@@ -158,8 +142,7 @@
                 = icon('fas', 'angle-right', class: "links__nextpage-btn")
         .same-category
           =link_to "#", class: '' do
-            = @goods_item.category.parent.parent.name 
-            をもっとみる
+            メンズをもっとみる
 
 .banner
   = render partial: 'displays/banner'
@@ -167,6 +150,6 @@
 .footer__menue
   =render partial: 'displays/footer'
 
-  =link_to "出品する", static_exhibition_path, class:'exhibitionBtn'
+= link_to new_goods_item_path, class:'exhibitionBtn' do
   .exhibitionBtn__text 出品する
-  =image_tag '/app/assets/images/icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'
+  =image_tag 'icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'

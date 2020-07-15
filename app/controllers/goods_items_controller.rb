@@ -75,12 +75,6 @@ class GoodsItemsController < ApplicationController
   def edit
   end
 
-  # def update
-  #   @goods_item = GoodsItem.find_by(id: params[:id])
-  #   @goods_item.update(id: params[:id])
-  #   redirect_to action: :index
-  # end
-
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
