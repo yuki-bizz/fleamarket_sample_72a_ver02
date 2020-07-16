@@ -26,7 +26,7 @@ class GoodsItemsController < ApplicationController
     @goods_item = GoodsItem.new
     @goods_item.images.new
 
-    #セレクトボックスの初期値設定
+   #セレクトボックスの初期値設定
     @category_parent_array = ["選択して下さい"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
