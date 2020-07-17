@@ -72,8 +72,11 @@ class GoodsItemsController < ApplicationController
 
 # 商品削除機能
   def destroy
-    @goods_item.destroy
-    redirect_to root_path
+    if @goods_item.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   # 親カテゴリーが選択された後に動くアクション
