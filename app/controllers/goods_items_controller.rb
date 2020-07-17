@@ -71,7 +71,8 @@ class GoodsItemsController < ApplicationController
   
 # 商品削除機能
   def destroy
-    if @goods_item.destroy
+    if  current_user.id == @goods_item.seller_id
+      @goods_item.destroy
       redirect_to root_path
     else
       render :edit
