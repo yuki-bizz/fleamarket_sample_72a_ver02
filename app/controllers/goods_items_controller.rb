@@ -69,7 +69,6 @@ class GoodsItemsController < ApplicationController
     end
   end
   
-
 # 商品削除機能
   def destroy
     if @goods_item.destroy
