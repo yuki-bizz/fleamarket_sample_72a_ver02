@@ -54,6 +54,10 @@ class GoodsItemsController < ApplicationController
 
 # 商品編集画面
   def edit
+    @category_parent_array = ["選択して下さい"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
   
 # 商品更新機能
@@ -70,9 +74,6 @@ class GoodsItemsController < ApplicationController
   def destroy
     @goods_item.destroy
     redirect_to root_path
-  end
-
-  def edit
   end
 
   # 親カテゴリーが選択された後に動くアクション
