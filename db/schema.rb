@@ -22,10 +22,9 @@ ActiveRecord::Schema.define(version: 20200702123820) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          null: false
-    t.string   "goods_item_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20200702123820) do
     t.integer  "user_id",                        null: false
     t.string   "name",                           null: false
     t.text     "explanation",      limit: 65535, null: false
+    t.integer  "category_id",                    null: false
     t.string   "brand"
     t.integer  "condition_id",                   null: false
     t.integer  "shipping_fee_id",                null: false
@@ -69,14 +69,10 @@ ActiveRecord::Schema.define(version: 20200702123820) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "goods_item_id",   null: false
-    t.integer  "user_id",         null: false
-    t.integer  "payment_way",     null: false
-    t.integer  "payment_status",  null: false
-    t.integer  "shipping_status", null: false
-    t.integer  "delivery_status", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "goods_item_id", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["goods_item_id"], name: "index_orders_on_goods_item_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -112,8 +108,6 @@ ActiveRecord::Schema.define(version: 20200702123820) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "evaluations", "goods_items"

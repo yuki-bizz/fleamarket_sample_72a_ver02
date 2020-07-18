@@ -32,7 +32,7 @@
         .main__purchase-box__inner__payment__icon
           - if @default_card_information.blank?
             %i.fas.fa-plus-circle
-            = link_to "登録してください", new_cards_path
+            = link_to "登録してください", controller: "cards", action: "new"
           - else
             = "**** **** ****" + @default_card_information.last4
             - exp_month = @default_card_information.exp_month.to_s
