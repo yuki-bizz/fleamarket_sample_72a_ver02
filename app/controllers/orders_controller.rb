@@ -35,6 +35,12 @@ class OrdersController < ApplicationController
     end
     @goods_item.update!( buyer_id: current_user.id)
     redirect_to action: 'done', goods_item_id: @goods_item
+
+    rescue Payjp::CardError
+      respond_to do |format|
+        format.html{ redirect_to new_card_path, alert: 'カード情報にエラーがありました。有効期限や限度額をお確かめください。'}
+      end
+
   end
 
   def done

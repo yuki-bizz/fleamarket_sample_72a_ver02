@@ -9,7 +9,6 @@ $c_orange:#f1880d;
 $c_light_gray:#F5F5F5;/* fix mercari */
 $c_light_blue:#0099e8;/* fix mercari */
 
-$alert_orange: #F35500;
 
 /*コンテンツ幅を設定するところ*/
 
@@ -347,20 +346,23 @@ input[type="number"] {
   flash
  <<------------------------------ */
 
-/* 使うかわからないけどフラッシュメッセージを使用した際のバリデのstyle */
-
-.notification {
-  .notice {
-    background-color: $c_light_blue;
-    color: $c_white;
-    text-align: center;
-  }
-
+.head_info {
+  .notice,
   .alert {
-    background-color: $alert_orange;
-    color: $c_white;
     text-align: center;
+    padding: 15px;
+    animation: fadeIn 1.2s ease 0s 1 normal;
   }
+  .notice {
+  }
+  .alert {
+    color: $c_red;
+  }
+}
+
+@keyframes fadeIn { 
+  0% {opacity: 0} 
+  100% {opacity: 1} 
 }
 
 /*----- one_column_page -----*/
