@@ -6,12 +6,12 @@
         .contents_box__goods-image__picture          
         %label 出品画像
         %span.h 必須
-
+        
         .contents_box__goods-image__text
         %p 画像をアップロードしてください
         .contents_box__goods-image__area
           -# .contents_box__goods-image__area__icon
-          -#   = icon('fa', 'camera')
+            -# = icon('fa', 'camera')
           #image-box
             #previews
               - if @goods_item.persisted?
