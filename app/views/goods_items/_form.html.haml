@@ -16,35 +16,33 @@
             #previews
               - if @goods_item.persisted?
                 - @goods_item.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100' unless image.src.blank?
 
             = f.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
-                = f.label :images , "画像を入力",{for: "images"}
-                = image.file_field :src, class: 'js-file', id:'images'
-              -# %br/
-              %span.js-remove 削除
+                = image.file_field :src, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+
+              - if @goods_item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
             - if @goods_item.persisted?
-              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          - if @goods_item.persisted?
-            .js-file_group{"data-index" => "#{@goods_item.images.count}"}
-              
-              = file_field_tag :src, name: "goods_item[images_attributes][#{@goods_item.images.count}][src]", class: 'js-file'
-              .js-remove 削除
-            
-     
+              .js-file_group{"data-index" => "#{@goods_item.images.count}"}
+                = file_field_tag :src, name: "goods_item[images_attributes][#{@goods_item.images.count}][src]", class: 'js-file'
+                .js-remove 削除 
+
       .contents_box__goods
-        .contents_box__goods__name
+        .contents_box_goods_name
           商品名
           %span 必須
           = f.text_field :name, placeholder: '商品名を入力して下さい（40文字まで）', maxlength: '40'
-          
-        .contents_box__goods__explain
-          
+
+        .contents_box_goods_explain
+
           商品の説明
           %span 必須
           = f.text_area :explanation, placeholder: '商品の説明を記入して下さい（1000文字まで）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;例）2015年に５万円で購入した革靴です。'.html_safe, maxlength: '1000'
-          
 
       .contents_box__detail
         .contents_box__detail__title 
@@ -55,7 +53,10 @@
           .contents-select-wrapper
             .contents-select-wrapper__box
             //親カテゴリーのセレクトボックスの生成
-            = f.select :category, @category_parent_array, {}, {class: 'contents_box__detail__category--select', id: 'parent_category'}
+            - if @goods_item.persisted?
+              = f.select :category, @category_parent_array, {}, {class: 'contents_box__detail__category--select', id: 'parent_category'}
+            - else
+              = f.select :category, @category_parent_array, {}, {class: 'contents_box__detail__category--select', id: 'parent_category'}
         .contents_box__detail__brand
           ブランド
           %span.free_will 任意
@@ -110,9 +111,10 @@
           .contents_box__price__profit__decision
           
       .contents_box__btn_wrap
-        %button.exhibition_btn{name: "exhibition", type: "submit", value:""}
-          %font 出品する
-        
+        - if @goods_item.id.nil?
+          = f.submit'出品する', class:'new'
+        - else
+          = f.submit'更新する', class:'edit'
         %p 
         = link_to "もどる", root_path, class: 'btn'
       .contents_box__note 

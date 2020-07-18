@@ -85,4 +85,4 @@ $(document).on('turbolinks:load',function(){
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫を削除する
     }
   });
-});
+}); 

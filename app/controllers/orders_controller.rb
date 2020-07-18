@@ -6,12 +6,15 @@ class OrdersController < ApplicationController
   before_action :set_card, only: [:goods_confirm, :pay]
   before_action :set_goods_item
 
+  # def show
+  #   @image_top = @goods_item.images.first
+  # end
+
   def goods_confirm
     @image_top = @goods_item.images.first
+    @set_card = Card.where(user_id: current_user.id)
     @card = @set_card.first
-    if @card.blank?
-      redirect_to controller: "cards", action: "new"
-    else
+    if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -20,25 +23,29 @@ class OrdersController < ApplicationController
 
   def pay
     @card = @set_card.first
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    Payjp::Charge.create(
-      :amount => @goods_item.selling_price,
-      :customer => @card.customer_id,
-      :currency => 'jpy'
-    )
-    # @goods_item = GoodsItem.find(1)
-    @goods_item.update( buyer_id: current_user.id)
+    if @card.blank?
+      redirect_to controller: "cards", action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp::Charge.create(
+        :amount => @goods_item.selling_price,
+        :customer => @card.customer_id,
+        :currency => 'jpy'
+      )
+    end
+    @goods_item.update!( buyer_id: current_user.id)
     redirect_to action: 'done', goods_item_id: @goods_item
+
+    rescue Payjp::CardError
+      respond_to do |format|
+        format.html{ redirect_to new_card_path, alert: 'カード情報にエラーがありました。有効期限や限度額をお確かめください。'}
+      end
+
   end
 
   def done
     @top_image = @goods_item.images.first
     Order.create(goods_item_id: @goods_item.id, user_id: current_user.id)
-  end
-
-  def show
-    @image_top = @goods_item.images.first
-    card = Card.where(user_id: current_user.id)
   end
 
   private
@@ -52,7 +59,7 @@ class OrdersController < ApplicationController
   end
 
   def set_goods_item
-    @goods_item = GoodsItem.find(2)
+    @goods_item = GoodsItem.find(params[:id])
   end
 
 end
