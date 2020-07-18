@@ -55,6 +55,8 @@
             .buy-btn
               - if user_signed_in? && current_user.id == @goods_item.seller_id
                 出品者は購入できません。
+              - elsif @goods_item.buyer_id.present? 
+                売り切れました
               - else
                 =link_to controller: "orders", action: "goods_confirm", class: 'btn' do
                   商品購入画面に進む
