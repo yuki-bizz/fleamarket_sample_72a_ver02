@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   patch 'users/:id/edit',to: 'users#update'
 
   # resources :displays
+  # resources :goods_items, except: :index
   # resources :goods_items
 
   resources :goods_items do
@@ -63,9 +64,6 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  # 商品情報編集ページから商品詳細ページへの遷移 add oikawa
-  patch '/goods_items/show'
   
   root "goods_items#index"
 
