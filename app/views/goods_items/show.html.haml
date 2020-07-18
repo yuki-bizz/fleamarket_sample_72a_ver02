@@ -39,14 +39,14 @@
             .goods-box__photo
               %ul
                 %li
-                  =image_tag '801065.png', size:"560x346"
-                  %ul
-                    %li
-                      =image_tag '801065.png', size:"140x87"
-                    %li
-                      =image_tag '801065.png', size:"140x87"
-                    %li
-                      =image_tag '801065.png', size:"140x87"
+                  =image_tag @goods_item.images[0].src.url, size:"560x346" do
+                    %ul
+                      %li
+                        =image_tag @goods_item.images[0].src.url, size:"140x87" do
+                      %li
+                        =image_tag @goods_item.images[0].src.url, size:"140x87" do
+                      %li
+                        =image_tag @goods_item.images[0].src.url, size:"140x87" do
             .goods-box__price
               .goods-box__price__price
                 ¥20,000
