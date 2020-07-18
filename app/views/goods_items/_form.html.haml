@@ -55,6 +55,8 @@
             //親カテゴリーのセレクトボックスの生成
             - if @goods_item.persisted?
               = f.select :category, @category_parent_array, {}, {class: 'contents_box__detail__category--select', id: 'parent_category'}
+            - else
+              = f.select :category, @category_parent_array, {}, {class: 'contents_box__detail__category--select', id: 'parent_category'}
         .contents_box__detail__brand
           ブランド
           %span.free_will 任意
