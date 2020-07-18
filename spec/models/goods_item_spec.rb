@@ -1,6 +1,6 @@
 require 'rails_helper'
 describe GoodsItem do
-  describe '#create' do
+  describe '#create, #edit' do
 
     it "nameがない場合は登録できないこと" do
       goods_item = build(:goods_item, name: nil)

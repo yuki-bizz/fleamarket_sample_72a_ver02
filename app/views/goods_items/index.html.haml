@@ -107,7 +107,7 @@
           - @mens.each do |man|
             .displayList
               - if man.buyer_id.nil?
-                =link_to "/goods_items/show" do
+                =link_to goods_item_path(man.id) do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "shoes.png", size: '160x150'
@@ -128,7 +128,7 @@
           - @toy_hobby_goods.each do |toy_hobby_good|
             .displayList
               - if toy_hobby_good.buyer_id.nil?
-                =link_to "/goods_items/show" do
+                =link_to goods_item_path(toy_hobby_good.id) do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "nuigurumi_bear.png", size: '160x150'
@@ -149,7 +149,7 @@
           - @appliance_smartphone_cameras.each do |appliance_smartphone_camera|
             .displayList
               - if appliance_smartphone_camera.buyer_id.nil?
-                =link_to "/goods_items/show" do
+                =link_to goods_item_path(appliance_smartphone_camera.id) do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "smartphone.png", size: '160x150'
@@ -174,7 +174,7 @@
           - @apples.each do |apple|
             .displayList
               - if apple.buyer_id.nil?
-                =link_to "/goods_items/show" do
+                =link_to goods_item_path(apple.id) do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "smartphone.png", size: '160x150'
@@ -195,7 +195,7 @@
           - @louis_vuittons.each do |louis_vuitton|
             .displayList
               - if louis_vuitton.buyer_id.nil?
-                =link_to "/goods_items/show" do
+                =link_to goods_item_path(louis_vuitton.id) do
                   .displayList--image
                     -# image_tagは商品出品機能が実装し終わったら追加する
                     = image_tag "saihu.jpg", size: '160x150'
@@ -214,9 +214,10 @@
 ​
 .banner
   = render partial: 'displays/banner'
-​
+
 .footer__menue
   =render partial: 'displays/footer'
-%a{href: "/goods_items/new", class:'exhibitionBtn'}
+
+= link_to new_goods_item_path, class:'exhibitionBtn' do
   .exhibitionBtn__text 出品する
   =image_tag 'icon_camera.png', class:'exhibitionBtn__icon', size:'54x54'
