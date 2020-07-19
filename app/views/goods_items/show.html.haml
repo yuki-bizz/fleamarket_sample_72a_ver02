@@ -39,8 +39,10 @@
             .goods-box__photo
               %ul
                 %li
+                  = image_tag @goods_item.images[0].src.url, size:"560x346"
                   - if @goods_item.images.present?
-                    = image_tag @goods_item.images[0].src.url, size:"560x346"
+                    no image
+                  - else
                     %ul
                       %li
                         =image_tag @goods_item.images[1].src.url, size:"140x87"
