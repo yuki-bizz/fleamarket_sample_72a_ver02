@@ -88,8 +88,7 @@
               - if lady.buyer_id.nil?
                 =link_to goods_item_path(lady.id) do
                   .displayList--image
-                    -# image_tagは商品出品機能が実装し終わったら追加する
-                    = image_tag "parka.png", size: '160x150'
+                    = image_tag lady.images[0].src.url, size: '160x150'
                   .displayList--body
                     %h3.name 
                       = lady.name
@@ -109,8 +108,7 @@
               - if man.buyer_id.nil?
                 =link_to goods_item_path(man.id) do
                   .displayList--image
-                    -# image_tagは商品出品機能が実装し終わったら追加する
-                    = image_tag "shoes.png", size: '160x150'
+                    = image_tag man.images[0].src.url, size: '160x150'
                   .displayList--body
                     %h3.name 
                       = man.name
@@ -130,8 +128,7 @@
               - if toy_hobby_good.buyer_id.nil?
                 =link_to goods_item_path(toy_hobby_good.id) do
                   .displayList--image
-                    -# image_tagは商品出品機能が実装し終わったら追加する
-                    = image_tag "nuigurumi_bear.png", size: '160x150'
+                    = image_tag toy_hobby_good.images[0].src.url, size: '160x150'
                   .displayList--body
                     %h3.name 
                       = toy_hobby_good.name
@@ -151,8 +148,7 @@
               - if appliance_smartphone_camera.buyer_id.nil?
                 =link_to goods_item_path(appliance_smartphone_camera.id) do
                   .displayList--image
-                    -# image_tagは商品出品機能が実装し終わったら追加する
-                    = image_tag "smartphone.png", size: '160x150'
+                    = image_tag appliance_smartphone_camera.images[0].src.url, size: '160x150'
                   .displayList--body
                     %h3.name 
                       = appliance_smartphone_camera.name
@@ -176,8 +172,7 @@
               - if apple.buyer_id.nil?
                 =link_to goods_item_path(apple.id) do
                   .displayList--image
-                    -# image_tagは商品出品機能が実装し終わったら追加する
-                    = image_tag "smartphone.png", size: '160x150'
+                    = image_tag apple.images[0].src.url, size: '160x150'
                   .displayList--body
                     %h3.name 
                       = apple.name
@@ -197,8 +192,7 @@
               - if louis_vuitton.buyer_id.nil?
                 =link_to goods_item_path(louis_vuitton.id) do
                   .displayList--image
-                    -# image_tagは商品出品機能が実装し終わったら追加する
-                    = image_tag "saihu.jpg", size: '160x150'
+                    = image_tag louis_vuitton.images[0].src.url, size: '160x150'
                   .displayList--body
                     %h3.name 
                       = louis_vuitton.name
