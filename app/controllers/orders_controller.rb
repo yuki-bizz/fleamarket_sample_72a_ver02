@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
       )
     end
     @goods_item.update!( buyer_id: current_user.id)
-    return 'done', goods_item_id: @goods_item
+    redirect_to action: 'done', goods_item_id: @goods_item
 
     rescue Payjp::CardError
       respond_to do |format|
