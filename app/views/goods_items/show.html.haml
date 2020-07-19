@@ -56,10 +56,11 @@
             .buy-btn
               - if user_signed_in? && current_user.id == @goods_item.seller_id
                 出品者は購入できません。
+              - elsif @goods_item.buyer_id.present? 
+                売り切れました
               - else
-                =link_to "#", class: 'btn' do
-                  %span
-                    商品購入画面に進む
+                =link_to controller: "orders", action: "goods_confirm", class: 'btn' do
+                  商品購入画面に進む
             .goods-box__instruction
               2018年に新品で購入し、主に自宅で使っていました。キーの光沢が若干ある他は、外見も大きな傷など無く、きれいに使っていたつもりです。ですが、２年使用したものなので細かい傷や使用感の気になる方の購入はお勧めしません。
             .goods-box__table

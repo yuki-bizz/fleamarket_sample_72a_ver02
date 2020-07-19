@@ -77,6 +77,10 @@ class GoodsItemsController < ApplicationController
     if @goods_item.update(goods_item_params)
       redirect_to goods_item_path(@goods_item.id)
     else
+      @category_parent_array = ["選択して下さい"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :edit
     end
   end
