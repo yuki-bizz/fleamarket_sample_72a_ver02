@@ -39,14 +39,15 @@
             .goods-box__photo
               %ul
                 %li
-                  =image_tag @goods_item.images[0].src.url, size:"560x346" do
+                  - if @goods_item.images.present?
+                    = image_tag @goods_item.images[0].src.url, size:"560x346"
                     %ul
                       %li
-                        =image_tag @goods_item.images[0].src.url, size:"140x87" do
+                        =image_tag @goods_item.images[1].src.url, size:"140x87"
                       %li
-                        =image_tag @goods_item.images[0].src.url, size:"140x87" do
+                        =image_tag @goods_item.images[2].src.url, size:"140x87"
                       %li
-                        =image_tag @goods_item.images[0].src.url, size:"140x87" do
+                        =image_tag @goods_item.images[2].src.url, size:"140x87"
             .goods-box__price
               .goods-box__price__price
                 ¥20,000
