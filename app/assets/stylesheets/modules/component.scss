@@ -705,22 +705,19 @@
               ul {
                 display: flex;
                 li {
-                  flex-direction: column;
                   width: 560px;
-                  align-items: center;
                   margin: 0 auto;
                   padding: 0;
                   ul {
-                    justify-content: center;
                     margin-top: 10px;
                     padding: 0;
                     li {
-                      width: 25%;
-                      margin: 0 10px 0 0;
-                      display: flex;
-                      flex-direction: column;
-                      align-items: center;
-                      padding: 0;
+                      width: auto;
+                      // display: flex;
+                      float: left;
+                      img{
+                        margin: 10px 0 0 10px;
+                      }
                     }
                   }
                 }
@@ -824,6 +821,11 @@
                     text-decoration: none;
                   }
                 }
+              }
+            }
+            .more {
+              .more_list{
+              font-style: bold;
               }
             }
           }
