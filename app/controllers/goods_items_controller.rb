@@ -61,7 +61,6 @@ class GoodsItemsController < ApplicationController
 
 # 商品詳細ページ
   def show
-    # @user = User.find(params)
     @parents = Category.where(ancestry:nil)
   end
 
