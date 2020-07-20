@@ -5,11 +5,14 @@ class CardsController < ApplicationController
   before_action :sign_in_required
 
   def new
+    # sessionにひとつ前のリファラーをいれる # URLを保存する処理
+    session[:previous_url] = request.referer
+    
     @card = Card.where(user_id: current_user.id) 
     redirect_to action: "show" if @card.exists?
   end
 
-  def pay 
+  def pay
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -21,6 +24,7 @@ class CardsController < ApplicationController
       metadata: {user_id: current_user.id}
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+
       if @card.save
         redirect_to action: "show"
       else
@@ -29,7 +33,10 @@ class CardsController < ApplicationController
     end
   end
 
-  def delete 
+  def delete
+    # sessionをクリア
+    session[:previous_url].clear
+
     @card = Card.where(user_id: current_user.id).first
     if @card.blank?
     else
@@ -42,6 +49,9 @@ class CardsController < ApplicationController
   end
 
   def show 
+    # sessionの中からURLを取り出してリダイレクトさせる
+    @session = session[:previous_url]
+
     @card = Card.where(user_id: current_user.id).first
     if @card.blank?
       redirect_to action: "new" 

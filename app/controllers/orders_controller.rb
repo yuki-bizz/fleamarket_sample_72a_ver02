@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   def pay
     @card = @set_card.first
     if @card.blank?
-      redirect_to controller: "cards", action: "new"
+      redirect_to controller: "cards", action: "new" and return
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       Payjp::Charge.create(
@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
       )
     end
     @goods_item.update!( buyer_id: current_user.id)
-    redirect_to action: 'done', goods_item_id: @goods_item
+    redirect_to action: 'done', goods_item_id: @goods_item and return
 
     rescue Payjp::CardError
       respond_to do |format|
