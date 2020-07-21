@@ -1,4 +1,39 @@
-.con{
-  font-size: 30px;
-  color:black;
+.logo_wrap {
+  padding: 40px;
+
+  .logo{
+    width: 185px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
 }
+  
+.check {
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  &__back-btn {
+    margin-top: 40px;
+    display: flex;
+    .btn{
+      font-size: 25px;
+      color: #3bcace;
+      margin: 0 auto; 
+    }
+  }
+}
+
+.repurchase {
+  font-size: 25px;
+  color: black;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+
+
