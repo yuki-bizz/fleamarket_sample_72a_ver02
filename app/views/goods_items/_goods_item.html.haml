@@ -7,11 +7,11 @@
   -######## カテゴリー機能実装後調整 ########
   %p= goods_item.category_id
   %p= goods_item.brand
-  %p= goods_item.condition_id
-  %p= goods_item.shipping_fee_id
-  %p= goods_item.province_id
-  %p= goods_item.delivery_date_id
-  %p= goods_item.delivery_way_id
+  %p= goods_item.condition.name
+  %p= goods_item.shipping_fee.name
+  %p= goods_item.province.name
+  %p= goods_item.delivery_date.name
+  %p= goods_item.delivery_way.name
   %p= goods_item.selling_price
   
   - goods_item.images.each do |image|

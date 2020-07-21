@@ -25,7 +25,9 @@
           .goods-box
             .more
             - if user_signed_in? && current_user.id == @goods_item.seller_id
-              = icon('fas', 'sort-down', class: "more")
+              %span
+              = image_tag 'arrow_top.png'
+              -# = icon('fas', 'sort-down', class: "more")
               .more_list
               %ul
                 %li
@@ -54,7 +56,7 @@
               - elsif @goods_item.buyer_id.present? 
                 売り切れました
               - else
-                =link_to controller: "orders", class: 'btn', action: "goods_confirm" do
+                =link_to controller: "orders",　action: "goods_confirm" do
                   商品購入画面に進む
             .goods-box__instruction
               = @goods_item.explanation
@@ -114,7 +116,7 @@
                     %ul
                       %li
                         = link_to "#", class: '' do
-                          = @goods_item.delivery_way.name
+                          = @goods_item.province.name
                 %tr
                   %th 発送日の目安
                   %td

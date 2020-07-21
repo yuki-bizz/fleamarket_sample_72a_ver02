@@ -695,15 +695,19 @@
             background-color: $c_white;
             padding: 24px 40px 40px;
             margin: 0;
+            ul {
+              font-size: 15px;
+              font: bold;
+            }
             &__name {
               font-size: 24px;
               text-align: center;
               font-weight: bold;
             }
             &__photo {
+              text-align: center;
               margin-top: 16px;
               ul {
-                display: flex;
                 li {
                   width: 560px;
                   margin: 0 auto;
@@ -713,8 +717,6 @@
                     padding: 0;
                     li {
                       width: auto;
-                      // display: flex;
-                      float: left;
                       img{
                         margin: 10px 0 0 10px;
                       }
@@ -821,11 +823,6 @@
                     text-decoration: none;
                   }
                 }
-              }
-            }
-            .more {
-              .more_list{
-              font-style: bold;
               }
             }
           }
