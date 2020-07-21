@@ -70,6 +70,9 @@ gem "font-awesome-sass"
 
 #user
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 # payjpを導入
 gem 'payjp'
