@@ -25,10 +25,11 @@
           .btn-set
             .btn-set-multi.btn_wrap
               %ul
-                %li
-                  = link_to root_path do
-                    %button#button.btn_style.btn_back
-                      戻る
+                %li.btn_style
+                  = link_to @session, class: 'btn_back' do
+                    戻る
+
+
             .btn-set-multi.btn_wrap
               = form_tag(delete_cards_path, method: :post, id: 'charge-form', name: "inputForm") do
                 %input{ type: "hidden", name: "card_id", value: "" }

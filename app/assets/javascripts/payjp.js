@@ -12,6 +12,7 @@ document.addEventListener(
           cvc: document.getElementById("cvc").value
         };
         Payjp.createToken(card, (status, response) => {
+          console.log(response)
           if (status === 200) {
             $("#card_number").removeAttr("name");
             $("#exp_year").removeAttr("name");
