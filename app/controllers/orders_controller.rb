@@ -6,9 +6,6 @@ class OrdersController < ApplicationController
   before_action :set_card, only: [:goods_confirm, :pay]
   before_action :set_goods_item
 
-  # def show
-  #   @image_top = @goods_item.images.first
-  # end
 
   def goods_confirm
     @image_top = @goods_item.images.first

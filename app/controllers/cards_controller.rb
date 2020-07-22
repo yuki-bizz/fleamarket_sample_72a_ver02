@@ -49,7 +49,6 @@ class CardsController < ApplicationController
   def show 
     # sessionの中からURLを取り出してリダイレクトさせる
     @session = session[:previous_url]
-    # binding.pry
     @card = Card.where(user_id: current_user.id).first
     if @card.blank?
       redirect_to action: "new" 
@@ -66,7 +65,7 @@ class CardsController < ApplicationController
   def sign_in_required
     redirect_to new_user_session_url unless user_signed_in?
   end
-  
+
 # sessionをクリア
   def session_clear
     session[:previous_url].clear
