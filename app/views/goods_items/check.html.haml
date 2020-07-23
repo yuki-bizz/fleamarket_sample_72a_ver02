@@ -1,13 +1,15 @@
-.logo_wrap
-  .logo
-    = image_tag("logo.png", alt: "ロゴ")
-
-.check
-  商品を出品しました
-  .check__back-btn
-    = link_to "トップページへもどる", root_path, class: 'btn'
-
-.repurchase
-  .repurchase__back-btn
-    = link_to 'さらに出品する', new_goods_item_path, class: 'exhibition-btn'
-  
+.wrap.page_check.one_col
+  .logo_wrap
+    .logo
+      = link_to image_tag("logo.png", alt: "ロゴ"), root_path
+  .contents_wrap
+    .contents_box
+      %h2.content_ttl
+        出品した商品一覧
+      = render @goods_items
+    .pagenation_wrap
+      = paginate @goods_items
+    .page_bottom
+      %ul
+        %li.btn_wrap
+          = link_to 'さらに出品する', new_goods_item_path, class: 'btn_style'
