@@ -161,6 +161,8 @@
             %ul.btn_wrap
               %li.btn_style
                 = f.submit "登録"
+              %li.btn_style
+                = render "devise/shared/links"
 
 :javascript
   jQuery.validator.addMethod("han_em", function(value, element) {
@@ -270,4 +272,3 @@
       },
     }
   });
-  
