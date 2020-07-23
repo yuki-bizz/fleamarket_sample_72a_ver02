@@ -4,4 +4,6 @@
     %ul
       - @goods_item.errors.full_messages.each do |msg|
         %li= msg
-  = link_to "再入力へ", new_goods_item_path, class: 'btn'
+
+  .re-enter
+    = link_to "再入力へ", new_goods_item_path, class: 're-btn'

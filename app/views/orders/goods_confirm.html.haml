@@ -6,7 +6,7 @@
   .main__item
     .main__item__box
       .main__item__box__image
-        -# = image_tag @image_top.image.url, class: 'item-image', size: '80x80'
+        = image_tag @image_top.src, class: 'item-image', size: '80x80'
       .main__item__box__detail
         .main__item__box__detail__name
           = @goods_item.name
