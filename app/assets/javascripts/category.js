@@ -33,11 +33,12 @@ $(document).on('turbolinks:load',function(){
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    console.log(parentCategory)
     if (parentCategory != "選択して下さい"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/goods_items/get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
