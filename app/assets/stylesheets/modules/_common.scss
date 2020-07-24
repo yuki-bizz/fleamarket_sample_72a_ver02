@@ -418,7 +418,13 @@ input[type="number"] {
         margin-left: auto;
         width: 100%;
         display: flex;
-        &--input {
+        .seach {
+          margin-left: auto;
+          width: 100%;
+          display: flex;
+          
+        }
+        .input_form {
           width: calc(100% - 26px);
           height: 36px;
           padding: 0 0 0 5px;
@@ -426,13 +432,23 @@ input[type="number"] {
           border: 1px solid #333333;
           display: flex;
         }
-        &--search {
+        #input_btn{
+          display: none;
+        }
+        .search-icon{
           height: 35.6px;
           width: 36px;
           background-color: $c_green;
           cursor: pointer;
           padding: 8px;
         }
+        // &--search {
+        //   height: 35.6px;
+        //   width: 36px;
+        //   background-color: $c_green;
+        //   cursor: pointer;
+        //   padding: 8px;
+        // }
       }
     }
     &__navi {
