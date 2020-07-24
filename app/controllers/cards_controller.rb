@@ -3,13 +3,17 @@ class CardsController < ApplicationController
   require "payjp"
 
   before_action :sign_in_required
+  after_action :session_clear, only: [:show]
 
   def new
+    # sessionにひとつ前のリファラーをいれる # URLを保存する処理
+    session[:previous_url] = request.referer
+    
     @card = Card.where(user_id: current_user.id) 
     redirect_to action: "show" if @card.exists?
   end
 
-  def pay 
+  def pay
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -21,6 +25,7 @@ class CardsController < ApplicationController
       metadata: {user_id: current_user.id}
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+
       if @card.save
         redirect_to action: "show"
       else
@@ -29,7 +34,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def delete 
+  def delete
     @card = Card.where(user_id: current_user.id).first
     if @card.blank?
     else
@@ -42,6 +47,8 @@ class CardsController < ApplicationController
   end
 
   def show 
+    # sessionの中からURLを取り出してリダイレクトさせる
+    @session = session[:previous_url]
     @card = Card.where(user_id: current_user.id).first
     if @card.blank?
       redirect_to action: "new" 
@@ -50,12 +57,18 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+
   end
 
   private
 
   def sign_in_required
     redirect_to new_user_session_url unless user_signed_in?
+  end
+
+# sessionをクリア
+  def session_clear
+    session[:previous_url].clear
   end
 
 end

@@ -56,7 +56,7 @@
               - elsif @goods_item.buyer_id.present? 
                 売り切れました
               - else
-                =link_to controller: "orders",　action: "goods_confirm" do
+                =link_to controller: "orders", action: "goods_confirm" do
                   商品購入画面に進む
             .goods-box__instruction
               = @goods_item.explanation

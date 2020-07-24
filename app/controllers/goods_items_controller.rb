@@ -2,7 +2,7 @@ class GoodsItemsController < ApplicationController
   before_action :set_goods_item, only: [:show, :edit, :update, :destroy]
 
   def check
-    @goods_items = GoodsItem.includes(:images).order('created_at DESC')
+    @goods_items = GoodsItem.includes(:images).order('created_at DESC').page(params[:page]).per(5)
     #カテゴリー
     @ladies_category = Category.find_by(name: "レディース")
     @ladies = GoodsItem.where(category_id: @ladies_category.subtree)
@@ -97,7 +97,7 @@ class GoodsItemsController < ApplicationController
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find(params[:parent_id]).children
   end
 
   # 子カテゴリーが選択された後に動くアクション

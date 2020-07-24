@@ -89,3 +89,6 @@ gem 'ancestry'
 
 # S3にファイルをアップロードするため
 gem 'fog-aws'
+
+# ページネーション（出品確認など）
+gem 'kaminari'
