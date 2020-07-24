@@ -1,9 +1,7 @@
 class CardsController < ApplicationController
   
   require "payjp"
-  
-  Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-
+ 
   before_action :sign_in_required
   after_action :session_clear, only: [:show]
 
