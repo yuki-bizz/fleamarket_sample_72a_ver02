@@ -26,8 +26,8 @@
             .more
             - if user_signed_in? && current_user.id == @goods_item.seller_id
               %span
-              = image_tag 'arrow_top.png'
-              -# = icon('fas', 'sort-down', class: "more")
+              -# = image_tag 'arrow_top.png'
+              = icon('fas', 'sort-down', class: "more")
               .more_list
               %ul
                 %li
@@ -162,7 +162,8 @@
                 = icon('fas', 'angle-right', class: "links__nextpage-btn")
         .same-category
           =link_to "#", class: '' do
-            = @goods_item.category.parent.parent.name 
+            = @goods_item.category.parent.parent.name
+            %br
             をもっとみる
 
 .banner
