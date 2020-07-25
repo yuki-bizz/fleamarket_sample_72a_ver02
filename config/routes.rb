@@ -43,7 +43,8 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
    end
-   
+  
+   resources :searches,only:[:index]
 
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
