@@ -162,7 +162,9 @@
               %li.btn_style
                 = f.submit "登録"
               %li.btn_style
-                = render "devise/shared/links"
+                = link_to 'Sign in with twitter', user_twitter_omniauth_authorize_path
+                = link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path
+                = link_to 'Sign in with google', user_google_oauth2_omniauth_authorize_path
 
 :javascript
   jQuery.validator.addMethod("han_em", function(value, element) {
