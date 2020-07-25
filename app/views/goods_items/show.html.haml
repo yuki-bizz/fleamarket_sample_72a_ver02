@@ -20,12 +20,13 @@
 .wrap.page_goods_detail
   .show
     .show-main
-      -# .content-left
       .contents_box
         .top-content
           .goods-box
             .more
             - if user_signed_in? && current_user.id == @goods_item.seller_id
+              %span
+              -# = image_tag 'arrow_top.png'
               = icon('fas', 'sort-down', class: "more")
               .more_list
               %ul
@@ -34,22 +35,19 @@
                 %li
                   =link_to '削除', goods_item_path(@goods_item.id), method: :delete
             .goods-box__name
-              Goods
-            -# image_tagは商品出品機能が実装終了後に追加
+              = @goods_item.name
             .goods-box__photo
               %ul
                 %li
-                  =image_tag '801065.png', size:"560x346"
+                  = image_tag @goods_item.images[0].src.url, size:"560x346"
                   %ul
                     %li
-                      =image_tag '801065.png', size:"140x87"
-                    %li
-                      =image_tag '801065.png', size:"140x87"
-                    %li
-                      =image_tag '801065.png', size:"140x87"
+                      - @goods_item.images.each do |image|
+                        = image_tag image.src.url, size:"140x87"
             .goods-box__price
               .goods-box__price__price
-                ¥20,000
+                = @goods_item.selling_price
+                円
               .goods-box__price__tax
                 (税込み)送料込み
             .buy-btn
@@ -61,12 +59,14 @@
                 =link_to controller: "orders", action: "goods_confirm" do
                   商品購入画面に進む
             .goods-box__instruction
-              2018年に新品で購入し、主に自宅で使っていました。キーの光沢が若干ある他は、外見も大きな傷など無く、きれいに使っていたつもりです。ですが、２年使用したものなので細かい傷や使用感の気になる方の購入はお勧めしません。
+              = @goods_item.explanation
             .goods-box__table
               %table 
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td
+                    %li
+                      = @goods_item.user.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -104,20 +104,23 @@
                   %td 
                 %tr
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td
+                    = @goods_item.condition.name
                 %tr
                   %th 配送料の負担
-                  %td 着払い（購入者負担）
+                  %td 
+                    = @goods_item.shipping_fee.name
                 %tr
                   %th 発送元の地域
                   %td
                     %ul
                       %li
                         = link_to "#", class: '' do
-                          青森県
+                          = @goods_item.province.name
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
+                  %td
+                    = @goods_item.delivery_date.name
 
             .goods-box__optional-area
               %ul
@@ -159,7 +162,8 @@
                 = icon('fas', 'angle-right', class: "links__nextpage-btn")
         .same-category
           =link_to "#", class: '' do
-            = @goods_item.category.parent.parent.name 
+            = @goods_item.category.parent.parent.name
+            %br
             をもっとみる
 
 .banner
