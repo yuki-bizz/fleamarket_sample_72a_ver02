@@ -3,13 +3,40 @@
     .logo
       = link_to image_tag("logo.png", alt: "ロゴ"), root_path
   .contents_wrap
-    .contents_box
+    -#.contents_box
       %h2.content_ttl
         出品した商品一覧
       = render @goods_items
-    .pagenation_wrap
+    -#.pagenation_wrap
       = paginate @goods_items
-    .page_bottom
+    -#.page_bottom
       %ul
         %li.btn_wrap
           = link_to 'さらに出品する', new_goods_item_path, class: 'btn_style'
+    .contents_box
+      .contents_box__inner
+        %figure.item-image
+          -# = image_tag @image_top.src, class: 'item-image', size: '240x240'
+          = image_tag "logo_s.svg", class: ''
+        .detail
+          -#.detail__price
+            %p
+              = "¥ #{@goods_item.selling_price}"
+              (税込)
+              %span
+                送料込み
+          -#.detail__name
+            %p
+              = @goods_item.name
+
+    .overlap
+      .overlap__inner
+        %p.overlap_ttl
+          出品が完了しました！！
+        %p.overlap_info
+          出品完了いたしました。引き続きお楽しみください。
+        %ul.btn_wrap
+          %li.btn_style
+            = link_to 'さらに出品する', new_goods_item_path
+          %li.btn_style
+            = link_to "買い物を楽しむ", root_path
