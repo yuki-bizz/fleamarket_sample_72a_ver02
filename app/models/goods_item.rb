@@ -1,5 +1,5 @@
 class GoodsItem < ApplicationRecord
-  validates  :name,:province_id, :explanation, :condition_id, :shipping_fee_id, :delivery_way_id, :delivery_date_id, :selling_price, presence: true
+  validates  :name,:province_id, :explanation, :condition_id, :category_id, :shipping_fee_id, :delivery_way_id, :delivery_date_id, :selling_price, presence: true
   belongs_to :user
   belongs_to :category, optional: true
   has_many :images, dependent: :destroy
