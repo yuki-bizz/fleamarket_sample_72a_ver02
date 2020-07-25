@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   
   require "payjp"
-
+ 
   before_action :sign_in_required
   after_action :session_clear, only: [:show]
 
