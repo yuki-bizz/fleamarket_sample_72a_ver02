@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20200724143523) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.string   "user_id"
     t.string   "customer_id"
     t.string   "card_id"
     t.datetime "created_at",  null: false
@@ -30,10 +30,13 @@ ActiveRecord::Schema.define(version: 20200724143523) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "goods_item_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "user_id_id"
+    t.integer  "goods_item_id_id"
+    t.text     "text",             limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["goods_item_id_id"], name: "index_comments_on_goods_item_id_id", using: :btree
+    t.index ["user_id_id"], name: "index_comments_on_user_id_id", using: :btree
   end
 
   create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

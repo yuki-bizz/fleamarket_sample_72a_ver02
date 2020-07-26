@@ -24,10 +24,7 @@ Rails.application.routes.draw do
 
   #user my_page add kazoe
   resources :users, only: [:show, :edit, :update]
-  # comment機能 add oikawa
-  resources :goods_item do
-    resources :comments, only: :create
-  end
+
 
   get 'users/:id/edit',to: 'users#edit'
   patch 'users/:id/edit',to: 'users#update'
@@ -47,8 +44,11 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
    end
-   
 
+   # comment機能 add oikawa
+  resources :goods_items do
+    resources :comments, only: [:create]
+  end
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
 
