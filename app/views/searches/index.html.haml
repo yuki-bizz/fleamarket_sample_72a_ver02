@@ -1,0 +1,30 @@
+.header__menu
+  = render partial: 'displays/header'
+.wrap.page_search
+  .search-container.clearfix
+    .search-result
+      %section.items-box-container
+        -if @search.present?
+          %h2.search-result-head
+            =@search
+            %span.search-result-head-text
+              の検索結果
+          .search-result-number
+            ="1-#{@goods_items.count}件表示"
+          .search-result-box
+            = render partial: 'goods_items/search_item', collection: @goods_items ,as: :goods_item
+            
+        -else
+          %h2.search-result-nil
+            キーワードを入力して下さい
+            %br
+            .link_root
+            = link_to "もどる", root_path, class: 'btn'
+        .items-box-content
+
+  .banner
+    = render partial: 'displays/banner'
+
+  .footer__menue 
+    =render partial: 'displays/footer'
+         

@@ -44,6 +44,8 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
    end
+  
+   resources :searches,only:[:index]
 
    # comment機能 add oikawa
   resources :goods_items do
@@ -93,5 +95,5 @@ Rails.application.routes.draw do
       get 'show', to: 'orders#show'
     end
   end
-
+  
 end
