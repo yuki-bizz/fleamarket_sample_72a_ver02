@@ -1743,3 +1743,43 @@
     }
   }
 }
+
+/* ------------------------------ >>
+  page_search add_yoshinaga
+ <<------------------------------ */
+ .wrap.page_search{
+   
+  .search-container{
+    width: 700px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    .search-result{
+      font-size: 18px;
+      margin: 16px 0 8px;
+      .items-box-container{
+        .search-result-number{
+          font-size: 12px;
+          color: #888888;
+          margin: 16px 0;
+        }
+        .search-result-box{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .search-result-nil{
+      font-size: 22px;
+      margin-top: 26px;
+
+    .link_root{
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  }  
+ }
+ .clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}

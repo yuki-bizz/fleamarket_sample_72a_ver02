@@ -24,6 +24,7 @@ class GoodsItem < ApplicationRecord
   belongs_to_active_hash :province
   belongs_to_active_hash :delivery_date
   
+  
   # あいまい検索
   def self.search(search)
     return GoodsItem.all unless search
