@@ -1,0 +1,19 @@
+.search
+  .search-container
+    .search-result
+      %section.items-box-container
+        -if @search.present?
+          %h2.search-result-head
+            =@search
+            %span.search-result-head-text
+              の検索結果
+          .search-result-number
+            ="1-#{@goods_items.count}件表示"
+       
+            = render @goods_items
+        -else
+          %h2.search-result-nil
+            入力して下さい
+        .items-box-content
+          -# = render @goods_items
+          -# = paginate(@goods_items)

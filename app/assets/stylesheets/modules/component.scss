@@ -242,10 +242,12 @@
           margin-top: 10px;
         }
         .displayLists {
-          width: 780px;
+          white-space:nowrap;
+          width: 100%;
           margin: 26px auto;
           display: flex;
           justify-content: space-around;
+          overflow: scroll;
           a:hover {
             opacity: 0.5;
           }

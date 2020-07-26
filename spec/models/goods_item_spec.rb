@@ -23,7 +23,7 @@ describe GoodsItem do
     it "category_idがない場合は登録できないこと" do
       goods_item = build(:goods_item, category_id: nil)
       goods_item.valid?
-      expect(goods_item.errors[:category]).to include("を入力してください")
+      expect(goods_item.errors[:category_id]).to include("を入力してください")
     end
 
     it "condition_idがない場合は登録できないこと" do
