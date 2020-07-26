@@ -418,7 +418,7 @@ input[type="number"] {
         margin-left: auto;
         width: 100%;
         display: flex;
-        .seach {
+        .search {
           margin-left: auto;
           width: 100%;
           display: flex;
@@ -442,13 +442,6 @@ input[type="number"] {
           cursor: pointer;
           padding: 8px;
         }
-        // &--search {
-        //   height: 35.6px;
-        //   width: 36px;
-        //   background-color: $c_green;
-        //   cursor: pointer;
-        //   padding: 8px;
-        // }
       }
     }
     &__navi {

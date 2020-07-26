@@ -1,5 +1,7 @@
-.search
-  .search-container
+.header__menu
+  = render partial: 'displays/header'
+.wrap.page_search
+  .search-container.clearfix
     .search-result
       %section.items-box-container
         -if @search.present?
@@ -9,11 +11,20 @@
               の検索結果
           .search-result-number
             ="1-#{@goods_items.count}件表示"
-       
-            = render @goods_items
+          .search-result-box
+            = render partial: 'goods_items/search_item', collection: @goods_items ,as: :goods_item
+            
         -else
           %h2.search-result-nil
-            入力して下さい
+            キーワードを入力して下さい
+            %br
+            .link_root
+            = link_to "もどる", root_path, class: 'btn'
         .items-box-content
-          -# = render @goods_items
-          -# = paginate(@goods_items)
+
+  .banner
+    = render partial: 'displays/banner'
+
+  .footer__menue 
+    =render partial: 'displays/footer'
+         

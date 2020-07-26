@@ -1,0 +1,32 @@
+.search-conent{
+  width: 160px;
+  float: left;
+  margin: 3px;
+  .search-result{
+    background-color: #ffffff;
+    width: 160px;
+    &__box{
+      width: 160px;
+      overflow: hidden;
+      .name{
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: black;
+        padding: 4px;
+        margin-bottom: 1px;
+      }
+      .price{
+        display: flex;
+        justify-content: space-between;
+        color: black;
+        font-size: 12px;
+        padding: 6px;
+      }
+      .likeIcon{
+        font-size: 14px;
+      }
+    }
+  }
+}
