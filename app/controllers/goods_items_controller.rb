@@ -63,6 +63,7 @@ class GoodsItemsController < ApplicationController
   def show
     @parents = Category.where(ancestry:nil)
     @comment = Comment.new
+    @comments = @goods_item.comments.includes(:user)
   end
 
 # 商品編集画面

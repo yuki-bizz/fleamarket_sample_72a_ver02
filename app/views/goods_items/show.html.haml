@@ -140,11 +140,13 @@
             .comment-area
               - if current_user
                 = form_for [@goods_item, @comment] do |form|
-                  = form.text_field :text, placeholder: "コメントする", rows: "5"
-                  = form.submit "SEND"                
+                  = form.text_field :text, placeholder: "コメントする", rows: "3"
+                  = form.submit "コメントする"
               -# .new-comment
                 -# %textarea{type:'text', class:''}
               .notes-memo
+                ******コメントの投稿にはユーザー登録／ログインが必要です******
+                %br
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -153,6 +155,15 @@
               -#   = icon('fas', 'comment')
               -#   %span
               -#     コメントする
+              .comments
+                %h4 ＜コメント一覧＞
+                - if @comments
+                  - @comments.each do |comment|
+                    %p
+                      %strong
+                      = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                      = comment.text
+
         .links
           .previous-page
             =link_to "#", class: 'links' do
