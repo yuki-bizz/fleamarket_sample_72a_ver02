@@ -5,15 +5,24 @@ class User < ApplicationRecord
          :recoverable, :rememberable,:validatable,
          :omniauthable, omniauth_providers: %i[facebook twitter google_oauth2]
 
-  # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    # sns認証したことがあればアソシエーションで取得
+    # 無ければemailでユーザー検索して取得orビルド(保存はしない)
+    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+        email: auth.info.email
+    )
+    # userが登録済みの場合はそのままログインの処理へ行くので、ここでsnsのuser_idを更新しておく
+    if user.persisted?
+      sns.user = user
+      sns.save
     end
+    { user: user, sns: sns }
   end
 
   has_many :goods_items
+  has_many :sns_credentials
   #has_many :orders, dependent: :destroy
   #has_one :card, dependent: :destroy
 
