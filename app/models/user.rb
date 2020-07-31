@@ -51,6 +51,6 @@ class User < ApplicationRecord
   has_many :goods_items
   has_many :sns_credentials
   #has_many :orders, dependent: :destroy
-  #has_one :card, dependent: :destroy
+  # has_one :card, dependent: :destroy
 
 end

@@ -4,7 +4,7 @@ FactoryBot.define do
     user_id               {"11"}
     name                  {"abe"}
     explanation           {"aaaabbbccccddddeeee"}
-    category_id              {"11"}
+    category_id              {"3"}
     brand                 {"aaaaaaaaa"}
     condition_id             {"11"}
     shipping_fee_id          {"11"}

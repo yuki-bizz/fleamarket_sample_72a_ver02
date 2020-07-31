@@ -5,10 +5,12 @@
         %a{href: '/'}
           =image_tag 'logo.png', class: 'furima-logo', size: '140x40'
       .header__menu__inner__main__search-box
-        %input.header__menu__inner__main__search-box--input{:id => "searchInput", :name => "key", :placeholder => "キーワードから探す"}/
-        .header__menu__inner__main__search-box--search
-          %a{href: '#'}
-            =image_tag 'icon-search 1.png', class: 'search-icon', size: '19x19'
+        = form_tag(searches_path,method: :get, class: "search") do
+          = text_field_tag :search, "", class: 'input_form', placeholder:"キーワードから探す" 
+          = submit_tag :search, :name => nil, id: 'input_btn'
+          %label{:for => "input_btn"}
+            = image_tag 'icon-search 1.png', size: '19x19', class: 'search-icon'
+            
     .header__menu__inner__navi
       %ul.leftLists
         %li.leftLists__category
