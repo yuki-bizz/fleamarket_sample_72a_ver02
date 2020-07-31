@@ -12,15 +12,11 @@ Rails.application.routes.draw do
 
   get 'cards/show'
 
-  devise_for :users
-  # devise_for :users, controllers: {
-  #   registrations: 'users/registrations',
-  #   sessions: 'users/sessions'}
-    
-  # devise_scope :user do
-  #   get 'edit_user', :to => 'users/sessions#new'
-  #   get 'sign_out', :to => 'users/sessions#destroy'
-  # end
+  devise_for :users, controllers: {
+  omniauth_callbacks: 'users/omniauth_callbacks',
+  registrations: 'users/registrations'
+}
+
 
   #user my_page add kazoe
   resources :users, only: [:show, :edit, :update]

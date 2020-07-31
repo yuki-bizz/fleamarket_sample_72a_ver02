@@ -308,34 +308,45 @@
   page_login add_kazoe
  <<------------------------------ */
 .page_login {
-
   .form{
-    padding: 0;
-    .form__inner {
-      padding: 40px;
-    }
-    .form_info-top {
-      border-bottom:1px solid #eee;
-      p {
-        text-align: center;
-      }
-      .btn_wrap {
-        padding: 15px 0 0 0;
+      padding: 0;
 
-        .btn_style a {
-        background:$c_light_blue;
+      .form_info-top {
+        .form__inner {
+          padding: 40px 40px 20px 40px;
+          border-bottom:1px solid #eee;
+        p {
+          text-align: center;
         }
+          .btn_wrap {
+            padding: 15px 0 0 0;
+
+            .btn_style a {
+              background:$c_light_blue;
+            }
+          }
+        }
+      }
+    form.form__inner {
+      padding: 20px 40px 40px 40px;
+      .field{
+        @include btn_sns
       }
     }
   }
-
 }
+
 
 /* ------------------------------ >>
   page_regist add_kazoe
  <<------------------------------ */
 .page_regist {
   padding-bottom: 40px;
+
+  .for_sns{
+    @include btn_sns;
+    background: $c_white;
+  }
 
   .field-list {
     label {

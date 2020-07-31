@@ -10,17 +10,25 @@
             アカウントをお持ちでない方はこちら
           %ul.btn_wrap
             %li.btn_style
-              = link_to "/users/sign_up" do
-                新規会員登録
+              = link_to "初めてのかたはコチラからご登録", new_user_registration_path
 
       = form_for(resource, as: resource_name, url: session_path(resource_name), html:{ class:'form__inner' }) do |f|
         .field
           .field-list
+            %ul.btn_sns
+              %li.btn_style.btn_fb.ic.ic_fb
+                = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
+              %li.btn_style.btn_gg.ic.ic_gg
+                = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+          .field-list
             = f.label value="メールアドレス", class:'email'
             = f.email_field :email, placeholder:"ご登録のメールアドレス", autofocus: true
-          .field-list
-            = f.label value="パスワード", class:'password'
-            = f.password_field :password, placeholder:"7文字以上の半角英数字", autocomplete: "off"
-          %ul.btn_wrap
-            %li.btn_style
-              = f.submit "ログイン", class: 'btn' 
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .field-list
+              = f.label value="パスワード", class:'password'
+              = f.password_field :password, placeholder:"7文字以上の半角英数字", autocomplete: "off"
+            %ul.btn_wrap
+              %li.btn_style
+                = f.submit "ログイン", class: 'btn' 
