@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   #user my_page add kazoe
   resources :users, only: [:show, :edit, :update]
 
+
   get 'users/:id/edit',to: 'users#edit'
   patch 'users/:id/edit',to: 'users#update'
 
@@ -42,6 +43,10 @@ Rails.application.routes.draw do
   
    resources :searches,only:[:index]
 
+   # comment機能 add oikawa
+  resources :goods_items do
+    resources :comments, only: [:create]
+  end
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
 

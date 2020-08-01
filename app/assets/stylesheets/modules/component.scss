@@ -839,42 +839,52 @@
               }
             }
           }
-          .comment-box {
+          .comment {
             padding: 24px;
             margin: 10px 0;
             background-color: $c_white;
-            text-align: center;
-            .comment-area {
-              margin: 0;
-              padding: 0;
-              .new-comment { 
-                textarea {
+            .comment-box {
+              text-align: center;
+              form {
+                .comment-box {
                   width: 100%;
                   min-height: 104px;
-                  padding: 10px;
+                  box-shadow: 0 0 10px lightgray;
+                  background-color: $c_white;
                   border: 1px solid black;
                 }
+                .submit-btn {
+                  width: 60%;
+                  height: 48px;
+                  line-height: 48px;
+                  margin: auto;
+                  margin-top: 15px;
+                  background: $c_green;
+                  border: 1px solid $c_green;
+                  color: $c_white;
+                  font-size: 18px;
+                  border-radius: 100px;
+                  text-align: center;
+                  }
               }
-              .notes-memo {
-                line-height:1.5;
-                font-size: 14px;
-                padding: 8px;
-                margin: 10px 0;
-                background-color: $c_light_gray;
-                text-align: left;
-              }
-              .send-btn {
-                width: 60%;
-                height: 48px;
-                line-height: 48px;
-                margin: auto;
-                margin-top: 15px;
-                background: $c_green;
-                border: 1px solid $c_green;
-                color: $c_white;
-                font-size: 18px;
-                border-radius: 100px;
-                text-align: center;
+            }
+            .notes-memo {
+              line-height:1.5;
+              font-size: 12px;
+              padding: 8px;
+              margin: 15px 0;
+              background-color: lightgray;
+              text-align: center;
+            }
+            .comments {
+              padding: 5px 30px 5px 30px;
+              margin-top: 15px;
+              line-height: 150%;
+              a {
+                color: $c_green;
+                &:hover {
+                  text-decoration: underline;
+                }
               }
             }
           }
