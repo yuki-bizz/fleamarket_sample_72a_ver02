@@ -6,7 +6,7 @@ class GoodsItem < ApplicationRecord
   ## 購入機能実装時使用 ###
   has_one :order, dependent: :destroy
   ## コメント機能で使用 ##
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   
   # モデルimage.rbにバリデーションをかける
