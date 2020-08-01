@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :goods_item do
-    user_id               {"11"}
-    name                  {"abe"}
+    # user_id               {"11"}
+    name                  {"パス"}
     explanation           {"aaaabbbccccddddeeee"}
     category_id              {"3"}
     brand                 {"aaaaaaaaa"}
@@ -14,7 +14,9 @@ FactoryBot.define do
     selling_price         {"000000000"}
     status                {"aaaaaaaaa"}
     seller_id             {"11"}
-    buyer_id              {"11"}    
+    buyer_id              {"11"}
+    # image
+    # user
   end
 
 end

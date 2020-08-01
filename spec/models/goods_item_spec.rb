@@ -3,6 +3,7 @@ describe GoodsItem do
   describe '#create, #edit' do
 
     it "nameがない場合は登録できないこと" do
+      binding.pry
       goods_item = build(:goods_item, name: nil)
       goods_item.valid?
       expect(goods_item.errors[:name]).to include("を入力してください")
