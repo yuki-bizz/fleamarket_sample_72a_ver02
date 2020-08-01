@@ -1804,3 +1804,56 @@
   clear: both;
   display: block;
 }
+
+/* ------------------------------ >>
+  page_read(tos and privacy) add_kazoe
+ <<------------------------------ */
+ .page_read {
+   padding-bottom: 40px;
+   .contents_box{
+     background: $c_white;
+   
+   .page_ttl{
+      font-size: 1.8rem;
+      border-left: 7px solid $c_green;
+      padding-left: 10px;
+      margin-bottom: 30px;
+  }
+   .inner{
+     padding: 40px;
+     p {
+       margin-bottom: 30px;
+       line-height: 1.5;
+     }
+     counter-reset: number 0;
+      .contents_detail{
+        margin-bottom: 30px;
+
+        .page_ttl_sub{
+          font-size: 1.6rem;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+        .page_ttl_sub:before{
+          counter-increment: number 1;
+          content: "第" counter(number) "条"; 
+        }
+        dd{
+          line-height: 1.5;
+          ol{
+            margin-left: 1.5em;
+            li{
+              list-style: inherit;
+            }
+          }
+        }
+      }
+    .date {
+      display: block;
+      text-align: right;
+    }
+   }
+   }
+ }
+
+
