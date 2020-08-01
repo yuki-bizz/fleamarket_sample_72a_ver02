@@ -1794,3 +1794,33 @@
   clear: both;
   display: block;
 }
+
+/* ------------------------------ >>
+  page_read(tos and privacy) add_kazoe
+ <<------------------------------ */
+ .page_read {
+   .page_ttl{
+
+   }
+   .inner{
+     counter-reset: number 0;
+      .contets_detail{
+        .page_ttl_sub{
+          dd{
+            ol{
+              li{
+
+              }
+            }
+          }
+
+        }
+        .page_ttl_sub:before{
+          counter-increment: number 1;
+          content: "第" counter(number, cjk-ideographic) "条"; 
+        }
+      }
+   }
+ }
+
+

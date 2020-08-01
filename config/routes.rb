@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/edit',to: 'users#edit'
   patch 'users/:id/edit',to: 'users#update'
+  get 'static/tos'
 
   # resources :displays
   # resources :goods_items, except: :index
