@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
   omniauth_callbacks: 'users/omniauth_callbacks',
   registrations: 'users/registrations'
-}
+  }
 
 
   #user my_page add kazoe
@@ -24,8 +24,11 @@ Rails.application.routes.draw do
 
   get 'users/:id/edit',to: 'users#edit'
   patch 'users/:id/edit',to: 'users#update'
-  get 'static/tos'
-  get 'static/privacy'
+
+  namespace :reads do
+    get :privacy
+    get :tos
+  end
 
   # resources :displays
   # resources :goods_items, except: :index
@@ -56,14 +59,6 @@ Rails.application.routes.draw do
   get 'static/regist'
   # get 'static/exhibition'
   # get 'static/detail_test'
-
-  
- # my_page add kazoe
-  get 'static/my_page'
-
-  # my_pageサイドメニューから確認用 add kazoe
-  get 'static/regist'
-  get 'static/card'
 
   # 商品購入確認ページの確認用 add tsutsumi
   get 'static/goods_confirm'
