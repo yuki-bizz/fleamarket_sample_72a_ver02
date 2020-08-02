@@ -3,28 +3,28 @@
  <<------------------------------ */
 $c_white:#fff; /* fix */
 $c_green:#3BCACE; /*fix FULIMA*/
-$c_black:#333; /* fix mercari */
-$c_red:#EA352D; /* fix mercari */
+$c_black:#333; /* fix FULIMA */
+$c_red:#EA352D; /* fix FULIMA */
 $c_orange:#f1880d;
-$c_light_gray:#F5F5F5;/* fix mercari */
-$c_light_blue:#0099e8;/* fix mercari */
+$c_light_gray:#F5F5F5;/* fix FULIMA */
+$c_light_blue:#0099e8;/* fix FULIMA */
 
 
 /*コンテンツ幅を設定するところ*/
 
-$contents_box:700px; /*fix mercari 1column */
-$contents_wide:1020px; /*fix mercari 2column */
-$contents_mini:456px;/*fix mercari other */
+$contents_box:700px; /*fix FULIMA 1column */
+$contents_wide:1020px; /*fix FULIMA 2column */
+$contents_mini:456px;/*fix FULIMA other */
 * {
   box-sizing: border-box;
 }
 html {
-    font-size: 66.66667%; /*fix mercari*/
+    font-size: 66.66667%; /*fix FULIMA*/
     color:$c_black;
 }
 body {
-    font-size: 14px; /*fix mercari*/
-    font-size: 1.4rem; /*fix mercari*/
+    font-size: 14px; /*fix FULIMA*/
+    font-size: 1.4rem; /*fix FULIMA*/
 }
 
 
