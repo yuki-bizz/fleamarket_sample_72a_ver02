@@ -1,0 +1,12 @@
+- if Favorite.find_by(user_id: current_user.id, goods_item_id: goods_item.id)
+  = link_to(goods_item_favorite_path(@goods_item, goods_item.id), method: :delete, remote: true) do
+    %li.optionalBtn.already
+      = icon('fa', 'star')
+      お気に入り済み
+      = Favorite.where(goods_item_id: goods_item.id).count
+- else
+  = link_to(goods_item_favorites_path(@goods_item), method: :post, remote: true) do
+    %li.optionalBtn.none
+      = icon('fa', 'star')
+      お気に入り
+      = Favorite.where(goods_item_id: goods_item.id).count

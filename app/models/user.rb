@@ -8,4 +8,8 @@ class User < ApplicationRecord
   #has_many :orders, dependent: :destroy
   # has_one :card, dependent: :destroy
 
+  # favorites-function
+  has_many :favorites, dependent: :destroy
+  has_many :favorites, through: :favorites, source: :goods_items
+
 end

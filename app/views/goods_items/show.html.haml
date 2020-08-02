@@ -123,12 +123,14 @@
                     = @goods_item.delivery_date.name
 
             .goods-box__optional-area
-              %ul
-                %li.like-btn
-                  = link_to "#", class: '' do
-                    = icon('fas', 'star', class: "like-btn--icon")
-                    %span
-                      お気に入り 0
+              %ul#favoriteBtn
+                = render partial: 'favorites/favorite', locals: { goods_item: @goods_item}
+                -# %li.like-btn
+                -#   = link_to "#", class: '' do
+                -#     = icon('fas', 'star', class: "like-btn--icon")
+                -#     %span
+                -#       お気に入り 0
+                      
               %ul
                 %li.report-btn
                   = link_to "#", class: 'report-btn' do

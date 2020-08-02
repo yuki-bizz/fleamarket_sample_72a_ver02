@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'favorites/index'
+
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   get 'purchase/new'
 
   get 'purchase/create'
@@ -42,6 +48,8 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    # favorites-function
+    resources :favorites, only: [:index, :create, :destroy]
    end
   
    resources :searches,only:[:index]

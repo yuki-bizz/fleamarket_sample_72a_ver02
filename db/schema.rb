@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200724134211) do
+ActiveRecord::Schema.define(version: 20200802020413) do
 
   create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "user_id"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 20200724134211) do
     t.datetime "updated_at",      null: false
     t.index ["goods_item_id"], name: "index_evaluations_on_goods_item_id", using: :btree
     t.index ["user_id"], name: "index_evaluations_on_user_id", using: :btree
+  end
+
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "goods_item_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["goods_item_id"], name: "index_favorites_on_goods_item_id", using: :btree
+    t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
   create_table "goods_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -77,6 +86,15 @@ ActiveRecord::Schema.define(version: 20200724134211) do
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "statics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -114,8 +132,11 @@ ActiveRecord::Schema.define(version: 20200724134211) do
 
   add_foreign_key "evaluations", "goods_items"
   add_foreign_key "evaluations", "users"
+  add_foreign_key "favorites", "goods_items"
+  add_foreign_key "favorites", "users"
   add_foreign_key "goods_items", "users"
   add_foreign_key "images", "goods_items"
   add_foreign_key "orders", "goods_items"
   add_foreign_key "orders", "users"
+  add_foreign_key "sns_credentials", "users"
 end
