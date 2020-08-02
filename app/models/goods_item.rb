@@ -6,10 +6,6 @@ class GoodsItem < ApplicationRecord
   ## 購入機能実装時使用 ###
   has_one :order, dependent: :destroy
 
-
-
-
-  
   # favorites-function
   has_many :favorites, dependent: :destroy
   has_many :favorites, through: :favorites, source: :user
