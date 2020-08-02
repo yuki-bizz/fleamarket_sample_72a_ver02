@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -68,8 +69,12 @@ gem 'haml-rails'
 #icon
 gem "font-awesome-sass"
 
-#user
+#user_login
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection" # OmniAuthの脆弱性に対応
 
 # payjpを導入
 gem 'payjp'
