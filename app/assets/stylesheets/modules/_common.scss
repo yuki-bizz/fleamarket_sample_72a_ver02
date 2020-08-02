@@ -546,7 +546,6 @@ input[type="number"] {
 /*---------- footer ---------*/
 .footer__menue {
   width: 100%;
-  height: 355px;
   background-color: #272727;
   padding: 60px 0;
   color: $c_white;
@@ -587,9 +586,17 @@ input[type="number"] {
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
-    p {
-      font-size: 14px;
+    a{
+      display: block;
+      width: 160px;
+      img{
+        display: block;
+        width: 100%;
+      }
     }
+  }
+  .copy {
+    font-size: 14px;
   }
 }
 /*---------/ footer ---------*/

@@ -15,14 +15,20 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
   omniauth_callbacks: 'users/omniauth_callbacks',
   registrations: 'users/registrations'
-}
+  }
 
 
   #user my_page add kazoe
   resources :users, only: [:show, :edit, :update]
 
+
   get 'users/:id/edit',to: 'users#edit'
   patch 'users/:id/edit',to: 'users#update'
+
+  namespace :reads do
+    get :privacy
+    get :tos
+  end
 
   # resources :displays
   # resources :goods_items, except: :index
@@ -42,6 +48,10 @@ Rails.application.routes.draw do
   
    resources :searches,only:[:index]
 
+   # comment機能 add oikawa
+  resources :goods_items do
+    resources :comments, only: [:create]
+  end
 
 ##### ペタうち確認用 staticここから（必要なくなったら消しましょう） #####
 
@@ -49,14 +59,6 @@ Rails.application.routes.draw do
   get 'static/regist'
   # get 'static/exhibition'
   # get 'static/detail_test'
-
-  
- # my_page add kazoe
-  get 'static/my_page'
-
-  # my_pageサイドメニューから確認用 add kazoe
-  get 'static/regist'
-  get 'static/card'
 
   # 商品購入確認ページの確認用 add tsutsumi
   get 'static/goods_confirm'
