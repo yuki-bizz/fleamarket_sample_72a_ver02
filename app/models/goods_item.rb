@@ -5,7 +5,8 @@ class GoodsItem < ApplicationRecord
   has_many :images, dependent: :destroy
   ## 購入機能実装時使用 ###
   has_one :order, dependent: :destroy
-
+  ## コメント機能で使用 ##
+  has_many :comments, dependent: :destroy
   # favorites-function
   has_many :favorites, dependent: :destroy
   has_many :favorites, through: :favorites, source: :user

@@ -11,5 +11,5 @@ class User < ApplicationRecord
   # favorites-function
   has_many :favorites, dependent: :destroy
   has_many :favorites, through: :favorites, source: :goods_items
-
+  has_many :comments, dependent: :destroy
 end
