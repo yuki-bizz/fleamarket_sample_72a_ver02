@@ -2,8 +2,12 @@ require 'rails_helper'
 describe GoodsItem do
   describe '#create, #edit' do
 
+    it "入力項目を入力した場合は登録できること" do
+      goods_item = build(:goods_item)
+      expect(goods_item).to be_valid
+    end
+
     it "nameがない場合は登録できないこと" do
-      binding.pry
       goods_item = build(:goods_item, name: nil)
       goods_item.valid?
       expect(goods_item.errors[:name]).to include("を入力してください")
@@ -64,9 +68,14 @@ describe GoodsItem do
     end
     
     it "srcがない場合は登録できないこと" do
-      goods_item = build(:goods_item, images: [])
+      goods_item = build(:goods_item_no_image)
       goods_item.valid?
       expect(goods_item.errors.full_messages).to include("画像を入力してください")
+    end
+
+    it "brandを入力しなくても登録できること" do
+      goods_item = build(:goods_item, brand: nil)
+      expect(goods_item).to be_valid
     end
       
 
