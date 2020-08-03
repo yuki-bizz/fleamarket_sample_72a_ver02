@@ -12,20 +12,17 @@
             %span.search-result-head-text
               の検索結果
           .search-result-number
-            ="1-#{@goods_items.count}件表示"
-          .search-result-box
-            = render partial: 'goods_items/search_item', collection: @goods_items ,as: :goods_item
-            
+            ="1-#{@items.count}件表示"
         -else
           %h2.search-result-nil
-            キーワードを入力して下さい
-            %br
-            .link_root
-            = link_to "もどる", root_path, class: 'btn'
+            検索結果
+          .search-result-number
+            ="1-#{@items.count}件表示"
         .items-box-content
+          = render @items
 
 .banner
   = render partial: 'displays/banner'
 
-.footer__inc 
+.footer__menue 
   =render partial: 'displays/footer'

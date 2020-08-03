@@ -42,7 +42,7 @@ class GoodsItemsController < ApplicationController
     @category_parent_array = ["選択して下さい"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
-   end
+    end
   end
 
 # 商品保存機能
