@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'favorites/index'
+
   get 'purchase/new'
 
   get 'purchase/create'
