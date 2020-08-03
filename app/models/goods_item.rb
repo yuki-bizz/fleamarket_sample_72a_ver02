@@ -8,6 +8,10 @@ class GoodsItem < ApplicationRecord
   ## コメント機能で使用 ##
   has_many :comments, dependent: :destroy
 
+  # favorites-function
+  has_many :favorites, dependent: :destroy
+  has_many :favorites, through: :favorites, source: :user
+
   
   # モデルimage.rbにバリデーションをかける
   validates_associated :images

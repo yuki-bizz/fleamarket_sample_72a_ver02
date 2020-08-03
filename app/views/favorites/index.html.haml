@@ -1,0 +1,19 @@
+- if @favorites.present?
+  お気に入り商品一覧
+  %ul
+    - @favorites.each do |favorite|
+      %li
+        = link_to goods_item_path(favorite.goods_item.id) do    
+          .goods_item-image
+            = image_tag (favorite.goods_item.images[0].src.url)
+          .goods_item-body
+            .goods_item-name
+              = favorite.goods_item.name
+            .goods_item-price
+              = "¥#{favorite.goods_item.selling_price}"
+        = link_to '戻る', :back
+
+- else
+  %h1
+    お気に入りに追加した商品はありません
+    = link_to '戻る', :back
