@@ -62,6 +62,8 @@ class GoodsItemsController < ApplicationController
 # 商品詳細ページ
   def show
     @parents = Category.where(ancestry:nil)
+    @comment = Comment.new
+    @comments = @goods_item.comments.includes(:user)
   end
 
 # 商品編集画面
@@ -116,4 +118,5 @@ class GoodsItemsController < ApplicationController
   def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
   end
+
 end

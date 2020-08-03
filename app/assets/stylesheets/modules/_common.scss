@@ -84,6 +84,50 @@ input[type="number"] {
     text-align: center;
   
 }
+@mixin btn_sns{
+  .btn_sns {
+  .btn_style{
+    vertical-align: middle;
+  }
+  .btn_style.btn_fb{
+    @include btn_style;
+    background-color: #385185;
+    a {
+      color: $c_white;
+    }
+  }
+  .btn_style.btn_gg{
+    @include btn_style;
+    border: 1px solid #979797;
+    background-color: $c_white;
+    a {
+      color: $c_black;
+    }
+  }
+  .btn_style + .btn_style {
+    margin-top: 20px;
+  }
+  .ic{
+    position: relative;
+  }
+  .ic:before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    position: absolute;
+    left: 15px;
+  }
+  .ic_fb:before {
+    background-image: url(/images/logo_facebook_s.png);
+  }
+  .ic_gg:before {
+    background-image: url(/images/logo_google_s.png);
+  }
+  }
+}
 @mixin overlap{
   background:rgba(0, 0, 0, 0.85);
   position: absolute;
@@ -97,7 +141,8 @@ input[type="number"] {
 /*-------font-awesome -------*/
 .fa,
 .far,
-.fal{
+.fal,
+.fab{
   font-family: "Font Awesome 5 Free";
 }
 /*------/ font-awesome ------*/
@@ -107,15 +152,13 @@ input[type="number"] {
   padding: 25px 0;
 
   .btn_style {
-    display: inline-block;
+    display: block;
     & + .btn_style {
-      margin-left: 20px;
+      margin-top: 20px;
     }
 
     a,
     input {
-      color: $c_white;
-      background: $c_green;
       cursor: pointer;
     }
   }
@@ -503,7 +546,6 @@ input[type="number"] {
 /*---------- footer ---------*/
 .footer__menue {
   width: 100%;
-  height: 355px;
   background-color: #272727;
   padding: 60px 0;
   color: $c_white;
@@ -544,9 +586,17 @@ input[type="number"] {
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
-    p {
-      font-size: 14px;
+    a{
+      display: block;
+      width: 160px;
+      img{
+        display: block;
+        width: 100%;
+      }
     }
+  }
+  .copy {
+    font-size: 14px;
   }
 }
 /*---------/ footer ---------*/

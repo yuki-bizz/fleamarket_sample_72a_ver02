@@ -99,9 +99,9 @@
                 %tr
                   %th ブランド
                   %td
-                %tr
-                  %th 商品のサイズ
-                  %td 
+                -# %tr
+                -#   %th 商品のサイズ
+                -#   %td 
                 %tr
                   %th 商品の状態
                   %td
@@ -132,20 +132,30 @@
                     %span
                       不適切な商品の通報
 
-          .comment-box
-            .comment-area
-              .new-comment
-                %textarea{type:'text', class:''}
-              .notes-memo
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br
-                不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              .send-btn
-                %li
-                = icon('fas', 'comment')
-                %span
-                  コメントする
-        .links
+          .comment
+            .comment-box
+              - if current_user
+                = form_for [@goods_item, @comment] do |form|
+                  = form.text_field :text, placeholder: "", rows: "3", class: "comment-box"
+                  = form.submit "コメントする", class: "submit-btn"
+            .notes-memo
+              ******コメントの投稿にはユーザー登録／ログインが必要です******
+              %br
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+            .comments
+              %h4 ＜コメント一覧＞
+              - if @comments
+                - @comments.each do |comment|
+                  %p
+                    %strong
+                    = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                    ：
+                    = comment.text
+
+        .links.cf
           .previous-page
             =link_to "#", class: 'links' do
               = icon('fas', 'angle-left', class: "links__backpage-btn")
