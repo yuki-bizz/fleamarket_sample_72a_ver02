@@ -33,7 +33,7 @@ ja:
       goods_item:
         name: 商品名
         explanation: 商品の説明
-        category: カテゴリー
+        category_id: カテゴリー
         condition_id: 商品の状態
         shipping_fee_id: 配送料の負担
         province_id: 配送元の地域
