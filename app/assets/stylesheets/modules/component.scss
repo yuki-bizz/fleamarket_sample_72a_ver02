@@ -1769,8 +1769,8 @@
 /* ------------------------------ >>
   page_search add_yoshinaga
  <<------------------------------ */
- .wrap.page_search{
-   
+.wrap.page_search{
+  display: flex;
   .search-container{
     width: 700px;
     margin: 0 auto;
@@ -1857,4 +1857,115 @@
    }
  }
 
+/* ------------------------------ >>
+  _form_search add_ozaki
+ <<------------------------------ */
+.detail_search {
+  font-size: 16px;
+  margin: 30px 60px 10px;
+  &_sort {
+    select {
+      height: 40px;
+      width: 240px;
+    }
+  }
+  &_form {
+    margin-top: 25px;
+    .detail_search__title {
+      margin-bottom: 10px;
+    }
+    .detail_search__group {
+      &--label {
+        p {
+          font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+          color: $c_green;
+        }
+        label {
+          height: 20px;
+          width: 100px;
+        }
+      }
+      input {
+        margin-bottom: 15px;
+        height: 40px;
+        width: 240px;
+      }
+    }
+    .detail_search__group__button {
+      input {
+        height: 15px;
+        width: 100px;
+      }
+    }
+    .detail_search__btns {
+      margin-top: 40px;
+      margin-left: 50px;
+      display: flex;
+      &--grey {
+        a {
+          font-size: 15px;
+        }
+      }
+      input {
+        color: $c_white;
+        background-color: $c_green;
+        margin-left: 50px;
+        font-size: 15px;
+        border-radius: 10px;
+      }
+    }
+  }
+}
 
+/* ------------------------------ >>
+  detail_search add_ozaki
+ <<------------------------------ */
+.contents_box_inner {
+  background-color: white;
+  color: $c_black;
+  padding: 5px;
+  width: 160px;
+  height: 210px;
+  display: inline-block;
+  margin: 3px;
+  .img_wrap {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    z-index: auto;
+    text-align: center;
+     .img_box {
+      text-decoration: none;
+      background-color: $c_white;
+      display: inline-block;
+      img {
+        width: 130px;
+        height: 140px;
+        margin: 0 auto;
+      }
+     }
+  }
+  .goods_ttl {
+    color: $c_black;
+    overflow: hidden;
+    line-height: 1.5;
+    font-size: 16px;
+    text-align: left;
+    font-size: 14px;
+  }
+  .price {
+    color: $c_black;
+    font-size: 12px;
+  }
+  .text_box {
+    display:none;
+  }
+  .goods_table {
+    display:none;
+  }
+  .btn_wrap {
+    display:none;
+  }
+}

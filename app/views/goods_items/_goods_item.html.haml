@@ -1,57 +1,58 @@
-.contents_box_inner
-  .img_wrap
-    - goods_item.images.each do |image|
-      %figure.img_box
-        = image_tag image.src.url
-  
-  %h3.goods_ttl
-    %span
-      = goods_item.name
-  .price
-    %p.price_detail
-      = goods_item.selling_price
+= link_to goods_item_path(goods_item.id) do
+  .contents_box_inner
+    .img_wrap
+      - goods_item.images.each do |image|
+        %figure.img_box
+          = image_tag image.src.url
+    
+    %h3.goods_ttl
       %span
-        円
-  .text_box
-    %p= goods_item.explanation
-  
-  %table.goods_table
-    %tbody
-      %tr
-        %th
-          カテゴリー
-        %td
-          = goods_item.category_id
-      %tr
-        %th
-          ブランド
-        %td
-          = goods_item.brand
-      %tr
-        %th
-          商品の状態
-        %td
-          = goods_item.condition.name
-      %tr
-        %th
-          配送料の負担
-        %td
-          = goods_item.shipping_fee.name
-      %tr
-        %th
-          配送の方法
-        %td
-          = goods_item.delivery_way.name
-      %tr
-        %th
-          配送元の地域
-        %td
-          = goods_item.province.name
-      %tr
-        %th
-          配送までの日数
-        %td
-          = goods_item.delivery_date.name
-  %ul.btn_wrap
-    %li
-      = link_to '編集する', edit_goods_item_path(goods_item),class: 'btn_style'
+        = goods_item.name
+    .price
+      %p.price_detail
+        = goods_item.selling_price
+        %span
+          円
+    .text_box
+      %p= goods_item.explanation
+    -######## カテゴリー機能実装後調整 ########
+    %table.goods_table
+      %tbody
+        %tr
+          %th
+            カテゴリー
+          %td
+            = goods_item.category_id
+        %tr
+          %th
+            ブランド
+          %td
+            = goods_item.brand
+        %tr
+          %th
+            商品の状態
+          %td
+            = goods_item.condition.name
+        %tr
+          %th
+            配送料の負担
+          %td
+            = goods_item.shipping_fee.name
+        %tr
+          %th
+            配送の方法
+          %td
+            = goods_item.delivery_way.name
+        %tr
+          %th
+            配送元の地域
+          %td
+            = goods_item.province.name
+        %tr
+          %th
+            配送までの日数
+          %td
+            = goods_item.delivery_date.name
+    %ul.btn_wrap
+      %li
+        = link_to '編集する', edit_goods_item_path(goods_item),class: 'btn_style'

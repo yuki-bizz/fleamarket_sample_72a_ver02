@@ -97,3 +97,6 @@ gem 'fog-aws'
 
 # ページネーション（出品確認など）
 gem 'kaminari'
+
+# 商品検索機能
+gem 'ransack'
