@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -96,3 +97,6 @@ gem 'fog-aws'
 
 # ページネーション（出品確認など）
 gem 'kaminari'
+
+# 商品検索機能
+gem 'ransack'

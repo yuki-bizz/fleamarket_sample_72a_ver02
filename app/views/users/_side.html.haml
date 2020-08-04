@@ -4,8 +4,8 @@
       %li.menu-list.fa
         = link_to "マイページ", user_path(current_user.id)
       %li.menu-list.fa
-        = link_to "#", class: '' do
-          お知らせ
+        =link_to controller: "favorites", action: "index" do
+          お気に入り商品
       %li.menu-list.fa
         = link_to "#", class: '' do
           やることリスト
