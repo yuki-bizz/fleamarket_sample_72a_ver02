@@ -49,8 +49,13 @@ Rails.application.routes.draw do
     # favorites-function
     resources :favorites, only: [:index, :create, :destroy]
    end
-  
-   resources :searches,only:[:index]
+   get 'favorites/index'
+
+  resources :searches do
+    collection do
+      get 'detail'
+    end
+  end
 
    # comment機能 add oikawa
   resources :goods_items do
