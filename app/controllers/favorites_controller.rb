@@ -22,6 +22,7 @@ class FavoritesController < ApplicationController
   end
 
   private
+
   def  set_goods_item
     @goods_item = GoodsItem.find(params[:goods_item_id])
   end
