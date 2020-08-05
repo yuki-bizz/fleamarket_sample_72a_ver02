@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :check_user
 
+  add_breadcrumb 'TOP', '/'
+  add_breadcrumb 'マイページ', :user_path
+
   def show
     @user = User.find(params[:id])
   end

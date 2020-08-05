@@ -35,7 +35,7 @@ body {
 }
 a {
   text-decoration: none; /* リンクボタンのアンダーラインは基本消しておく設定 */
-  color:$c_light_blue;/*基本テキストリンク色*/
+  color:$c_green;/*基本テキストリンク色*/
 }
 li {
   list-style: none;
@@ -146,6 +146,17 @@ input[type="number"] {
   font-family: "Font Awesome 5 Free";
 }
 /*------/ font-awesome ------*/
+
+
+
+/*----- breadcrumb_list -----*/
+
+.breadcrumb_list {
+  padding: 25px 0 15px 0;
+}
+
+/*---- /breadcrumb_list -----*/
+
 
 /*----------- btn -----------*/
 .btn_wrap {
