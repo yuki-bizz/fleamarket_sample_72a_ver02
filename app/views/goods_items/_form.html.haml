@@ -10,8 +10,7 @@
         .contents_box__goods-image__text
         %p 画像をアップロードしてください
         .contents_box__goods-image__area
-          -# .contents_box__goods-image__area__icon
-            -# = icon('fa', 'camera')
+          
           #image-box
             #previews
               - if @goods_item.persisted?
@@ -52,7 +51,7 @@
           %span.contents-default--require  必須
           .contents-select-wrapper
             .contents-select-wrapper__box
-              = f.collection_select :parent_id, Category.roots, :id , :name, {include_blank: "---", selected: @goods_item.category&.root_id}, {class: 'contents_box_detail_category--select', id: 'parent_category'}
+              = f.collection_select :parent_id, Category.roots, :id , :name, {include_blank: "選択して下さい", selected: @goods_item.category&.root_id}, {class: 'contents_box_detail_category--select', id: 'parent_category'}
             - if @goods_item.persisted?
               -# editアクションの場合
               = f.collection_select :category_id, @goods_item.category.parent.siblings, :id , :name, {include_blank: "---", selected: @goods_item.category.parent_id}, {class: 'contents_box_detail_category--select', id: "children_wrapper"}
@@ -66,7 +65,7 @@
         .contents_box__detail__status
           商品の状態
           %span 必須
-        = f.collection_select :condition_id, Condition.all, :id, :name
+        = f.collection_select :condition_id, Condition.all, :id, :name,{include_blank: "選択して下さい"}
 
       .contents_box__shipping
         .contents_box__shipping__title
@@ -74,22 +73,22 @@
         .contents_box__shipping__burden
           配送料の負担
           %span 必須
-        = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name
+        = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name,{include_blank: "選択して下さい"}
         
         .contents_box__shipping__way
           配送の方法
           %span 必須
-        = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name
+        = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name,{include_blank: "選択して下さい"}
         
         .contents_box__shipping__area
           配送元の地域
           %span 必須
-        = f.collection_select :province_id, Province.all, :id, :name
+        = f.collection_select :province_id, Province.all, :id, :name,{include_blank: "選択して下さい"}
         
         .contents_box__shipping__days
           配送までの日数
           %span 必須
-        = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name
+        = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name,{include_blank: "選択して下さい"}
 
       .contents_box__price
         .contents_box__price__selling-price

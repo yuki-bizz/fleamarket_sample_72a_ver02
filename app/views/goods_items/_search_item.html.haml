@@ -13,24 +13,3 @@
           .likeIcon
             = icon('fas', 'star')
 
--########## 商品情報所得-アプリ完成後削除-########
-  -# %p= goods_item.name
-  -# %p
-  -#   = goods_item.selling_price
-  -#   円
-  -# = link_to '商品詳細へ', goods_item_path(goods_item.id)
-  -# %p= goods_item.explanation
-  -######## カテゴリー機能実装後調整 ########
-  -# %p= goods_item.category_id
-  -# %p= goods_item.brand
-  -# %p= goods_item.condition.name
-  -# %p= goods_item.shipping_fee.name
-  -# %p= goods_item.province.name
-  -# %p= goods_item.delivery_date.name
-  -# %p= goods_item.delivery_way.name
-  -# %p= goods_item.selling_price
-  
-  -# - goods_item.images.each do |image|
-  -#   = image_tag image.src.url
--# = image_tag lady.images[0].src.url, size: '160x150'
-
