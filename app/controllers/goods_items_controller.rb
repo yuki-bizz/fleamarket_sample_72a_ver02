@@ -1,6 +1,5 @@
 class GoodsItemsController < ApplicationController
   before_action :set_goods_item, only: [:show, :edit, :update, :destroy]
-  before_action :sign_in_required, only: [:show]
 
   def check
     @goods_items = GoodsItem.includes(:images).order('created_at DESC')
@@ -118,10 +117,6 @@ class GoodsItemsController < ApplicationController
  
   def set_goods_item
     @goods_item = GoodsItem.find(params[:id])
-  end
-
-  def sign_in_required
-    redirect_to new_user_session_url unless user_signed_in?
   end
 
 end
