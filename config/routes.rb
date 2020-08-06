@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     # favorites-function
     resources :favorites, only: [:index, :create, :destroy]
    end
-   get 'favorites/index'
+  get 'favorites/index'
 
   resources :searches do
     collection do
