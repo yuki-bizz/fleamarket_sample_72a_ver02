@@ -151,7 +151,20 @@ input[type="number"] {
 
 /*----- breadcrumb_list -----*/
 
-.breadcrumb_list {
+.breadcrumb {
+  .breadcrumb_list{
+    li{
+      display: inline-block;
+      a{
+        color: #afafaf;
+        text-decoration: underline;
+      }
+      a:after{
+        content:"/";
+        padding: 0 3px;
+      }
+    }
+  }
   padding: 25px 0 15px 0;
 }
 

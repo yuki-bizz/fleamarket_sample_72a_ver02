@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
   before_action :check_user
 
-  add_breadcrumb 'TOP', '/'
-  add_breadcrumb 'マイページ', :user_path
+  add_breadcrumb 'TOP', :root
 
   def show
     @user = User.find(params[:id])
+    add_breadcrumb 'マイページ', "/users/#{current_user.id}"
   end
 
   def edit
     @user = User.find(params[:id])
+    add_breadcrumb 'マイページ（アカウントの編集）', "/users/#{current_user.id}"
   end
 
   def update

@@ -1,3 +1,5 @@
+.breadcrumb.contents_box
+  = render_breadcrumbs builder: ::CustomBreadcrumbsBuilder
 - if @favorites.present?
   お気に入り商品一覧
   %ul

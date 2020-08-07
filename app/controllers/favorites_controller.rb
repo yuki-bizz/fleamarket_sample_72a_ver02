@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
   before_action :set_goods_item, only: [:create, :destroy]
 
+  add_breadcrumb 'TOP', '/'
+  add_breadcrumb 'お気に入り', :goods_item_favorite_path
+
   def index
     @favorites = Favorite.where(user_id: current_user.id)
   end
