@@ -1,0 +1,8 @@
+- if elements.present?
+  %ul.breadcrumb_list
+    - elements.each do |element|
+      %li
+        - if element != elements.last
+          = link_to "#{element.name}", element.path
+        - else
+          = element.name

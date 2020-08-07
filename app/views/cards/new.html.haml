@@ -2,6 +2,8 @@
   .logo_wrap
     .logo
       = link_to image_tag("logo.png", alt: "ロゴ"), root_path
+  .breadcrumb.contents_box
+    = render_breadcrumbs builder: ::CustomBreadcrumbsBuilder
   .contents_box
     %h2.content_ttl
       お支払い方法

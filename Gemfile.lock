@@ -49,6 +49,8 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.13)
     bindex (0.8.1)
+    breadcrumbs_on_rails (4.0.0)
+      rails (>= 5.0)
     builder (3.2.4)
     byebug (11.1.3)
     capistrano (3.14.0)
@@ -368,6 +370,7 @@ PLATFORMS
 DEPENDENCIES
   active_hash
   ancestry
+  breadcrumbs_on_rails
   byebug
   capistrano
   capistrano-bundler

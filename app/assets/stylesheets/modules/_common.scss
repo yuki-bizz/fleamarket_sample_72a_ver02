@@ -35,7 +35,7 @@ body {
 }
 a {
   text-decoration: none; /* リンクボタンのアンダーラインは基本消しておく設定 */
-  color:$c_light_blue;/*基本テキストリンク色*/
+  color:$c_green;/*基本テキストリンク色*/
 }
 li {
   list-style: none;
@@ -146,6 +146,30 @@ input[type="number"] {
   font-family: "Font Awesome 5 Free";
 }
 /*------/ font-awesome ------*/
+
+
+
+/*----- breadcrumb_list -----*/
+
+.breadcrumb {
+  .breadcrumb_list{
+    li{
+      display: inline-block;
+      a{
+        color: #afafaf;
+        text-decoration: underline;
+      }
+      a:after{
+        content:"/";
+        padding: 0 3px;
+      }
+    }
+  }
+  padding: 25px 0 15px 0;
+}
+
+/*---- /breadcrumb_list -----*/
+
 
 /*----------- btn -----------*/
 .btn_wrap {

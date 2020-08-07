@@ -1,9 +1,11 @@
 class CardsController < ApplicationController
-  
-  require "payjp"
 
+  require "payjp"
+  
   before_action :sign_in_required
   after_action :session_clear, only: [:show]
+
+  add_breadcrumb 'TOP', :root
 
   def new
     # sessionにひとつ前のリファラーをいれる # URLを保存する処理
@@ -11,6 +13,8 @@ class CardsController < ApplicationController
     
     @card = Card.where(user_id: current_user.id) 
     redirect_to action: "show" if @card.exists?
+  
+    add_breadcrumb 'お支払い方法', ""
   end
 
   def pay
@@ -57,7 +61,8 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
-
+      add_breadcrumb 'マイページ', "/users/#{current_user.id}"
+      add_breadcrumb 'カード情報', ""
   end
 
   private

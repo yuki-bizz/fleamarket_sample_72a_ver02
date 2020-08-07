@@ -100,3 +100,6 @@ gem 'kaminari'
 
 # 商品検索機能
 gem 'ransack'
+
+# パンくず
+gem 'breadcrumbs_on_rails'
