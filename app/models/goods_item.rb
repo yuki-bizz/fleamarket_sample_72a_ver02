@@ -10,7 +10,7 @@ class GoodsItem < ApplicationRecord
 
   # favorites-function
   has_many :favorites, dependent: :destroy
-  has_many :favorites, through: :favorites, source: :user
+  # has_many :favorites, through: :favorites, source: :user
 
   
   # モデルimage.rbにバリデーションをかける
