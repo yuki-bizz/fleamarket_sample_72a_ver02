@@ -1,7 +1,7 @@
 .header__menu
   = render partial: 'displays/header'
-.breadcrumb.contents_box.wide
-  = render_breadcrumbs builder: ::CustomBreadcrumbsBuilder
+.breadcrumb_list.contents_box.wide
+  = render_breadcrumbs separator: ' &gt; '
 .wrap.page_my_page
   .contents_box.wide
     .inner.cf
